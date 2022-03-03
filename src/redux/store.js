@@ -1,9 +1,17 @@
 import { createStore } from "redux"
+import axios from "axios"
 
-const loginReducer = (state = { id: "" }, action) => {
+const api =
+    process.env.NODE_ENV === "development"
+        ? "http://localhost:9000"
+        : "https://peakpeoplebackend.herokuapp.com"
+const userReducer = (state = { id: "" }, action) => {
     switch (action.type) {
         case "login": {
-            console.log(action.email, action.password)
+            axios.post(`${api}/user/login`, {
+                email: action.email,
+                password: action.password,
+            })
             return { id: action.id }
         }
         case "logout":
@@ -12,7 +20,6 @@ const loginReducer = (state = { id: "" }, action) => {
             return state
     }
 }
-
-const loginStore = createStore(loginReducer)
-const store = { loginStore }
+const userStore = createStore(userReducer)
+const store = { userStore }
 export default store

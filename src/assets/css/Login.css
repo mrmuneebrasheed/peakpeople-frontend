@@ -4,9 +4,10 @@
     min-height: 90vh;
     min-width: 70vw;
     border: 1px solid rgb(202, 202, 202);
-    border-radius: 10px;
-    margin: auto;
+    border-radius: 5px;
     box-shadow: 2px 2px 5px #5b00895b;
+    /* transition: all 100ms linear; */
+    animation: fade-in 800ms ease-in-out;
 }
 .login-left {
     flex-basis: 50%;
@@ -35,7 +36,7 @@
     justify-content: center;
 }
 .login-line {
-    width: 60%;
+    width: 70%;
 }
 .login-form {
     width: 90%;
@@ -55,8 +56,8 @@
     outline: none;
     border: 2px solid #5b0089;
 }
-.login-button {
-    width: 30%;
+.submit-button {
+    width: 40%;
     margin-top: 10px;
     align-self: flex-end;
 }
