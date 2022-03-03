@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap");
+.login-page {
+    background-color: white;
+    min-height: 90vh;
+    min-width: 70vw;
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 10px;
+    margin: auto;
+    box-shadow: 2px 2px 5px #5b00895b;
+}
+.login-left {
+    flex-basis: 50%;
+    background: url("../img/Left\ side\ clear.png") no-repeat center;
+    background-size: contain;
+    align-items: center;
+    justify-content: center;
+}
+.login-left .login-logo {
+    width: 100px;
+    height: 110px;
+}
+.peak {
+    font-size: 2.5rem;
+    font-weight: 10;
+    font-family: "Open Sans", sans-serif;
+}
+.people {
+    font-size: 2.5rem;
+    font-weight: 500;
+    font-family: "Open Sans", sans-serif;
+}
+.login-right {
+    flex-basis: 50%;
+    align-items: center;
+    justify-content: center;
+}
+.login-line {
+    width: 60%;
+}
+.login-form {
+    width: 90%;
+}
+.form-input {
+    margin: 10px 0;
+    padding: 10px;
+    border: 0px;
+    background-color: whitesmoke;
+    border: 2px solid transparent;
+    border-radius: 5px;
+}
+.form-input::placeholder {
+    color: rgb(170, 169, 169);
+}
+.form-input:focus {
+    outline: none;
+    border: 2px solid #5b0089;
+}
+.login-button {
+    width: 30%;
+    margin-top: 10px;
+    align-self: flex-end;
+}

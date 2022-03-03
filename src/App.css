@@ -1,38 +1,49 @@
 .App {
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.blue {
+    color: #2d2e83;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.purple {
+    color: #5b0089;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.pink {
+    color: #e6007e;
 }
-
-.App-link {
-  color: #61dafb;
+.pink-button {
+    background-color: #e6007e;
+    color: white;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: "Open Sans", sans-serif;
+    transition: all 100ms linear;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pink-button:hover {
+    background-color: #c90370;
+}
+.link {
+    text-decoration: none;
+}
+.link:hover {
+    text-decoration: underline;
+}
+.flex-row {
+    display: flex;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.justify-between {
+    justify-content: space-between;
 }
