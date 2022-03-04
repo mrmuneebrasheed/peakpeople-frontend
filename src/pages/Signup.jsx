@@ -1,10 +1,42 @@
+import { useState } from "react"
 import logo from "../assets/img/logo.png"
 import { Link } from "react-router-dom"
+import store from "../redux/store"
+import { useNavigate } from "react-router-dom"
 export default function Signup() {
-    const emailChangeHandler = (e) => {}
-    const passwordChangeHandler = () => {}
-    const confirmPasswordChangeHandler = (e) => {}
-    const signupHandler = (e) => {}
+    const { id, api } = store.getState()
+    const navigate = useNavigate()
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
+
+    const firstNameChangeHandler = (e) => {
+        setFirstName(e.target.value)
+    }
+    const lastNameChangeHandler = (e) => {
+        setLastName(e.target.value)
+    }
+    const emailChangeHandler = (e) => {
+        setEmail(e.target.value)
+    }
+    const passwordChangeHandler = (e) => {
+        setPassword(e.target.value)
+    }
+    const confirmPasswordChangeHandler = (e) => {
+        setConfirmPassword(e.target.value)
+    }
+    const signupHandler = (e) => {
+        e.preventDefault()
+        if (email !== "" && password === confirmPassword)
+            api.post("/user/signup", { firstName, lastName, email, password })
+                .then((res) => {
+                    console.log(res)
+                    navigate("/")
+                })
+                .catch((err) => console.log(err))
+    }
     return (
         <div className="login-page flex-row">
             <div className="login-left flex-column">
@@ -38,6 +70,7 @@ export default function Signup() {
                             name="last-name"
                             id="last-name"
                             placeholder="Nom"
+                            onChange={lastNameChangeHandler}
                         />
                         <input
                             className="form-input"
@@ -45,6 +78,7 @@ export default function Signup() {
                             name="first-name"
                             id="first-name"
                             placeholder="Prénom"
+                            onChange={firstNameChangeHandler}
                         />
                     </div>
                     <input
