@@ -3,8 +3,12 @@ import "../assets/css/Login.css"
 import store from "../redux/store"
 import logo from "../assets/img/logo.png"
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export default function Login() {
+    const { id, api } = store.getState()
+    const navigation = useNavigate()
+    const [errorMessage, setErrorMessage] = useState(false)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const emailChangeHandler = (e) => {
@@ -15,12 +19,19 @@ export default function Login() {
     }
     const loginHandler = (e) => {
         e.preventDefault()
-        console.log(email, password)
-        store.userStore.dispatch({
-            type: "login",
+        api.post(`/user/login`, {
             email: email,
             password: password,
         })
+            .then((res) => {
+                store.dispatch({ type: "setUser", user: res.data.user })
+                navigation("/candidate/home")
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log(err.response)
+                setErrorMessage(true)
+            })
     }
     return (
         <div className="login-page flex-row">
@@ -65,6 +76,11 @@ export default function Login() {
                         id="password"
                         onChange={passwordChangeHandler}
                     />
+                    {errorMessage && (
+                        <span className="error-message">
+                            Email or Password Invalid
+                        </span>
+                    )}
                     <div className="flex-row justify-between">
                         <div>
                             <input
