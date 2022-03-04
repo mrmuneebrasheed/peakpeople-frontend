@@ -1,0 +1,30 @@
+.navbar {
+    display: flex;
+    height: 10vh;
+    width: 100%;
+    justify-items: space-around;
+    align-items: center;
+    align-self: flex-start;
+    background-color: white;
+}
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 20%;
+}
+.logo {
+    width: 40px;
+    height: auto;
+    padding: 10px;
+}
+.nav-peak {
+    font-size: 1.5rem;
+    font-weight: 10;
+    font-family: "Open Sans", sans-serif;
+}
+.nav-people {
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: "Open Sans", sans-serif;
+}

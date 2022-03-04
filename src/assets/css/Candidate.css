@@ -1,0 +1,4 @@
+.dashboard-candidate {
+    display: flex;
+    flex-direction: column;
+}

@@ -2,7 +2,8 @@
 .login-page {
     background-color: white;
     min-height: 90vh;
-    min-width: 70vw;
+    max-width: 70vw;
+    margin: 35px auto;
     border: 1px solid rgb(202, 202, 202);
     border-radius: 5px;
     box-shadow: 2px 2px 5px #5b00895b;
