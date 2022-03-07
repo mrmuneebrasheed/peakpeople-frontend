@@ -12,6 +12,20 @@ export default function Entreprise() {
         { number: "52%", title: "de femmes" },
         { number: 32, title: "âge moyen" },
     ]
+    const images = [
+        "img1",
+        "img2",
+        "img3",
+        "img4",
+        "img5",
+        "img6",
+        "img7",
+        "img8",
+        "img9",
+        "img10",
+        "img11",
+        "img12",
+    ]
     return (
         <React.Fragment>
             <BlueBanner />
@@ -87,7 +101,15 @@ export default function Entreprise() {
                             </span>
                         </div>
                     </div>
-                    <div className="media flex-col"></div>
+                    <div className="media">
+                        {images.map((img) => (
+                            <img
+                                className={img}
+                                src={`/entreprisePage/${img}.png`}
+                                alt={img}
+                            ></img>
+                        ))}
+                    </div>
                 </div>
             </div>
         </React.Fragment>
