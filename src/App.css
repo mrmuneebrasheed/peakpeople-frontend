@@ -57,6 +57,9 @@ input[type="checkbox"] {
 
     text-decoration: underline;
 }
+.icon {
+    cursor: pointer;
+}
 @keyframes fade-in {
     from {
         transform: translate(0, 20%);

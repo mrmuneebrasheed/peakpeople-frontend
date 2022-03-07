@@ -1,4 +1,7 @@
 .dashboard {
     display: flex;
     flex-wrap: wrap;
+    width: 85%;
+    margin: 40px auto;
+    animation: fade-in 600ms ease-in-out;
 }

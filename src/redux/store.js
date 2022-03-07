@@ -11,6 +11,7 @@ const api = axios.create({
 const userReducer = (state = { id: "", user: {}, api: api }, action) => {
     switch (action.type) {
         case "setUser": {
+            window.localStorage.setItem("userID", action.user._id)
             return { user: action.user }
         }
         case "login": {

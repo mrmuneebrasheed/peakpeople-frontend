@@ -1,0 +1,43 @@
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    width: 384px;
+    height: 262px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+}
+.profile-card-bonjour {
+    font-size: 2rem;
+    font-weight: 100;
+}
+.profile-card-name {
+    font-size: 2rem;
+}
+.edit-icon-line {
+    align-self: flex-end;
+}
+.edit-icon {
+    background-color: #2d2e83;
+    color: white;
+    padding: 6px 8px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.edit-icon:hover {
+    color: beige;
+}
+.profile-card-profile {
+    display: flex;
+    justify-content: space-evenly;
+}
+.profile-card-image {
+    height: 80px;
+    width: 80px;
+    background-color: rgb(185, 184, 184);
+    border-radius: 15px;
+    align-self: center;
+}
+.profile-credentials {
+    margin: 2px;
+}

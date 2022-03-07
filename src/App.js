@@ -6,6 +6,7 @@ import Dashboard from "./components/Dashboard"
 
 import Candidate from "./pages/Candidate"
 import ProfileCard from "./components/ProfileCard"
+import Entreprise from "./components/Entreprise"
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                                 </Dashboard>
                             }
                         />
+                        <Route path="entreprise" element={<Entreprise />} />
                     </Route>
                 </Routes>
             </div>

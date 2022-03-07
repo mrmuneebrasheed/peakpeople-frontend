@@ -1,5 +1,5 @@
 import React from "react"
-import Navbar from "./Navbar"
+import "../assets/css/Dashboard.css"
 
 export default function Dashboard(props) {
     return <div className="dashboard">{props.children}</div>
