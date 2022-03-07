@@ -15,8 +15,8 @@ export default function Navbar(props) {
         <div className="flex-row navbar">
             <Link to="/candidate/home" className="navbar-logo">
                 <img className="logo" src={logo} alt="logo" />
-                <span className="nav-peak blue">Peak </span>
-                <span className="nav-people blue">&nbsp; People</span>
+                <span className="nav-peak blue">Peak </span>{" "}
+                <span className="nav-people blue"> People</span>
             </Link>
             {props.children}
             <div className="nav-profile">

@@ -1,7 +1,7 @@
 .App {
     /* display: flex;
     flex-direction: column; */
-    height: 100vh;
+    /* height: 100vh; */
     align-items: center;
     justify-content: center;
     background-color: whitesmoke;
@@ -58,6 +58,19 @@ input[type="checkbox"] {
     text-decoration: underline;
 }
 .icon {
+    cursor: pointer;
+}
+.bg-white {
+    background-color: white;
+}
+.border-rounded {
+    border-radius: 10px;
+}
+.nav-icon {
+    background-color: #5b008921;
+    padding: 5px 8px;
+    margin: 5px 10px;
+    border-radius: 50%;
     cursor: pointer;
 }
 @keyframes fade-in {
