@@ -11,6 +11,8 @@ export default function Signup() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
+    const [errorMessage, setErrorMessage] = useState("")
+    const [showError, setShowError] = useState(false)
 
     const firstNameChangeHandler = (e) => {
         setFirstName(e.target.value)
@@ -35,7 +37,11 @@ export default function Signup() {
                     console.log(res)
                     navigate("/")
                 })
-                .catch((err) => console.log(err))
+                .catch((err) => {
+                    // console.log(err.response.data.message)
+                    setErrorMessage(err.response.data.message)
+                    setShowError(true)
+                })
     }
     return (
         <div className="login-page flex-row">
@@ -106,6 +112,7 @@ export default function Signup() {
                         id="confirm-password"
                         onChange={confirmPasswordChangeHandler}
                     />
+                    {showError && <p className="pink">{errorMessage}</p>}
                     <div className="flex-row justify-between">
                         <div>
                             <input
