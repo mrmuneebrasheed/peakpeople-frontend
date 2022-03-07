@@ -1,3 +1,30 @@
 .entreprise-page {
-    animation: fade-in 600ms ease-in-out;
+    width: 90%;
+    margin: auto;
+    transform: translateY(-100px);
+    /* animation: fade-in 600ms ease-in-out; */
+}
+.entreprise-title .logo-div {
+    background-color: white;
+    padding: 20px;
+    margin: 0 50px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.1);
+}
+.entreprise-title .logo {
+    width: 8rem;
+}
+.entreprise-title .title {
+    color: white;
+}
+.missions {
+    margin-top: 70px;
+    margin-left: 0;
+}
+.missions .mission {
+    color: #ff068f;
+    background-color: #e6007f10;
+    margin: 0px 10px;
+    padding: 10px;
+    border-radius: 10px;
 }
