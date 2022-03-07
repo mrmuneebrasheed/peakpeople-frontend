@@ -5,7 +5,7 @@ const api = axios.create({
     baseURL:
         process.env.NODE_ENV === "development"
             ? "http://localhost:9000"
-            : "https://peakpeoplebackend.herokuapp.com",
+            : "https://peakpeople.herokuapp.com",
 })
 
 const userReducer = (state = { id: "", user: {}, api: api }, action) => {

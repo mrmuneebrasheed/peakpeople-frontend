@@ -124,7 +124,7 @@ export default function Signup() {
                                 J'accepte les &nbsp;
                             </label>
                             <span className="pink link">
-                                Condition Générales d'utilisation
+                                Conditions Générales d'utilisation
                             </span>
                         </div>
                     </div>
