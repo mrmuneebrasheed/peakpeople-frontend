@@ -8,7 +8,10 @@ import { useNavigate } from "react-router-dom"
 export default function Login() {
     const { id, api } = store.getState()
     const navigation = useNavigate()
-    const [errorMessage, setErrorMessage] = useState(false)
+    const [errorMessage, setErrorMessage] = useState(
+        "Email ou mot de passe invalid!"
+    )
+    const [showErrorMessage, setShowErrorMessage] = useState(false)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const emailChangeHandler = (e) => {
@@ -20,7 +23,7 @@ export default function Login() {
     const loginHandler = (e) => {
         e.preventDefault()
         api.post(`/user/login`, {
-            email: email,
+            email: email.toLowerCase(),
             password: password,
         })
             .then((res) => {
@@ -30,7 +33,8 @@ export default function Login() {
             })
             .catch((err) => {
                 console.log(err.response)
-                setErrorMessage(true)
+                setErrorMessage(err.response.data.message)
+                setShowErrorMessage(true)
             })
     }
     return (
@@ -76,10 +80,8 @@ export default function Login() {
                         id="password"
                         onChange={passwordChangeHandler}
                     />
-                    {errorMessage && (
-                        <span className="error-message">
-                            Email or Password Invalid
-                        </span>
+                    {showErrorMessage && (
+                        <span className="error-message">{errorMessage}</span>
                     )}
                     <div className="flex-row justify-between">
                         <div>
