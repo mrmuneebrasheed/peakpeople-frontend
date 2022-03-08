@@ -6,7 +6,7 @@ import "../assets/css/Navbar.css"
 import TitleCircle from "./TitleCircle"
 
 export default function Navbar(props) {
-    const { user } = store.getState()
+    const { user, api } = store.getState()
     const nameAbr =
         user?.firstName?.charAt(0).toUpperCase() +
         user?.lastName?.charAt(0).toUpperCase()

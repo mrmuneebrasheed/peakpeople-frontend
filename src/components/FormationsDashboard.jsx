@@ -3,7 +3,7 @@ import store from "../redux/store"
 import "../assets/css/FormationsDashboard.css"
 import TitleCircle from "./TitleCircle"
 
-export default function FormationCard() {
+export default function FormationsDashboard() {
     const { formations } = store.getState()
     const formation = formations ? formations[0] : {}
     formation.participants = [{ firstName: "Clementine", lastName: "Tania" }]
@@ -42,7 +42,9 @@ export default function FormationCard() {
                         const nameAbr =
                             participant?.firstName?.charAt(0).toUpperCase() +
                             participant?.lastName?.charAt(0).toUpperCase()
-                        return <TitleCircle title={nameAbr} />
+                        return (
+                            <TitleCircle key={Math.random()} title={nameAbr} />
+                        )
                     })}
                     <span className="location grey">{`${formation.participants.length} Participants`}</span>
                 </div>
