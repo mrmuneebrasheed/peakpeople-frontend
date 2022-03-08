@@ -1,8 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import logo from "../assets/img/logo.png"
 import "../assets/css/Entreprise.css"
 import BlueBanner from "./BlueBanner"
+import store from "../redux/store"
 export default function Entreprise() {
+    const entreprise = store.getState()
+    const [yearOfCreation, setYearOfCreation] = useState("")
     const missions = ["SIRH", "Recrutement", "Human centric"]
     const figures = [
         { number: 2019, title: "année de création" },
@@ -88,7 +91,7 @@ export default function Entreprise() {
                                 </div>
                             </div>
                         </div>
-                        <div className="bg-white border-rounded card blue">
+                        <div className="bg-white border-rounded card blue ">
                             <h2>Suivez-nous!</h2>
                             <span>
                                 <i class="bi bi-twitter nav-icon"></i>
