@@ -16,7 +16,7 @@ export default function FormationCard() {
             </div>
 
             <div className="formation-card flex-column bg-white border-rounded card">
-                <h3 className="blue link icon ">
+                <h3 className="blue link ">
                     {formation?.title ||
                         "Mener une étude en utilisant les principes de la user centricy"}
                 </h3>

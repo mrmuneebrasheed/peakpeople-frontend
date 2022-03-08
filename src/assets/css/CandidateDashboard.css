@@ -3,6 +3,6 @@
     flex-direction: column;
     flex-wrap: wrap;
     width: 85%;
-    margin: 40px auto;
+    margin: 100px auto;
     animation: fade-in 600ms ease-in-out;
 }

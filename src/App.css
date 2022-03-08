@@ -35,6 +35,7 @@
 }
 .link {
     text-decoration: none;
+    cursor: pointer;
 }
 .link:hover {
     text-decoration: underline;
@@ -68,6 +69,7 @@ input[type="checkbox"] {
 }
 .icon {
     cursor: pointer;
+    margin: 0 5px;
 }
 .bg-white {
     background-color: white;

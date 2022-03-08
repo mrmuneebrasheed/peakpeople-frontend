@@ -2,6 +2,7 @@
     display: flex;
     height: 10vh;
     width: 100%;
+    position: fixed;
     /* justify-items: space-evenly; */
     align-items: center;
     background-color: white;

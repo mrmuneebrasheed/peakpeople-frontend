@@ -1,0 +1,17 @@
+.candidature-card {
+    margin: 10px;
+    padding: 20px;
+}
+.candidature-card .date {
+    margin: 10px 0;
+}
+.candidature-card .status {
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: white;
+    margin: 10px 10px;
+}
+.candidature-card .refusée {
+    background-color: rgb(221, 0, 0);
+}

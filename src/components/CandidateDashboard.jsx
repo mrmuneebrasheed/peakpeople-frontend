@@ -3,6 +3,7 @@ import FormationsDashboard from "./FormationsDashboard"
 import ProfileCard from "./ProfileCard"
 import CandidaturesDashboard from "./CandidaturesDashboard"
 import "../assets/css/CandidateDashboard.css"
+import ActivePostesDashboard from "./ActivePostesDashboard"
 
 export default function Dashboard(props) {
     return (
@@ -10,9 +11,10 @@ export default function Dashboard(props) {
             <div className="flex-row">
                 <ProfileCard />
             </div>
-            <div className="flex-row">
+            <div className="flex-row justify-between">
                 <FormationsDashboard />
                 <CandidaturesDashboard />
+                <ActivePostesDashboard />
             </div>
         </div>
     )
