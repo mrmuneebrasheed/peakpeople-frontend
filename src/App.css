@@ -17,6 +17,9 @@
 .pink {
     color: #e6007e;
 }
+.grey {
+    color: rgba(128, 128, 128, 0.838);
+}
 .pink-button {
     background-color: #e6007e;
     color: white;

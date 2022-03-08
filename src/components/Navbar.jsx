@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import logo from "../assets/img/logo.png"
 import store from "../redux/store"
 import "../assets/css/Navbar.css"
+import TitleCircle from "./TitleCircle"
 
 export default function Navbar(props) {
     const { user } = store.getState()
@@ -26,7 +27,7 @@ export default function Navbar(props) {
                 <span>
                     <i className="bi bi-envelope-fill icon"></i>
                 </span>
-                <span className="nav-avatar">{nameAbr || "CT"}</span>
+                <TitleCircle title={nameAbr || "CT"} />
                 <span className="nav-name">{firstName || "Clémentine"}</span>
             </div>
         </div>

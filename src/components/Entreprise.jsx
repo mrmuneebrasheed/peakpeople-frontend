@@ -94,20 +94,21 @@ export default function Entreprise() {
                         <div className="bg-white border-rounded card blue ">
                             <h2>Suivez-nous!</h2>
                             <span>
-                                <i class="bi bi-twitter nav-icon"></i>
+                                <i className="bi bi-twitter nav-icon"></i>
                             </span>
                             <span>
-                                <i class="bi bi-linkedin nav-icon"></i>
+                                <i className="bi bi-linkedin nav-icon"></i>
                             </span>
                             <span>
-                                <i class="bi bi-facebook nav-icon"></i>
+                                <i className="bi bi-facebook nav-icon"></i>
                             </span>
                         </div>
                     </div>
                     <div className="media">
                         {images.map((img) => (
                             <img
-                                className={img}
+                                key={img}
+                                className={`${img} icon`}
                                 src={`/entreprisePage/${img}.png`}
                                 alt={img}
                             ></img>

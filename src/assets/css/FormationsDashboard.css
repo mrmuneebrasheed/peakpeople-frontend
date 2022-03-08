@@ -1,0 +1,24 @@
+.candidate-dashboard .formation {
+    flex-basis: 32%;
+    margin-top: 30px;
+}
+.formation .formation-card {
+    padding: 20px;
+    margin-top: 10px;
+    width: 384px;
+}
+
+.formation-card .location {
+    padding: 10px;
+}
+.formation-card .location-title {
+    margin: 0 10px;
+}
+.formation-card .participate {
+    margin-top: 20px;
+    padding: 10px 0;
+    border-top: 1px solid rgba(128, 128, 128, 0.247);
+}
+.participate .link {
+    margin: 0 10px;
+}

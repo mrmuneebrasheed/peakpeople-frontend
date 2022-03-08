@@ -1,5 +1,6 @@
-.dashboard {
+.candidate-dashboard {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     width: 85%;
     margin: 40px auto;

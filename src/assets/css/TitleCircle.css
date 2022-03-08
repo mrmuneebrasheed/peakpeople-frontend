@@ -1,0 +1,13 @@
+.title-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    color: white;
+    background-color: rgb(127, 187, 167);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.formation-card .title-circle {
+}
