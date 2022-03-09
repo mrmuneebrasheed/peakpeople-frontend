@@ -1,6 +1,28 @@
 .candidature-card {
     margin: 10px;
-    padding: 20px;
+    padding: 15px;
+    transition: all 100ms ease-in-out;
+}
+.candidature-card:hover {
+    box-shadow: 0 0 5px 2px #2d2f8386;
+    transform: scale(1.02);
+}
+.candidature-card .logo {
+    flex-basis: 10%;
+}
+.candidature-card .logo .logo-image {
+    width: 50%;
+}
+.candidature-card .title-box {
+    flex-basis: 30%;
+}
+.candidature-card .title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 5px 0;
+}
+.candidature-card .status {
+    flex-basis: 40%;
 }
 .candidature-card .date {
     margin: 10px 0;
@@ -14,4 +36,7 @@
 }
 .candidature-card .refusée {
     background-color: rgb(221, 0, 0);
+}
+.candidature-card .icons {
+    flex-basis: 30%;
 }

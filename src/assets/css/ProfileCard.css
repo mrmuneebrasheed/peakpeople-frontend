@@ -6,6 +6,11 @@
     padding: 20px;
     background-color: white;
     border-radius: 15px;
+    transition: all 100ms ease-in-out;
+}
+.profile-card:hover {
+    box-shadow: 0 0 5px 1px #2d2f837e;
+    transform: scale(1.02);
 }
 .profile-card-bonjour {
     font-size: 2rem;

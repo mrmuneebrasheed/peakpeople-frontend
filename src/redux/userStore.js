@@ -8,7 +8,34 @@ const api = axios.create({
             : "https://peakpeople.herokuapp.com",
 })
 
-const userReducer = (state = { id: "", user: {}, api: api }, action) => {
+const userReducer = (
+    state = {
+        id: "",
+        user: {},
+        api: api,
+        jobCandidatures: [
+            {
+                title: "Product Manager Senior",
+                entreprise: "Peak People",
+                date: new Date(),
+                status: "refusée",
+            },
+            {
+                title: "Full Stack Developer",
+                entreprise: "Peak People",
+                date: new Date(),
+                status: "refusée",
+            },
+            {
+                title: "Reponsable Marketing",
+                entreprise: "Peak People",
+                date: new Date(),
+                status: "refusée",
+            },
+        ],
+    },
+    action
+) => {
     switch (action.type) {
         case "setUser": {
             window.localStorage.setItem("userID", action.user._id)

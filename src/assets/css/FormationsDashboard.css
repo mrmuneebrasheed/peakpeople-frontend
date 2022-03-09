@@ -6,8 +6,12 @@
     padding: 20px;
     margin-top: 10px;
     width: 384px;
+    transition: all 100ms ease-in-out;
 }
-
+.candidate-dashboard .formation-card:hover {
+    box-shadow: 0 0 5px 2px #2d2f8386;
+    transform: scale(1.02);
+}
 .formation-card .location {
     padding: 10px;
 }

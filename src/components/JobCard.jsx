@@ -22,7 +22,7 @@ export default function JobCard({
                 />
             </div>
             <div className="flex-column justify-between title-box">
-                <span className="title blue">{title}</span>
+                <span className="title blue link">{title}</span>
                 <div>
                     <i className="bi bi-geo-alt-fill blue icon"></i>
                     <span className="grey">{enterprise}</span>

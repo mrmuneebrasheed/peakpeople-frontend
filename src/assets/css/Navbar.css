@@ -6,6 +6,7 @@
     /* justify-items: space-evenly; */
     align-items: center;
     background-color: white;
+    box-shadow: 0 5px 5px 2px rgba(128, 128, 128, 0.137);
     z-index: 100;
 }
 .navbar-logo {

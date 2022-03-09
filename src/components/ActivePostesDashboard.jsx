@@ -1,35 +1,32 @@
 import React from "react"
 import { PieChart, Pie } from "recharts"
+import { useNavigate } from "react-router-dom"
+import jobsStore from "../redux/jobsStore"
 import "../assets/css/ActivePostesDashboard.css"
 
 export default function ActivePostesDashboard() {
-    const activePostes = [
-        {
-            title: "UX Designer",
-            entreprise: "Georges",
-            description:
-                "Le profil idéal chez Georges c’est bien sûr la personne qui aura une belle expertise dans son domaine d’activité.",
-            location: "Paris",
-            contractType: "CDI",
-            dateCreated: new Date(),
-        },
-    ]
-    const posteToDisplay = activePostes[0]
+    const { jobs } = jobsStore.getState()
+    const navigate = useNavigate()
+    const posteToDisplay = jobs[0]
     const {
         title,
-        entreprise,
+        enterprise,
         description,
         location,
         contractType,
         dateCreated,
     } = posteToDisplay
     const days = new Date().getDay() - dateCreated.getDay()
-    console.log(days)
+    const navigateToPostes = () => {
+        navigate("/candidate/jobs")
+    }
     return (
         <div className="active-postes">
             <div className="flex-row justify-between">
-                <b>{`Postes ouvert (${activePostes?.length || 20})`}</b>
-                <span className="pink link icon">Voir tout</span>
+                <b>{`Postes ouvert (${jobs?.length || 20})`}</b>
+                <span className="pink link icon" onClick={navigateToPostes}>
+                    Voir tout
+                </span>
             </div>
             <div className="bg-white border-rounded card flex-column post-card">
                 <div className="flex-row justify-between align-center">
@@ -37,7 +34,7 @@ export default function ActivePostesDashboard() {
                         <h4 className="blue link">{title}</h4>
                         <div className="flex-row">
                             <i className="bi bi-geo-alt-fill blue icon"></i>
-                            <span className="">{entreprise}</span>
+                            <span className="">{enterprise}</span>
                         </div>
                     </div>
                     <span className="grey">{`Publié il y a ${days ? days : 1} ${

@@ -4,27 +4,7 @@ import "../assets/css/Jobs.css"
 import JobCard from "../components/JobCard"
 
 export default function Jobs() {
-    // const { jobs } = jobsStore.getState()
-    const jobs = [
-        {
-            title: "UX Designer",
-            enterprise: "Peak People",
-            location: "Paris",
-            contractType: "CDI",
-            logo: "",
-            dateCreated: new Date(),
-            candidates: [1, 2, 3],
-        },
-        {
-            title: "Full Stack Developpeur",
-            enterprise: "Peak People",
-            location: "Paris",
-            contractType: "CDI",
-            logo: "",
-            dateCreated: new Date(),
-            candidates: [1, 2, 3, 4, 5],
-        },
-    ]
+    const { jobs } = jobsStore.getState()
     return (
         <div className="jobs-page">
             <div className="header flex-row justify-between">
@@ -50,6 +30,7 @@ export default function Jobs() {
 
             {jobs?.map((job) => (
                 <JobCard
+                    key={Math.random()}
                     title={job.title}
                     enterprise={job.enterprise}
                     location={job.location}

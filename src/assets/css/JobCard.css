@@ -3,6 +3,12 @@
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 20px;
+    transition: all 100ms ease-in-out;
+}
+.job-card:hover {
+    box-shadow: 0 0 10px 1px #2d2f8377;
+    cursor: pointer;
+    transform: scale(1.02);
 }
 .job-card .logo {
     width: 70px;
