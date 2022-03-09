@@ -2,11 +2,10 @@ import React from "react"
 import { Outlet } from "react-router-dom"
 import Navbar from "../components/Navbar"
 import Navlink from "../components/Navlink"
-import "../assets/css/Candidate.css"
 
-export default function DashboardCandidate() {
+export default function Jobs() {
     return (
-        <div className="dashboard-candidate">
+        <div className="jobs-page">
             <Navbar>
                 <div className="nav-links">
                     <Navlink

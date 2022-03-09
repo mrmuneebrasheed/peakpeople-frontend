@@ -1,12 +1,10 @@
 import React from "react"
-import { Outlet } from "react-router-dom"
 import Navbar from "../components/Navbar"
 import Navlink from "../components/Navlink"
-import "../assets/css/Candidate.css"
 
-export default function DashboardCandidate() {
+export default function Candidatures() {
     return (
-        <div className="dashboard-candidate">
+        <div>
             <Navbar>
                 <div className="nav-links">
                     <Navlink
@@ -20,7 +18,6 @@ export default function DashboardCandidate() {
                     />
                 </div>
             </Navbar>
-            <Outlet />
         </div>
     )
 }

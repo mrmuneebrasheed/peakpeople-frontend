@@ -8,6 +8,7 @@
     transition: all 100ms linear;
 }
 .nav-link:active,
+.nav-link:focus,
 .nav-link:hover {
     border-bottom: 5px solid #e6007e;
 }

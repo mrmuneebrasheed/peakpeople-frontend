@@ -1,9 +1,9 @@
 import React from "react"
-import FormationsDashboard from "./FormationsDashboard"
-import ProfileCard from "./ProfileCard"
-import CandidaturesDashboard from "./CandidaturesDashboard"
+import FormationsDashboard from "../components/FormationsDashboard"
+import ProfileCard from "../components/ProfileCard"
+import CandidaturesDashboard from "../components/CandidaturesDashboard"
 import "../assets/css/CandidateDashboard.css"
-import ActivePostesDashboard from "./ActivePostesDashboard"
+import ActivePostesDashboard from "../components/ActivePostesDashboard"
 
 export default function Dashboard(props) {
     return (
