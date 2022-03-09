@@ -2,9 +2,9 @@ import React, { useState } from "react"
 import logo from "../assets/img/logo.png"
 import "../assets/css/Entreprise.css"
 import BlueBanner from "./BlueBanner"
-import store from "../redux/store"
+import userStore from "../redux/userStore"
 export default function Entreprise() {
-    const entreprise = store.getState()
+    const entreprise = userStore.getState()
     const [yearOfCreation, setYearOfCreation] = useState("")
     const missions = ["SIRH", "Recrutement", "Human centric"]
     const figures = [

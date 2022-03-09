@@ -23,6 +23,4 @@ const userReducer = (state = { id: "", user: {}, api: api }, action) => {
             return state
     }
 }
-const userStore = createStore(userReducer)
-const store = userStore
-export default store
+export default createStore(userReducer)

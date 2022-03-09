@@ -1,10 +1,10 @@
 import React from "react"
-import store from "../redux/store"
+import userStore from "../redux/userStore"
 import "../assets/css/FormationsDashboard.css"
 import TitleCircle from "./TitleCircle"
 
 export default function FormationsDashboard() {
-    const { formations } = store.getState()
+    const { formations } = userStore.getState()
     const formation = formations ? formations[0] : {}
     formation.participants = [{ firstName: "Clementine", lastName: "Tania" }]
     const days = formation?.date?.getDays() - new Date().getDate

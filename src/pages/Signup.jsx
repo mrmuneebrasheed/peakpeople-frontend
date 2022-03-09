@@ -1,10 +1,10 @@
 import { useState } from "react"
 import logo from "../assets/img/logo.png"
 import { Link } from "react-router-dom"
-import store from "../redux/store"
+import userStore from "../redux/userStore"
 import { useNavigate } from "react-router-dom"
 export default function Signup() {
-    const { id, api } = store.getState()
+    const { id, api } = userStore.getState()
     const navigate = useNavigate()
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")

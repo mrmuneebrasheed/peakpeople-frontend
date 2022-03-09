@@ -1,25 +1,64 @@
 import React from "react"
-import { Outlet } from "react-router-dom"
-import Navbar from "../components/Navbar"
-import Navlink from "../components/Navlink"
+import jobsStore from "../redux/jobsStore"
+import "../assets/css/Jobs.css"
+import JobCard from "../components/JobCard"
 
 export default function Jobs() {
+    // const { jobs } = jobsStore.getState()
+    const jobs = [
+        {
+            title: "UX Designer",
+            enterprise: "Peak People",
+            location: "Paris",
+            contractType: "CDI",
+            logo: "",
+            dateCreated: new Date(),
+            candidates: [1, 2, 3],
+        },
+        {
+            title: "Full Stack Developpeur",
+            enterprise: "Peak People",
+            location: "Paris",
+            contractType: "CDI",
+            logo: "",
+            dateCreated: new Date(),
+            candidates: [1, 2, 3, 4, 5],
+        },
+    ]
     return (
         <div className="jobs-page">
-            <Navbar>
-                <div className="nav-links">
-                    <Navlink
-                        title="L'entreprise"
-                        link="/candidate/enterprise"
-                    />
-                    <Navlink title="Postes ouvert" link="/candidate/jobs" />
-                    <Navlink
-                        title="Mes Candidatures"
-                        link="/candidate/candidatures"
-                    />
+            <div className="header flex-row justify-between">
+                <div className="title blue">{`Postes ouvert(${jobs.length})`}</div>
+                <div className="filter-options flex-row">
+                    <select
+                        className="filter-option"
+                        name="Filtrer par"
+                        id="filter-button"
+                    >
+                        <option value="">Filtrer par</option>
+                    </select>
+                    <select
+                        className="filter-option"
+                        name="Filtrer par"
+                        id="filter-button"
+                    >
+                        <optgroup>Filtrer Par</optgroup>
+                        <option>Tier par</option>
+                    </select>
                 </div>
-            </Navbar>
-            <Outlet />
+            </div>
+
+            {jobs?.map((job) => (
+                <JobCard
+                    title={job.title}
+                    enterprise={job.enterprise}
+                    location={job.location}
+                    logo={job.logo}
+                    contractType={job.contractType}
+                    dateCreated={job.dateCreated}
+                    candidates={job.candidates.length}
+                />
+            ))}
         </div>
     )
 }

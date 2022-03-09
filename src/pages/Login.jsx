@@ -1,12 +1,12 @@
 import { useState } from "react"
 import "../assets/css/Login.css"
-import store from "../redux/store"
+import userStore from "../redux/userStore"
 import logo from "../assets/img/logo.png"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 
 export default function Login() {
-    const { id, api } = store.getState()
+    const { id, api } = userStore.getState()
     const navigation = useNavigate()
     const [errorMessage, setErrorMessage] = useState(
         "Email ou mot de passe invalid!"
@@ -27,7 +27,7 @@ export default function Login() {
             password: password,
         })
             .then((res) => {
-                store.dispatch({ type: "setUser", user: res.data.user })
+                userStore.dispatch({ type: "setUser", user: res.data.user })
                 navigation("/candidate/home")
                 console.log(res)
             })

@@ -1,9 +1,9 @@
 import React from "react"
-import store from "../redux/store"
+import userStore from "../redux/userStore"
 import "../assets/css/ProfileCard.css"
 
 export default function ProfileCard() {
-    const { user } = store.getState()
+    const { user } = userStore.getState()
     const firstName =
         user?.firstName?.charAt(0).toUpperCase() + user?.firstName?.slice(1)
     const workYears = 1

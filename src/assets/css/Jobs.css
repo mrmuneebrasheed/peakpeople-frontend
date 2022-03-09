@@ -1,0 +1,25 @@
+.jobs-page {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    min-height: 70vh;
+    margin: 100px auto;
+}
+.jobs-page .header {
+    margin-bottom: 30px;
+    padding: 5px;
+}
+.jobs-page .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.header .filter-options {
+    flex-basis: 25%;
+    justify-content: space-between;
+}
+.header .filter-option {
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
