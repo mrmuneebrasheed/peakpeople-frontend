@@ -1,19 +1,32 @@
 import React from "react"
 import PeakLogo from "../assets/img/logo.png"
 import "../assets/css/JobCard.css"
+import { useNavigate } from "react-router-dom"
+import moment from "moment"
 
 export default function JobCard({
+    id,
     title,
     enterprise,
     location,
     contractType,
     logo,
     dateCreated,
+    startingDate,
     candidates,
 }) {
-    const days = new Date().getDate() - dateCreated.getDate()
+    const navigate = useNavigate()
+    const navigateToJob = () => {
+        navigate("/candidate/job/" + id)
+    }
+    const fromNow = moment(dateCreated).fromNow()
+    const fromNowArray = fromNow.split(" ")
+    if (fromNowArray[1] === "months") fromNowArray[1] = "mois"
+    if (fromNowArray[1] === "day") fromNowArray[1] = "jour"
+    if (fromNowArray[1] === "days") fromNowArray[1] = "jours"
+    if (fromNowArray[1] === "years") fromNowArray[1] = "année"
     return (
-        <div className="job-card flex-row">
+        <div className="job-card flex-row" onClick={navigateToJob}>
             <div className="logo">
                 <img
                     className="logo-image"
@@ -31,9 +44,7 @@ export default function JobCard({
             </div>
             <div className="analysis"></div>
             <div className="information flex-column justify-center">
-                <span className="grey">{`Publié il y a ${days || 1} ${
-                    days > 1 ? "jours" : "jour"
-                }`}</span>
+                <span className="grey">{`Publié il y a ${fromNowArray[0]} ${fromNowArray[1]}`}</span>
                 <span className="candidates">{`${candidates} candidats`}</span>
             </div>
             <div className="flex-column justify-center">

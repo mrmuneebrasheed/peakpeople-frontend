@@ -2,9 +2,9 @@ import React, { useState } from "react"
 import logo from "../assets/img/logo.png"
 import "../assets/css/Entreprise.css"
 import BlueBanner from "./BlueBanner"
-import userStore from "../redux/userStore"
+import { useSelector } from "react-redux"
 export default function Entreprise() {
-    const entreprise = userStore.getState()
+    const entreprise = useSelector((state) => state.userStore.entreprise)
     const [yearOfCreation, setYearOfCreation] = useState("")
     const missions = ["SIRH", "Recrutement", "Human centric"]
     const figures = [
@@ -41,7 +41,9 @@ export default function Entreprise() {
                         <h1 className="title flex-row">Peak People</h1>
                         <div className="missions">
                             {missions.map((mission) => (
-                                <span className="mission">{mission}</span>
+                                <span key={Math.random()} className="mission">
+                                    {mission}
+                                </span>
                             ))}
                         </div>
                     </div>
@@ -76,7 +78,10 @@ export default function Entreprise() {
                             <div className="figures flex-row">
                                 <div className="numbers flex-column">
                                     {figures.map((figure) => (
-                                        <span className="number purple">
+                                        <span
+                                            key={Math.random()}
+                                            className="number purple"
+                                        >
                                             {figure.number}
                                         </span>
                                     ))}
@@ -84,7 +89,10 @@ export default function Entreprise() {
                                 {/* <div className="vl"></div> */}
                                 <div className="titles flex-column">
                                     {figures.map((figure) => (
-                                        <span className="title">
+                                        <span
+                                            key={Math.random()}
+                                            className="title"
+                                        >
                                             {figure.title}
                                         </span>
                                     ))}
@@ -107,7 +115,7 @@ export default function Entreprise() {
                     <div className="media">
                         {images.map((img) => (
                             <img
-                                key={img}
+                                key={Math.random()}
                                 className={`${img} icon`}
                                 src={`/entreprisePage/${img}.png`}
                                 alt={img}

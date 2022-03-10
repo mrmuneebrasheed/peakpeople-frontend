@@ -1,7 +1,7 @@
 .entreprise-page {
     width: 85%;
-    margin: auto;
-    transform: translateY(-170px);
+    margin: -170px auto 0;
+
     /* animation: fade-in 600ms ease-in-out; */
 }
 .entreprise-title .logo-div {

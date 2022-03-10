@@ -1,14 +1,16 @@
-import React from "react"
-import jobsStore from "../redux/jobsStore"
+import React, { useState } from "react"
+import { useSelector } from "react-redux"
+
 import "../assets/css/Jobs.css"
 import JobCard from "../components/JobCard"
 
 export default function Jobs() {
-    const { jobs } = jobsStore.getState()
+    const jobs = useSelector((state) => state.jobStore.jobs)
+    const modalMessage = useState("Loading...")
     return (
         <div className="jobs-page">
             <div className="header flex-row justify-between">
-                <div className="title blue">{`Postes ouvert(${jobs.length})`}</div>
+                <div className="title blue">{`Postes ouvert(${jobs?.length})`}</div>
                 <div className="filter-options flex-row">
                     <select
                         className="filter-option"
@@ -28,18 +30,27 @@ export default function Jobs() {
                 </div>
             </div>
 
-            {jobs?.map((job) => (
-                <JobCard
-                    key={Math.random()}
-                    title={job.title}
-                    enterprise={job.enterprise}
-                    location={job.location}
-                    logo={job.logo}
-                    contractType={job.contractType}
-                    dateCreated={job.dateCreated}
-                    candidates={job.candidates.length}
-                />
-            ))}
+            {jobs.length ? (
+                <div>
+                    {jobs.map((job) => (
+                        <JobCard
+                            key={Math.random()}
+                            id={job._id}
+                            title={job.title}
+                            enterprise={job.enterprise}
+                            location={job.location}
+                            logo={job.logo}
+                            contractType={job.contractType}
+                            dateCreated={job.dateCreated}
+                            candidates={job.candidates.length}
+                        />
+                    ))}
+                </div>
+            ) : (
+                <div className="modal">
+                    <div className="modal-message">{modalMessage}</div>
+                </div>
+            )}
         </div>
     )
 }

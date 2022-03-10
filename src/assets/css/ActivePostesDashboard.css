@@ -14,6 +14,9 @@
 .candidate-dashboard .apply-section {
     border-top: 1px solid rgba(128, 128, 128, 0.418);
 }
+.active-postes .job-description {
+    text-overflow: ellipsis;
+}
 .apply-section .blue {
     flex-basis: 50%;
     border-right: 1px solid rgba(128, 128, 128, 0.418);

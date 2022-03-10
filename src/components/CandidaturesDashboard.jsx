@@ -1,20 +1,20 @@
 import React from "react"
 import CandidatureCard from "./CandidatureCard"
-import userStore from "../redux/userStore"
 import { useNavigate } from "react-router-dom"
+import { useSelector } from "react-redux"
 import "../assets/css/CandidaturesDashboard.css"
 
 export default function CandidaturesDashboard() {
-    const { jobCandidatures } = userStore.getState()
+    const jobCandidatures = useSelector(
+        (state) => state.userStore.jobCandidatures
+    )
+    console.log(jobCandidatures)
     const navigate = useNavigate()
     const navigateToCandidatures = () => {
         navigate("/candidate/candidatures")
     }
-    const jobsToDisplay = [
-        jobCandidatures[0],
-        jobCandidatures[1],
-        jobCandidatures[2],
-    ]
+    const jobsToDisplay = jobCandidatures?.filter((job, index) => index < 3)
+    console.log(jobsToDisplay)
     return (
         <div className="candidatures">
             <div className="flex-row justify-between">
@@ -26,16 +26,22 @@ export default function CandidaturesDashboard() {
                     Voir tout
                 </span>
             </div>
-            {jobsToDisplay.map((job) => (
-                <CandidatureCard
-                    key={Math.random()}
-                    title={job?.title}
-                    entreprise={job?.entreprise}
-                    date={job?.date}
-                    status={job?.status}
-                    small={true}
-                />
-            ))}
+            {jobsToDisplay ? (
+                <div>
+                    {jobsToDisplay?.map((job) => (
+                        <CandidatureCard
+                            key={Math.random()}
+                            title={job.job.title}
+                            enterprise={job.job.enterprise}
+                            date={job.job.date}
+                            status={job.status}
+                            small={true}
+                        />
+                    ))}
+                </div>
+            ) : (
+                <div>No jobs</div>
+            )}
         </div>
     )
 }

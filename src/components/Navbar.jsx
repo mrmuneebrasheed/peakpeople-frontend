@@ -1,12 +1,12 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import logo from "../assets/img/logo.png"
-import userStore from "../redux/userStore"
+import { useSelector } from "react-redux"
 import "../assets/css/Navbar.css"
 import TitleCircle from "./TitleCircle"
 
 export default function Navbar(props) {
-    const { user, api } = userStore.getState()
+    const user = useSelector((state) => state.userStore.user)
     const nameAbr =
         user?.firstName?.charAt(0).toUpperCase() +
         user?.lastName?.charAt(0).toUpperCase()

@@ -1,10 +1,12 @@
 import { useState } from "react"
 import logo from "../assets/img/logo.png"
 import { Link } from "react-router-dom"
-import userStore from "../redux/userStore"
 import { useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import api from "../redux/api"
+
 export default function Signup() {
-    const { id, api } = userStore.getState()
+    const { id } = useSelector((state) => state.userStore)
     const navigate = useNavigate()
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")

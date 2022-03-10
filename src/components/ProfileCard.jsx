@@ -1,9 +1,9 @@
 import React from "react"
-import userStore from "../redux/userStore"
+import { useSelector } from "react-redux"
 import "../assets/css/ProfileCard.css"
 
 export default function ProfileCard() {
-    const { user } = userStore.getState()
+    const user = useSelector((state) => state.userStore.user)
     const firstName =
         user?.firstName?.charAt(0).toUpperCase() + user?.firstName?.slice(1)
     const workYears = 1

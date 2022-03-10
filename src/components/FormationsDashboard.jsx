@@ -1,12 +1,12 @@
 import React from "react"
-import userStore from "../redux/userStore"
 import "../assets/css/FormationsDashboard.css"
 import TitleCircle from "./TitleCircle"
+import { useSelector } from "react-redux"
 
 export default function FormationsDashboard() {
-    const { formations } = userStore.getState()
+    const formations = useSelector((state) => state.userStore.id)
     const formation = formations ? formations[0] : {}
-    formation.participants = [{ firstName: "Clementine", lastName: "Tania" }]
+    const participants = [{ firstName: "Clementine", lastName: "Tania" }]
     const days = formation?.date?.getDays() - new Date().getDate
     return (
         <div className="formation">
@@ -38,7 +38,7 @@ export default function FormationsDashboard() {
                     </div>
                 </div>
                 <div className="participants flex-row">
-                    {formation?.participants.map((participant) => {
+                    {participants?.map((participant) => {
                         const nameAbr =
                             participant?.firstName?.charAt(0).toUpperCase() +
                             participant?.lastName?.charAt(0).toUpperCase()
@@ -46,7 +46,7 @@ export default function FormationsDashboard() {
                             <TitleCircle key={Math.random()} title={nameAbr} />
                         )
                     })}
-                    <span className="location grey">{`${formation.participants.length} Participants`}</span>
+                    <span className="location grey">{`${participants.length} Participants`}</span>
                 </div>
                 <div className="participate flex-row justify-between">
                     <b>Participate</b>

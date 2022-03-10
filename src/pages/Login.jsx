@@ -1,12 +1,14 @@
 import { useState } from "react"
 import "../assets/css/Login.css"
-import userStore from "../redux/userStore"
 import logo from "../assets/img/logo.png"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { userActions } from "../redux/userSlice"
+import api from "../redux/api"
 
 export default function Login() {
-    const { id, api } = userStore.getState()
+    const dispatch = useDispatch()
     const navigation = useNavigate()
     const [errorMessage, setErrorMessage] = useState(
         "Email ou mot de passe invalid!"
@@ -20,6 +22,7 @@ export default function Login() {
     const passwordChangeHandler = (e) => {
         setPassword(e.target.value)
     }
+
     const loginHandler = (e) => {
         e.preventDefault()
         api.post(`/user/login`, {
@@ -27,9 +30,10 @@ export default function Login() {
             password: password,
         })
             .then((res) => {
-                userStore.dispatch({ type: "setUser", user: res.data.user })
+                dispatch(userActions.setIsLoggedIn(true))
+                dispatch(userActions.setUser(res.data.user))
                 navigation("/candidate/home")
-                console.log(res)
+                console.log(res.data)
             })
             .catch((err) => {
                 console.log(err.response)
