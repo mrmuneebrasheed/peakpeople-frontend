@@ -46,6 +46,10 @@ function App() {
                         <Route path="jobs" element={<Jobs />}></Route>
                         <Route path="candidatures" element={<Candidatures />} />
                         <Route path="job/:jobId" element={<JobPage />} />
+                        <Route
+                            path="candidature/:status/:jobId"
+                            element={<JobPage />}
+                        />
                     </Route>
                 </Routes>
             </div>

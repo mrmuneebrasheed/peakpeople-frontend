@@ -32,20 +32,20 @@
 .candidature-card .date {
     margin: 10px 0;
 }
-.candidature-card .status {
+.status {
     padding: 5px 10px;
     border-radius: 10px;
     font-size: 0.9rem;
     color: white;
     margin: 10px 10px;
 }
-.candidature-card .refused {
+.status .refused {
     background-color: rgb(221, 0, 0);
 }
-.candidature-card .accepted {
+.status .accepted {
     background-color: rgb(1, 129, 1);
 }
-.candidature-card .waiting {
+.status .waiting {
     background-color: orange;
 }
 .candidature-card .icons {

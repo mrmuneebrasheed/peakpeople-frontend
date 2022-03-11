@@ -9,6 +9,8 @@ import moment from "moment"
 export default function JobPage() {
     const params = useParams()
     const jobID = params.jobId
+    const status = params.status
+    console.log(status)
     const [job, setJob] = useState({})
     const [modalMessage, setModalMessage] = useState("Loading...")
     useEffect(() => {
@@ -17,6 +19,13 @@ export default function JobPage() {
             .catch((err) => console.log(err))
     }, [jobID])
     const startingDate = moment(job.startingDate).format("DD/MM/YYYY")
+    const statusClass =
+        (status === "refusée" && "refused") ||
+        (status === "acceptée" && "accepted") ||
+        (status === "en attente" && "waiting")
+    console.log(statusClass)
+    const capitalizedStatus =
+        status?.slice(0, 1).toUpperCase() + status?.slice(1)
     return (
         <React.Fragment>
             <BlueBanner />
@@ -50,15 +59,42 @@ export default function JobPage() {
                                 <div className="grey">{`Rémuneration : ${
                                     job.remuneration || "Sélon profil"
                                 }`}</div>
-                                <div className="pink-button">
-                                    Postuler à cettre offre
-                                </div>
+                                {!status ? (
+                                    <div className="pink-button">
+                                        Postuler à cettre offre
+                                    </div>
+                                ) : (
+                                    <div>
+                                        <h4 className="blue">
+                                            Vous avez déja candidaté à cette
+                                            offre.
+                                        </h4>
+                                        <span
+                                            style={{
+                                                backgroundColor: `${
+                                                    (statusClass ===
+                                                        "refused" &&
+                                                        "rgb(221, 0, 0)") ||
+                                                    (statusClass ===
+                                                        "accepted" &&
+                                                        "rgb(1, 129, 1)") ||
+                                                    (statusClass ===
+                                                        "waiting" &&
+                                                        "orange")
+                                                }`,
+                                            }}
+                                            className={`job-status ${statusClass}`}
+                                        >
+                                            {capitalizedStatus}
+                                        </span>
+                                    </div>
+                                )}
                             </div>
                             <div className="skills bg-white border-rounded">
                                 <h2 className="blue">Compétences requises</h2>
                                 <div className="skills-list">
                                     {job.skillsRequired.map((skill) => (
-                                        <span className="skill-box">
+                                        <span key={skill} className="skill-box">
                                             {skill}
                                         </span>
                                     ))}
@@ -66,16 +102,23 @@ export default function JobPage() {
                             </div>
                         </div>
                         <div className="job-information col-2 bg-white border-rounded">
-                            <h2 className="blue">À propose de nous</h2>
-                            <p className="light-font">
-                                {job.enterpriseDescription}
-                            </p>
-                            <h2 className="blue">Descriptif du poste</h2>
-                            <p className="light-font">{job.jobDescription}</p>
-                            <h2 className="blue">Tes Mission</h2>
-                            <p className="light-font">{job.missions}</p>
-                            <h2 className="blue">Profil recherché</h2>
-                            <p className="light-font">{job.profileRequired}</p>
+                            <div>
+                                <h2 className="blue">À propose de nous</h2>
+                                <p className="light-font">
+                                    {job.enterpriseDescription}
+                                </p>
+                                <h2 className="blue">Descriptif du poste</h2>
+                                <p className="light-font">
+                                    {job.jobDescription}
+                                </p>
+                                <h2 className="blue">Tes Mission</h2>
+                                <p className="light-font">{job.missions}</p>
+                                <h2 className="blue">Profil recherché</h2>
+                                <p className="light-font">
+                                    {job.profileRequired}
+                                </p>
+                            </div>
+                            <div className="footer"></div>
                         </div>
                     </div>
                 </div>

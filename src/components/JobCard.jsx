@@ -24,6 +24,8 @@ export default function JobCard({
     if (fromNowArray[1] === "months") fromNowArray[1] = "mois"
     if (fromNowArray[1] === "day") fromNowArray[1] = "jour"
     if (fromNowArray[1] === "days") fromNowArray[1] = "jours"
+    if (fromNowArray[1] === "hour") fromNowArray[1] = "heure"
+    if (fromNowArray[1] === "hours") fromNowArray[1] = "heures"
     if (fromNowArray[1] === "years") fromNowArray[1] = "année"
     return (
         <div className="job-card flex-row" onClick={navigateToJob}>

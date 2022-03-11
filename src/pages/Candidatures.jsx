@@ -1,6 +1,5 @@
 import React from "react"
 import "../assets/css/Candidatures.css"
-import JobCard from "../components/JobCard"
 import { useSelector } from "react-redux"
 import CandidatureCard from "../components/CandidatureCard"
 
@@ -20,11 +19,12 @@ export default function Candidatures() {
                 <div>
                     {jobCandidatures?.map((job) => (
                         <CandidatureCard
-                            key={Math.random()}
-                            title={job?.title}
-                            entreprise={job?.entreprise}
-                            date={job?.date}
-                            status={job?.status}
+                            key={job._id}
+                            id={job.job._id}
+                            title={job.job.title}
+                            enterprise={job.job.enterprise}
+                            date={job.job.date}
+                            status={job.status}
                             small={false}
                         />
                     ))}

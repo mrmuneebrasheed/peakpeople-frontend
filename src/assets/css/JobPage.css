@@ -4,8 +4,6 @@
     margin: -170px auto 0;
     animation: fade-in-linear 100ms ease-in-out;
 }
-.header {
-}
 .job-page .header .logo {
     background-color: white;
     width: 8rem;
@@ -63,4 +61,11 @@
 }
 .job-page .information .job-information {
     padding: 50px;
+}
+.job-page .job-status {
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: white;
+    margin: 10px 10px;
 }

@@ -1,9 +1,11 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 import PeakLogo from "../assets/img/logo.png"
 import moment from "moment"
 import "../assets/css/CandidatureCard.css"
 
 export default function CandidatureCard({
+    id,
     title,
     enterprise,
     date,
@@ -11,6 +13,10 @@ export default function CandidatureCard({
     logo,
     small,
 }) {
+    const navigate = useNavigate()
+    const navigateToJob = () => {
+        navigate(`/candidate/candidature/${status}/${id}`)
+    }
     const dateString = moment(date).format("DD/MM/YYYY")
     const statusClass =
         (status === "refusée" && "refused") ||
@@ -18,7 +24,10 @@ export default function CandidatureCard({
         (status === "en attente" && "waiting")
     const capitalizedStatus = status.slice(0, 1).toUpperCase() + status.slice(1)
     return (
-        <div className="bg-white border-rounded card candidature-card">
+        <div
+            className="bg-white border-rounded card candidature-card icon"
+            onClick={navigateToJob}
+        >
             <div className={`${small ? "flex-column" : "flex-row"}`}>
                 {!small && (
                     <div className="logo">
