@@ -12,6 +12,7 @@ import JobPage from "./pages/JobPage"
 import { useSelector, useDispatch } from "react-redux"
 import { jobActions } from "./redux/jobSlice"
 import { userActions } from "./redux/userSlice"
+import { uiActions } from "./redux/uiSlice"
 
 import api from "./redux/api"
 
@@ -21,6 +22,12 @@ function App() {
     console.log(id)
     useEffect(() => {
         api.get("/user/find-by-id/" + id)
+            .then((res) => {
+                dispatch(userActions.setUser(res.data.user))
+            })
+            .catch((err) =>
+                dispatch(uiActions.setModalMessage(err.response.message))
+            )
         api.get("/jobs/all-jobs")
             .then((res) => {
                 dispatch(jobActions.setJobs(res.data.jobs))
@@ -31,7 +38,9 @@ function App() {
                 console.log(res.data)
                 dispatch(userActions.setJobCandidatures(res.data.candidatures))
             })
-            .catch((err) => console.log(err))
+            .catch((err) =>
+                dispatch(uiActions.setModalMessage(err.response.message))
+            )
     }, [isLoggedIn])
 
     return (

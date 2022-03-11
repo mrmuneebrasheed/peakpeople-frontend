@@ -5,6 +5,7 @@ import peakLogo from "../assets/img/logo.png"
 import "../assets/css/JobPage.css"
 import api from "../redux/api"
 import moment from "moment"
+import { useSelector } from "react-redux"
 
 export default function JobPage() {
     const params = useParams()
@@ -12,7 +13,7 @@ export default function JobPage() {
     const status = params.status
     console.log(status)
     const [job, setJob] = useState({})
-    const [modalMessage, setModalMessage] = useState("Loading...")
+    const modalMessage = useSelector((state) => state.uiStore.modalMessage)
     useEffect(() => {
         api.get("/jobs/job-by-id/" + jobID)
             .then((res) => setJob(res.data.job))
