@@ -1,12 +1,23 @@
-import React, { useState } from "react"
-import { useSelector } from "react-redux"
+import React, { useState, useEffect } from "react"
+import { useSelector, useDispatch } from "react-redux"
+import { jobActions } from "../redux/jobSlice"
+import api from "../redux/api"
 
 import "../assets/css/Jobs.css"
 import JobCard from "../components/JobCard"
 
 export default function Jobs() {
+    const dispatch = useDispatch()
     const jobs = useSelector((state) => state.jobStore.jobs)
     const modalMessage = useState("Loading...")
+    useEffect(() => {
+        api.get("/jobs/all-jobs")
+            .then((res) => {
+                dispatch(jobActions.setJobs(res.data.jobs))
+            })
+            .catch((err) => console.log(err))
+    }, [])
+
     return (
         <div className="jobs-page">
             <div className="header flex-row justify-between">

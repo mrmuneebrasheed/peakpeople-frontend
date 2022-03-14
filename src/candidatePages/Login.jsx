@@ -25,7 +25,7 @@ export default function Login() {
 
     const loginHandler = (e) => {
         e.preventDefault()
-        api.post(`/user/login`, {
+        api.post(`/connection/login`, {
             email: email.toLowerCase(),
             password: password,
         })

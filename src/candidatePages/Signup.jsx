@@ -34,7 +34,12 @@ export default function Signup() {
     const signupHandler = (e) => {
         e.preventDefault()
         if (email !== "" && password === confirmPassword)
-            api.post("/user/signup", { firstName, lastName, email, password })
+            api.post("/connection/signup", {
+                firstName,
+                lastName,
+                email,
+                password,
+            })
                 .then((res) => {
                     console.log(res)
                     navigate("/")

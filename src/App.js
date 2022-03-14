@@ -21,22 +21,9 @@ function App() {
     const { id, isLoggedIn } = useSelector((state) => state.userStore)
     console.log(id)
     useEffect(() => {
-        api.get("/user/find-by-id/" + id)
+        api.get("/connection/find-by-id/" + id)
             .then((res) => {
                 dispatch(userActions.setUser(res.data.user))
-            })
-            .catch((err) =>
-                dispatch(uiActions.setModalMessage(err.response.message))
-            )
-        api.get("/jobs/all-jobs")
-            .then((res) => {
-                dispatch(jobActions.setJobs(res.data.jobs))
-            })
-            .catch((err) => console.log(err))
-        api.get("/user/get-candidatures/" + id)
-            .then((res) => {
-                console.log(res.data)
-                dispatch(userActions.setJobCandidatures(res.data.candidatures))
             })
             .catch((err) =>
                 dispatch(uiActions.setModalMessage(err.response.message))
