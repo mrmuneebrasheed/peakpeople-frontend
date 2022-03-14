@@ -1,17 +1,22 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import logo from "../assets/img/logo.png"
 import { useSelector } from "react-redux"
 import "../assets/css/Navbar.css"
 import TitleCircle from "./TitleCircle"
+import { capitalizeWord } from "../redux/useableFunctions"
 
 export default function Navbar(props) {
+    const navigate = useNavigate()
     const user = useSelector((state) => state.userStore.user)
     const nameAbr =
         user?.firstName?.charAt(0).toUpperCase() +
         user?.lastName?.charAt(0).toUpperCase()
-    const firstName =
-        user?.firstName?.charAt(0).toUpperCase() + user?.firstName?.slice(1)
+    const firstName = capitalizeWord(user.firstName)
+    const logoutHandler = () => {
+        window.localStorage.setItem("userID", "")
+        navigate("/")
+    }
     return (
         <div className="flex-row navbar">
             <Link to="/candidate/home" className="navbar-logo">
@@ -34,7 +39,11 @@ export default function Navbar(props) {
                 </span>
                 <TitleCircle title={nameAbr || "CT"} />
                 <span className="nav-name">{firstName || "Clémentine"}</span>
+                <span onClick={logoutHandler} className="logout-button link">
+                    Log out
+                </span>
             </div>
+            <div></div>
         </div>
     )
 }

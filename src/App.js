@@ -1,34 +1,72 @@
+//importing modules
 import { useEffect } from "react"
-import Login from "./pages/Login"
-import "./App.css"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Signup from "./pages/Signup"
-import CandidateDashboard from "./pages/CandidateDashboard"
-import Candidate from "./pages/Candidate"
+
+//importing Pages
+import Login from "./candidatePages/Login"
+import Signup from "./candidatePages/Signup"
+import Candidate from "./candidatePages/Candidate"
+import CandidateDashboard from "./candidatePages/CandidateDashboard"
 import Entreprise from "./components/Entreprise"
-import Jobs from "./pages/Jobs"
-import Candidatures from "./pages/Candidatures"
-import JobPage from "./pages/JobPage"
-import { useSelector, useDispatch } from "react-redux"
-import { jobActions } from "./redux/jobSlice"
+import Jobs from "./candidatePages/Jobs"
+import Candidatures from "./candidatePages/Candidatures"
+import JobPage from "./candidatePages/JobPage"
+import Manager from "./managerPages/Manager"
+import ManagerDashboard from "./managerPages/ManagerDashboard"
+
+// Redux imports
 import { userActions } from "./redux/userSlice"
 import { uiActions } from "./redux/uiSlice"
+import { jobActions } from "./redux/jobSlice"
+import { useSelector, useDispatch } from "react-redux"
 
+// importing global app css file
+import "./App.css"
+
+//importing useful functions
 import api from "./redux/api"
 
 function App() {
     const dispatch = useDispatch()
-    const { id, isLoggedIn } = useSelector((state) => state.userStore)
-    console.log(id)
+    const { jobs } = useSelector((state) => state.jobStore)
+    const { id, isLoggedIn, role, jobCandidatures } = useSelector(
+        (state) => state.userStore
+    )
+    console.log(id, role, jobCandidatures)
     useEffect(() => {
         api.get("/connection/find-by-id/" + id)
             .then((res) => {
                 dispatch(userActions.setUser(res.data.user))
+                // If the user is candidate then api calls
+
+                if (res.data.user.role === "candidate")
+                    api.get("/user/get-candidatures/" + id)
+                        .then((res) => {
+                            console.log(res.data)
+                            dispatch(
+                                userActions.setJobCandidatures(
+                                    res.data.candidatures
+                                )
+                            )
+                        })
+                        .catch((err) =>
+                            dispatch(
+                                uiActions.setModalMessage(
+                                    err?.response?.message
+                                )
+                            )
+                        )
             })
             .catch((err) =>
                 dispatch(uiActions.setModalMessage(err.response.message))
             )
-    }, [isLoggedIn])
+
+        api.get("/jobs/all-jobs")
+            .then((res) => {
+                dispatch(jobActions.setJobs(res.data.jobs))
+            })
+            .catch((err) => console.log(err))
+    }, [isLoggedIn, id])
 
     return (
         <Router>
@@ -46,6 +84,9 @@ function App() {
                             path="candidature/:status/:jobId"
                             element={<JobPage />}
                         />
+                    </Route>
+                    <Route path="manager" element={<Manager />}>
+                        <Route path="home" element={<ManagerDashboard />} />
                     </Route>
                 </Routes>
             </div>

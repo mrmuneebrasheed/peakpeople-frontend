@@ -5,6 +5,7 @@ const userSlice = createSlice({
     initialState: {
         id: window.localStorage.getItem("userID"),
         user: {},
+        role: "",
         isLoggedIn: false,
         jobCandidatures: [],
     },
@@ -12,6 +13,7 @@ const userSlice = createSlice({
         setUser(state, actions) {
             state.user = actions.payload
             state.id = actions.payload._id
+            state.role = actions.payload.role
             window.localStorage.setItem("userID", actions.payload._id)
         },
         setIsLoggedIn(state, actions) {

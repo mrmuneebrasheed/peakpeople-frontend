@@ -9,7 +9,7 @@ import api from "../redux/api"
 
 export default function Login() {
     const dispatch = useDispatch()
-    const navigation = useNavigate()
+    const navigate = useNavigate()
     const [errorMessage, setErrorMessage] = useState(
         "Email ou mot de passe invalid!"
     )
@@ -32,8 +32,9 @@ export default function Login() {
             .then((res) => {
                 dispatch(userActions.setIsLoggedIn(true))
                 dispatch(userActions.setUser(res.data.user))
-                navigation("/candidate/home")
-                console.log(res.data)
+                if (res.data.user.role === "candidate")
+                    navigate("/candidate/home")
+                if (res.data.user.role === "manager") navigate("/manager/home")
             })
             .catch((err) => {
                 console.log(err.response)

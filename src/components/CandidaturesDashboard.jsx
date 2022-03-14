@@ -30,7 +30,8 @@ export default function CandidaturesDashboard() {
                 <div>
                     {jobsToDisplay?.map((job) => (
                         <CandidatureCard
-                            key={Math.random()}
+                            key={job._id}
+                            id={job.job._id}
                             title={job.job.title}
                             enterprise={job.job.enterprise}
                             date={job.job.date}

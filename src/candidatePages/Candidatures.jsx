@@ -1,25 +1,11 @@
-import React, { useEffect } from "react"
+import React from "react"
 import "../assets/css/Candidatures.css"
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 import CandidatureCard from "../components/CandidatureCard"
-import { userActions } from "../redux/userSlice"
-import { uiActions } from "../redux/uiSlice"
-import api from "../redux/api"
 
 export default function Candidatures() {
-    const { jobCandidatures, id } = useSelector((state) => state.userStore)
-    const dispatch = useDispatch()
-    useEffect(() => {
-        api.get("/user/get-candidatures/" + id)
-            .then((res) => {
-                console.log(res.data)
-                dispatch(userActions.setJobCandidatures(res.data.candidatures))
-            })
-            .catch((err) =>
-                dispatch(uiActions.setModalMessage(err.response.message))
-            )
-    }, [])
-
+    const jobCandidatures = useSelector((state) => state.jobStore.jobs)
+    console.log(jobCandidatures)
     return (
         <div className="candidatures-page">
             <div className="header flex-row justify-between">
