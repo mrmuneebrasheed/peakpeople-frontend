@@ -1,0 +1,13 @@
+.event-box {
+    min-height: 25px;
+    margin: 0 2px;
+    border-radius: 5px;
+}
+.colored {
+    background-color: #2d2e83;
+    color: white;
+}
+.event-box .event-title {
+    text-overflow: clip;
+    padding: 5px;
+}

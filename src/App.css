@@ -143,3 +143,22 @@ input[type="checkbox"] {
         opacity: 1;
     }
 }
+
+/* Customizing scroll bar */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar:hover {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.514);
+    border-radius: 12px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

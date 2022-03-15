@@ -6,7 +6,6 @@ import "./ProfileCard.css"
 
 export default function ProfileCard() {
     const user = useSelector((state) => state.userStore.user)
-    console.log(user)
     const firstName = capitalizeWord(user.firstName)
     const workYears =
         moment(user.dateCreated).get("year") - new Date().getFullYear()

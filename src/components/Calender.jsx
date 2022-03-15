@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import moment from "moment"
 import { capitalizeWord } from "../redux/useableFunctions"
+import EventBox from "../components/EventBox"
 import "./Calender.css"
 
 export default function Calender({}) {
@@ -44,6 +45,22 @@ export default function Calender({}) {
     for (let i = 9; i <= 17; i++) {
         hours.push(i)
     }
+    const events = [
+        { start: startDate, end: startDate.add(1, "hour"), title: "standup" },
+        {
+            start: moment().add(1, "hours"),
+            end: moment().add(1, "hours"),
+            title: "meeting",
+        },
+    ]
+    console.log(
+        events.filter(
+            (event) =>
+                event.start.format("DD/MM/YYY") == startDate.format("DD/MM/YYY")
+        ),
+        events[0].start.get("hours")
+    )
+    // console.log(events.find((event) => event.day === startDate)?.title)
     return (
         <div className="calender">
             <div className="header flex-row justify-between align-center">
@@ -87,12 +104,39 @@ export default function Calender({}) {
                         ))}
                     </div>
                     {daysToDisplay.map((day) => (
-                        <div
-                            key={Math.random()}
-                            className="day"
-                        >{`${capitalizeWord(
-                            days[day.get("d")].slice(0, 3)
-                        )} ${day.get("D")}`}</div>
+                        <div key={Math.random()} className="day flex-column">
+                            <div className="day-title">{`${capitalizeWord(
+                                days[day.get("d")].slice(0, 3)
+                            )} ${day.get("D")}`}</div>
+
+                            <div className="events flex-column">
+                                {hours.map((hour) => (
+                                    <div
+                                        key={Math.random()}
+                                        className="flex-row justify-center events-box"
+                                    >
+                                        {events
+                                            .filter(
+                                                (event) =>
+                                                    event.start.format(
+                                                        "DD/MM/YYYY"
+                                                    ) ===
+                                                        day.format(
+                                                            "DD/MM/YYYY"
+                                                        ) &&
+                                                    event.start.get("hours") ===
+                                                        hour
+                                            )
+                                            ?.map((event) => (
+                                                <EventBox
+                                                    key={Math.random()}
+                                                    event={event}
+                                                />
+                                            ))}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     ))}
                 </div>
             </div>

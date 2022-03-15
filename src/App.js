@@ -32,7 +32,6 @@ function App() {
     const { id, isLoggedIn, role, jobCandidatures } = useSelector(
         (state) => state.userStore
     )
-    console.log(id, role, jobCandidatures)
     useEffect(() => {
         api.get("/connection/find-by-id/" + id)
             .then((res) => {
@@ -41,7 +40,6 @@ function App() {
                 if (res.data.user.role === "candidate")
                     api.get("/user/get-candidatures/" + id)
                         .then((res) => {
-                            console.log(res.data)
                             dispatch(
                                 userActions.setJobCandidatures(
                                     res.data.candidatures
