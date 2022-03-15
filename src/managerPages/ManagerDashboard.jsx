@@ -3,6 +3,7 @@ import IndicatorCard from "../components/IndicatorCard"
 import ProfileCard from "../components/ProfileCard"
 import { useSelector } from "react-redux"
 import "./ManagerDashboard.css"
+import Calender from "../components/Calender"
 
 // React Calender imports
 
@@ -39,7 +40,9 @@ export default function ManagerDashboard() {
         <div className="manager-dashboard">
             <div className="flex-row">
                 <ProfileCard />
-                <div className="agenda"></div>
+                <div className="agenda">
+                    <Calender />
+                </div>
             </div>
             <div>
                 <h2>Mes Indicators</h2>

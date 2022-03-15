@@ -1,0 +1,45 @@
+.calender .date {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-top: 0;
+}
+.calender .button {
+    cursor: pointer;
+}
+.calender .buttons {
+    padding: 10px;
+}
+.calender .add-button {
+    padding: 10px 20px;
+    margin: 5px 20px;
+    height: 90%;
+}
+.filter-options option {
+    padding: 10px;
+}
+.calender .calender-section {
+    display: grid;
+    background-color: white;
+    border-radius: 15px;
+    font-weight: 100;
+    height: 240px;
+    overflow-y: scroll;
+}
+.calender-section .days {
+    margin-top: 10px;
+    flex-basis: 15%;
+    justify-content: space-evenly;
+}
+.calender-section .day {
+    text-align: center;
+    border-right: 1px solid rgba(0, 0, 0, 0.103);
+    flex-basis: 15%;
+}
+.calender-section .hours {
+    flex-basis: 10%;
+    margin-top: 20px;
+    border-right: 1px solid rgba(0, 0, 0, 0.103);
+}
+.calender-section .hour {
+    margin: 10px 20px;
+}

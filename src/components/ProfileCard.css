@@ -5,7 +5,7 @@
     height: 262px;
     padding: 20px;
     background-color: white;
-    border-radius: 15px;
+    border-radius: 10px;
     transition: all 100ms ease-in-out;
 }
 .profile-card:hover {
