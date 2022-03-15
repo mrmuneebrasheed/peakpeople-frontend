@@ -2,7 +2,7 @@ import { useState } from "react"
 import logo from "../assets/img/logo.png"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import api from "../redux/api"
 
 export default function Signup() {

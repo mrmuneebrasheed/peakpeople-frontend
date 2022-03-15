@@ -12,7 +12,7 @@
 }
 .login-left {
     flex-basis: 50%;
-    background: url("../img/Left\ side\ clear.png") no-repeat center;
+    background: url("../assets/img/Left\ side\ clear.png") no-repeat center;
     background-size: contain;
     align-items: center;
     justify-content: center;

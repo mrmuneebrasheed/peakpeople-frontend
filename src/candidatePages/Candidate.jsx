@@ -2,12 +2,12 @@ import React from "react"
 import { Outlet } from "react-router-dom"
 import Navbar from "../components/Navbar"
 import Navlink from "../components/Navlink"
-import "../assets/css/Candidate.css"
+import "./Candidate.css"
 
 export default function DashboardCandidate() {
     return (
         <div className="dashboard-candidate">
-            <Navbar>
+            <Navbar home="candidate">
                 <div className="nav-links">
                     <Navlink
                         title="L'entreprise"

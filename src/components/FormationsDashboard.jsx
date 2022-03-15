@@ -1,7 +1,7 @@
 import React from "react"
-import "../assets/css/FormationsDashboard.css"
 import TitleCircle from "./TitleCircle"
 import { useSelector } from "react-redux"
+import "./FormationsDashboard.css"
 
 export default function FormationsDashboard() {
     const formations = useSelector((state) => state.userStore.id)

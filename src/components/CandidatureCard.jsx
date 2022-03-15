@@ -2,7 +2,7 @@ import React from "react"
 import { useNavigate } from "react-router-dom"
 import PeakLogo from "../assets/img/logo.png"
 import moment from "moment"
-import "../assets/css/CandidatureCard.css"
+import "./CandidatureCard.css"
 
 export default function CandidatureCard({
     id,

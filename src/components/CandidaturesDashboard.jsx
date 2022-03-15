@@ -2,7 +2,7 @@ import React from "react"
 import CandidatureCard from "./CandidatureCard"
 import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
-import "../assets/css/CandidaturesDashboard.css"
+import "./CandidaturesDashboard.css"
 
 export default function CandidaturesDashboard() {
     const jobCandidatures = useSelector(

@@ -11,10 +11,17 @@ const userSlice = createSlice({
     },
     reducers: {
         setUser(state, actions) {
+            window.localStorage.setItem("userID", actions.payload._id)
             state.user = actions.payload
             state.id = actions.payload._id
             state.role = actions.payload.role
-            window.localStorage.setItem("userID", actions.payload._id)
+        },
+        logout(state, actions) {
+            window.localStorage.setItem("userID", "")
+            state.user = {}
+            state.role = ""
+            state.isLoggedIn = false
+            state.jobCandidatures = []
         },
         setIsLoggedIn(state, actions) {
             state.isLoggedIn = actions.payload

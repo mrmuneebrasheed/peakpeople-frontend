@@ -3,8 +3,8 @@ import { useEffect } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 //importing Pages
-import Login from "./candidatePages/Login"
-import Signup from "./candidatePages/Signup"
+import Login from "./components/Login"
+import Signup from "./components/Signup"
 import Candidate from "./candidatePages/Candidate"
 import CandidateDashboard from "./candidatePages/CandidateDashboard"
 import Entreprise from "./components/Entreprise"
@@ -38,7 +38,6 @@ function App() {
             .then((res) => {
                 dispatch(userActions.setUser(res.data.user))
                 // If the user is candidate then api calls
-
                 if (res.data.user.role === "candidate")
                     api.get("/user/get-candidatures/" + id)
                         .then((res) => {
@@ -51,9 +50,7 @@ function App() {
                         })
                         .catch((err) =>
                             dispatch(
-                                uiActions.setModalMessage(
-                                    err?.response?.message
-                                )
+                                uiActions.setModalMessage(err.response.message)
                             )
                         )
             })
@@ -66,7 +63,7 @@ function App() {
                 dispatch(jobActions.setJobs(res.data.jobs))
             })
             .catch((err) => console.log(err))
-    }, [isLoggedIn, id])
+    }, [isLoggedIn])
 
     return (
         <Router>

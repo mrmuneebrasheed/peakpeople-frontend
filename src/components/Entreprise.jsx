@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import logo from "../assets/img/logo.png"
-import "../assets/css/Entreprise.css"
 import BlueBanner from "./BlueBanner"
 import { useSelector } from "react-redux"
+import "./Entreprise.css"
+
 export default function Entreprise() {
     const entreprise = useSelector((state) => state.userStore.entreprise)
     const [yearOfCreation, setYearOfCreation] = useState("")

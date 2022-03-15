@@ -1,0 +1,4 @@
+.manager-home {
+    display: flex;
+    flex-direction: column;
+}

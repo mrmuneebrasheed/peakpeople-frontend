@@ -1,11 +1,11 @@
 import { useState } from "react"
-import "../assets/css/Login.css"
 import logo from "../assets/img/logo.png"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { userActions } from "../redux/userSlice"
 import api from "../redux/api"
+import "./Login.css"
 
 export default function Login() {
     const dispatch = useDispatch()
@@ -30,8 +30,8 @@ export default function Login() {
             password: password,
         })
             .then((res) => {
-                dispatch(userActions.setIsLoggedIn(true))
                 dispatch(userActions.setUser(res.data.user))
+                dispatch(userActions.setIsLoggedIn(true))
                 if (res.data.user.role === "candidate")
                     navigate("/candidate/home")
                 if (res.data.user.role === "manager") navigate("/manager/home")

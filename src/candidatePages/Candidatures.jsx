@@ -1,5 +1,5 @@
 import React from "react"
-import "../assets/css/Candidatures.css"
+import "./Candidatures.css"
 import { useSelector } from "react-redux"
 import CandidatureCard from "../components/CandidatureCard"
 

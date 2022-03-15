@@ -1,13 +1,18 @@
 import React from "react"
 import { useSelector } from "react-redux"
-import "../assets/css/ProfileCard.css"
+import { capitalizeWord } from "../redux/useableFunctions"
+import moment from "moment"
+import "./ProfileCard.css"
 
 export default function ProfileCard() {
     const user = useSelector((state) => state.userStore.user)
-    const firstName =
-        user?.firstName?.charAt(0).toUpperCase() + user?.firstName?.slice(1)
-    const workYears = 1
-    const workMonths = 3
+    console.log(user)
+    const firstName = capitalizeWord(user.firstName)
+    const workYears =
+        moment(user.dateCreated).get("year") - new Date().getFullYear()
+    const workMonths =
+        moment(user.dateCreated).get("month") - new Date().getMonth()
+    const startYear = moment(user.dateCreated).get("year")
     return (
         <div className="profile-card">
             <div>
@@ -19,7 +24,7 @@ export default function ProfileCard() {
             <p>
                 Vous avez{" "}
                 <span className="pink">
-                    {user?.events?.length || 3} évenement
+                    {user?.events?.length || 0} évenement
                 </span>{" "}
                 aujourd'hui.
             </p>
@@ -34,15 +39,19 @@ export default function ProfileCard() {
                 </div>
                 <div>
                     <h3 className="profile-credential">
-                        {user?.profession || "Product Designer"}
+                        {user?.job || "Product Designer"}
                     </h3>
                     <p className="profile-credentials">
                         <span>
                             <i className="bi bi-geo-alt-fill purple icon"></i>
                         </span>{" "}
-                        <span>{user?.company || "Doctolib"}</span>
+                        <span>{user?.enterprise || "Doctolib"}</span>
                     </p>
-                    <p className="profile-credentials">{`Depuis ${workYears} an et ${workMonths} months`}</p>
+                    <p className="profile-credentials">{`Depuis ${
+                        workYears ? workYears + " an et " : ""
+                    } ${workMonths ? workMonths + " mois" : ""} ${
+                        workMonths && workYears ? "" : startYear
+                    }`}</p>
                 </div>
             </div>
         </div>

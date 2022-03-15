@@ -1,0 +1,15 @@
+.manager-dashboard {
+    width: 85%;
+    margin: 100px auto;
+    animation: fade-in 600ms ease-in-out;
+    min-height: 80vh;
+}
+.indicators {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.agenda {
+}

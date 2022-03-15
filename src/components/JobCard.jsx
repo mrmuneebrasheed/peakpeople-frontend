@@ -1,8 +1,8 @@
 import React from "react"
 import PeakLogo from "../assets/img/logo.png"
-import "../assets/css/JobCard.css"
 import { useNavigate } from "react-router-dom"
 import moment from "moment"
+import "./JobCard.css"
 
 export default function JobCard({
     id,

@@ -3,7 +3,7 @@ import { PieChart, Pie } from "recharts"
 import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
 import moment from "moment"
-import "../assets/css/ActivePostesDashboard.css"
+import "./ActivePostesDashboard.css"
 
 export default function ActivePostesDashboard() {
     const jobs = useSelector((state) => state.jobStore.jobs)

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react"
 import BlueBanner from "../components/BlueBanner"
 import { useParams } from "react-router-dom"
 import peakLogo from "../assets/img/logo.png"
-import "../assets/css/JobPage.css"
 import api from "../redux/api"
 import moment from "moment"
 import { useSelector } from "react-redux"
+import "./JobPage.css"
 
 export default function JobPage() {
     const params = useParams()

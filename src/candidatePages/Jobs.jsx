@@ -1,7 +1,7 @@
 import React from "react"
 import { useSelector } from "react-redux"
-import "../assets/css/Jobs.css"
 import JobCard from "../components/JobCard"
+import "./Jobs.css"
 
 export default function Jobs() {
     const jobs = useSelector((state) => state.jobStore.jobs)
