@@ -2,7 +2,7 @@
     width: 85%;
     margin: 100px auto;
     animation: fade-in 600ms ease-in-out;
-    min-height: 80vh;
+    min-height: 70vh;
 }
 .indicators {
     display: flex;

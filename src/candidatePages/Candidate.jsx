@@ -8,17 +8,12 @@ export default function DashboardCandidate() {
     return (
         <div className="dashboard-candidate">
             <Navbar home="candidate">
-                <div className="nav-links">
-                    <Navlink
-                        title="L'entreprise"
-                        link="/candidate/enterprise"
-                    />
-                    <Navlink title="Postes ouvert" link="/candidate/jobs" />
-                    <Navlink
-                        title="Mes Candidatures"
-                        link="/candidate/candidatures"
-                    />
-                </div>
+                <Navlink title="L'entreprise" link="/candidate/enterprise" />
+                <Navlink title="Postes ouvert" link="/candidate/jobs" />
+                <Navlink
+                    title="Mes Candidatures"
+                    link="/candidate/candidatures"
+                />
             </Navbar>
             <Outlet />
         </div>

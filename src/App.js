@@ -25,6 +25,7 @@ import "./App.css"
 
 //importing useful functions
 import api from "./redux/api"
+import Objectives from "./managerPages/Objectives"
 
 function App() {
     const dispatch = useDispatch()
@@ -82,6 +83,10 @@ function App() {
                     </Route>
                     <Route path="manager" element={<Manager />}>
                         <Route path="home" element={<ManagerDashboard />} />
+                        <Route
+                            path="analytics/objectives"
+                            element={<Objectives />}
+                        />
                     </Route>
                 </Routes>
             </div>

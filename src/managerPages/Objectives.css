@@ -1,0 +1,25 @@
+.objectives-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+    width: 85%;
+    margin: 100px auto;
+}
+.objectives-page .objectives-input {
+    border-radius: 10px;
+    resize: none;
+    border-color: rgba(128, 128, 128, 0.319);
+    padding: 10px;
+    font-size: 1.3rem;
+    font-family: sans-serif;
+}
+.objectives-page .send-button {
+    width: 5%;
+    align-self: flex-end;
+    padding: 10px 30px;
+    margin: 20px 20px;
+}
+.objectives-page .coaching {
+    min-height: 400px;
+    background-color: white;
+}

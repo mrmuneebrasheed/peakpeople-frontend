@@ -20,20 +20,20 @@ export default function ManagerDashboard() {
     } = user
     const indicators = [
         {
-            title: "INDICATEUR FINANCE/ PERFORMANCE",
-            indicator: financeIndicator,
-        },
-        { title: "INDICATEUR recrutement", indicator: recruitmentIndicator },
-        {
-            title: "INDICATEUR motivation satisfaction",
-            indicator: motivationSatisfactionIndicator,
-        },
-        {
             title: "INDICATEURS TECHNIQUES - IMPORTATION - SYTÈME SOLICITÉS",
             indicator: techniqueIndicator,
         },
-        { title: "INDICATEUR MOBILITÉ", indicator: mobilityIndicator },
-        { title: "INDICATEUR FEEDBACK", indicator: feedBackIndicator },
+        {
+            title: "INDICATEURS FINANCE/ PERFORMANCE",
+            indicator: financeIndicator,
+        },
+        { title: "INDICATEURS recrutement", indicator: recruitmentIndicator },
+        {
+            title: "INDICATEURS motivation satisfaction",
+            indicator: motivationSatisfactionIndicator,
+        },
+        { title: "INDICATEURS MOBILITÉ", indicator: mobilityIndicator },
+        { title: "INDICATEURS FEEDBACK", indicator: feedBackIndicator },
         { title: "TAUX DE RÉPONSETAUX DE PARTAGE", indicator: responseRate },
     ]
     return (
@@ -45,7 +45,7 @@ export default function ManagerDashboard() {
                 </div>
             </div>
             <div>
-                <h2>Mes Indicators</h2>
+                <h2>Mes Indicateurs</h2>
                 {financeIndicator ? (
                     <div className="indicators">
                         {indicators.map((indicator) => (
@@ -58,7 +58,7 @@ export default function ManagerDashboard() {
                         ))}
                     </div>
                 ) : (
-                    <div>No Indicators</div>
+                    <div>Pas des Indicateurs</div>
                 )}
             </div>
         </div>
