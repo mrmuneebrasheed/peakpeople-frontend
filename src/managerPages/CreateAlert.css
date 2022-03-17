@@ -1,0 +1,32 @@
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+.create-alert-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+    width: 85%;
+    margin: 100px auto;
+}
+.create-alert-page input,
+.create-alert-page textarea {
+    padding: 15px;
+    border: 1px solid rgba(128, 128, 128, 0.192);
+    border-radius: 5px;
+    outline-color: grey;
+    resize: none;
+    margin-bottom: 20px;
+}
+.create-alert-page input::placeholder,
+textarea::placeholder {
+    font-family: sans-serif;
+    color: rgba(128, 128, 128, 0.877);
+}
+.create-alert-page .scoring {
+    background-color: grey;
+    width: 100px;
+    text-align: center;
+    padding: 10px 20px;
+    color: white;
+}
+.create-alert-page .title {
+    margin-top: 50px;
+}

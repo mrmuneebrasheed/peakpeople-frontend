@@ -29,9 +29,25 @@
     border-radius: 5px;
     font-family: "Open Sans", sans-serif;
     transition: all 100ms linear;
+    margin: auto 10px;
 }
 .pink-button:hover {
     background-color: #c90370;
+}
+.pink-white-button {
+    background-color: white;
+    color: #e6007e;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    border: 2px solid #e6007e;
+    border-radius: 5px;
+    margin: auto 10px;
+    font-family: "Open Sans", sans-serif;
+    transition: all 100ms linear;
+}
+.pink-white-button:hover {
+    background-color: #e6007f04;
 }
 .link {
     text-decoration: none;
