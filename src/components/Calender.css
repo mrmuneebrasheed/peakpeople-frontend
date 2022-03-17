@@ -22,7 +22,7 @@
     background-color: white;
     border-radius: 15px;
     font-weight: 100;
-    height: 240px;
+    height: 221px;
     padding: 10px 5px;
     overflow-y: auto;
     overflow-x: auto;
@@ -55,6 +55,7 @@
 .calender-section .events-box {
     min-height: 25px;
     margin: 10px 2px;
+    border-radius: 5px;
     cursor: pointer;
 }
 .events-box:hover {

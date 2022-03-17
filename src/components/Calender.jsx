@@ -204,26 +204,34 @@ export default function Calender({ template = "week", objective }) {
                     </div>
                 )}
                 {calender === "month" && (
-                    <div className="monthly flex-row justify-evenly">
+                    <div className="monthly flex-row justify-between">
                         {days.map((day, index) => (
                             <div
                                 key={Math.random()}
-                                className="day justify-around flex-column"
+                                className="day flex-column"
                             >
                                 <div className="day-title pink">
-                                    {capitalizeWord(day)}
+                                    {capitalizeWord(
+                                        days[monthlyCalender[index].get("d")]
+                                    )}
                                 </div>
-                                {monthlyCalender
-                                    .filter((day) => day.get("d") === index)
-                                    ?.map((day) => (
-                                        <div
-                                            key={Math.random()}
-                                            className="date"
-                                            onClick={() => console.log()}
-                                        >
-                                            {day.get("D")}
-                                        </div>
-                                    ))}
+                                <div>
+                                    {monthlyCalender
+                                        .filter(
+                                            (day) =>
+                                                day.get("d") ===
+                                                monthlyCalender[index].get("d")
+                                        )
+                                        ?.map((day) => (
+                                            <div
+                                                key={Math.random()}
+                                                className="date"
+                                                onClick={() => console.log()}
+                                            >
+                                                {day.get("D")}
+                                            </div>
+                                        ))}
+                                </div>
                             </div>
                         ))}
                     </div>

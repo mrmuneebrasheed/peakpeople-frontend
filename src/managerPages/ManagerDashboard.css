@@ -12,6 +12,7 @@
 }
 
 .agenda {
+    height: 100%;
     margin: 5px 30px;
     flex-basis: 70%;
 }

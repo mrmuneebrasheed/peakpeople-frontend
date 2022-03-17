@@ -6,7 +6,6 @@
     margin-top: 20px;
     transform-origin: top;
     transition: all 100ms linear;
-    border-radius: 5px;
 }
 .hidden {
     transform: rotateX(90deg);

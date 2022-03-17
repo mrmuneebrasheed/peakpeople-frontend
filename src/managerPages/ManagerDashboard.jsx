@@ -20,7 +20,7 @@ export default function ManagerDashboard() {
     } = user
     const indicators = [
         {
-            title: "INDICATEURS TECHNIQUES - IMPORTATION - SYTÈME SOLICITÉS",
+            title: "INDICATEURS TECHNIQUES - IMPORTATION - SYSTÈME SOLICITÉS",
             indicator: techniqueIndicator,
         },
         {
