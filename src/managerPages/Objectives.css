@@ -10,8 +10,11 @@
     resize: none;
     border-color: rgba(128, 128, 128, 0.319);
     padding: 10px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-family: sans-serif;
+}
+.objectives-input:focus {
+    outline-color: #2d2e83;
 }
 .objectives-page .send-button {
     width: 5%;
@@ -22,4 +25,10 @@
 .objectives-page .coaching {
     min-height: 400px;
     background-color: white;
+}
+.objectives-page .calender {
+    margin: 20px 0;
+}
+.objectives-page .calender .header {
+    margin: 10px 0;
 }

@@ -17,7 +17,12 @@ export default function Objectives() {
                 rows="10"
             ></textarea>
             <Calender template="month" objective={true} />
-            <span className="pink-button send-button">Envoyer</span>
+            <span
+                className="pink-button send-button"
+                onClick={() => console.log(objectives)}
+            >
+                Envoyer
+            </span>
 
             <h2>Suivi des Coaching</h2>
             <div className="coaching"></div>

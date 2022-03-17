@@ -13,6 +13,8 @@ import Candidatures from "./candidatePages/Candidatures"
 import JobPage from "./candidatePages/JobPage"
 import Manager from "./managerPages/Manager"
 import ManagerDashboard from "./managerPages/ManagerDashboard"
+import Objectives from "./managerPages/Objectives"
+import Alerts from "./managerPages/Alerts"
 
 // Redux imports
 import { userActions } from "./redux/userSlice"
@@ -25,7 +27,6 @@ import "./App.css"
 
 //importing useful functions
 import api from "./redux/api"
-import Objectives from "./managerPages/Objectives"
 
 function App() {
     const dispatch = useDispatch()
@@ -87,6 +88,7 @@ function App() {
                             path="analytics/objectives"
                             element={<Objectives />}
                         />
+                        <Route path="analytics/alerts" element={<Alerts />} />
                     </Route>
                 </Routes>
             </div>

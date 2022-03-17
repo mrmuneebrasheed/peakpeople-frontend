@@ -59,7 +59,7 @@
     cursor: pointer;
 }
 .events-box:hover {
-    background-color: #e6007e;
+    /* background-color: #e6007e; */
     cursor: pointer;
 }
 .calender-section .hour .title {
