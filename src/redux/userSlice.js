@@ -8,6 +8,7 @@ const userSlice = createSlice({
         role: "",
         isLoggedIn: false,
         jobCandidatures: [],
+        profilesToDisplay: [],
     },
     reducers: {
         setUser(state, actions) {

@@ -1,13 +1,28 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import moment from "moment"
+import Modal from "react-modal/lib/components/Modal"
 import "./Alerts.css"
 
 export default function Alerts() {
+    const [showModal, setShowModal] = useState(false)
+    const [selectAlert, setSelectAlert] = useState({})
     const alerts = [
         {
             title: "Titre d'alerte",
             lastSend: moment(),
+            description:
+                "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate quo doloribus cum voluptatem enim asperiores provident soluta velit recusandae amet unde, ea, temporibus ut iusto sit, quia illum dolorum earum?",
+            numberOfSend: 4,
+            wayOfSend: ["SMS", "Email"],
+            scoring: 4,
+            visible: true,
+        },
+        {
+            title: "Titre d'alerte",
+            lastSend: moment(),
+            description:
+                "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate quo doloribus cum voluptatem enim asperiores provident soluta velit recusandae amet unde, ea, temporibus ut iusto sit, quia illum dolorum earum?",
             numberOfSend: 4,
             wayOfSend: ["SMS", "Email"],
             scoring: 4,
@@ -17,19 +32,26 @@ export default function Alerts() {
             title: "Titre d'alerte",
             lastSend: moment(),
             numberOfSend: 4,
-            wayOfSend: ["SMS", "Email"],
-            scoring: 4,
-            visible: true,
-        },
-        {
-            title: "Titre d'alerte",
-            lastSend: moment(),
-            numberOfSend: 4,
+            description:
+                "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate quo doloribus cum voluptatem enim asperiores provident soluta velit recusandae amet unde, ea, temporibus ut iusto sit, quia illum dolorum earum?",
             wayOfSend: ["SMS", "Email"],
             scoring: 4,
             visible: true,
         },
     ]
+    const customStyles = {
+        content: {
+            height: "40vh",
+            width: "30vw",
+            top: "50%",
+            left: "50%",
+            right: "auto",
+            bottom: "auto",
+            marginRight: "-50%",
+            transform: "translate(-50%, -50%)",
+            animation: "fade-in-linear 600ms ease-in-out",
+        },
+    }
     return (
         <div className="alerts-page">
             <div className="flex-row justify-between">
@@ -54,6 +76,10 @@ export default function Alerts() {
                 <div className="alerts flex-column">
                     {alerts.map((alert) => (
                         <div
+                            onClick={() => {
+                                setShowModal(true)
+                                setSelectAlert(alert)
+                            }}
                             key={Math.random()}
                             className="alert-box flex-row justify-between light-font"
                         >
@@ -93,6 +119,32 @@ export default function Alerts() {
                 <div className="pink-white-button">Supprimer</div>
                 <div className="pink-button">Envoyer</div>
             </div>
+            <Modal
+                isOpen={showModal}
+                // onAfterOpen={afterOpenModal}
+                onRequestClose={() => setShowModal(false)}
+                style={customStyles}
+                contentLabel="Example Modal"
+            >
+                <h3 className="text-center blue">Détails d'une alerte</h3>
+                <h3 className="blue text-center">{selectAlert.title}</h3>
+                <div className="flex-row justify-between">
+                    <h4 className="blue">
+                        {`Dérnier envoie: ${selectAlert?.lastSend?.format(
+                            "DD/MM/YYYY"
+                        )} • Nombre d'envoie: ${selectAlert.numberOfSend}`}
+                    </h4>
+                </div>
+                <div className="description light-font">
+                    Description:&nbsp;{selectAlert.description}
+                </div>
+                <button
+                    className="pink-button"
+                    onClick={() => setShowModal(false)}
+                >
+                    close
+                </button>
+            </Modal>
         </div>
     )
 }

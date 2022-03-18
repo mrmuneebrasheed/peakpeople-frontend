@@ -23,7 +23,6 @@ export default function Objectives() {
             >
                 Envoyer
             </span>
-
             <h2>Suivi des Coaching</h2>
             <div className="coaching"></div>
         </div>

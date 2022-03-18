@@ -16,6 +16,7 @@ import ManagerDashboard from "./managerPages/ManagerDashboard"
 import Objectives from "./managerPages/Objectives"
 import Alerts from "./managerPages/Alerts"
 import CreateAlert from "./managerPages/CreateAlert"
+import Recruitements from "./managerPages/Recruitments"
 
 // Redux imports
 import { userActions } from "./redux/userSlice"
@@ -93,6 +94,10 @@ function App() {
                         <Route
                             path="analytics/alerts/create-new"
                             element={<CreateAlert />}
+                        />
+                        <Route
+                            path="recruitment/to-be-done"
+                            element={<Recruitements />}
                         />
                     </Route>
                 </Routes>

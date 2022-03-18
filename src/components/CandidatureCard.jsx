@@ -25,7 +25,7 @@ export default function CandidatureCard({
     const capitalizedStatus = status.slice(0, 1).toUpperCase() + status.slice(1)
     return (
         <div
-            className="bg-white border-rounded card candidature-card icon"
+            className="bg-white border-rounded card candidature-card"
             onClick={navigateToJob}
         >
             <div className={`${small ? "flex-column" : "flex-row"}`}>

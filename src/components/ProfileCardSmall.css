@@ -1,0 +1,8 @@
+.profile-card-small {
+    height: 200px;
+    width: 200px;
+    padding: 10px;
+    margin: 10px 20px;
+    background-color: white;
+    border-radius: 10px;
+}

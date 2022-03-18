@@ -1,8 +1,31 @@
 import React from "react"
+import { useSelector } from "react-redux"
 import search from "../assets/img/search.svg"
+import ProfileCardSmall from "../components/ProfileCardSmall"
 import "./CreateAlert.css"
 
 export default function CreateAlert() {
+    // const profilesToShow = useSelector(
+    //     (state) => state.userStore.profilesToDisplay
+    // )
+    const profilesToShow = [
+        {
+            id: "p1",
+            firstName: "Muneeb",
+            lastName: "Rasheed",
+            job: "Full Stack Developer",
+            role: "Manager",
+            enterprise: "Peak People",
+        },
+        {
+            id: "p1",
+            firstName: "Muneeb",
+            lastName: "Rasheed",
+            job: "Full Stack Developer",
+            role: "Manager",
+            enterprise: "Peak People",
+        },
+    ]
     return (
         <div className="create-alert-page">
             <h2 className="blue">Alerte</h2>
@@ -34,6 +57,18 @@ export default function CreateAlert() {
                 // placeholder="&#xF52A;"
                 placeholder="Rechercher une personne, un poste, une équipe..."
             ></input>
+            <div className="profiles flex-row">
+                {profilesToShow?.map((profile) => (
+                    <ProfileCardSmall
+                        key={profile.id}
+                        firstName={profile.firstName}
+                        lastName={profile.lastName}
+                        job={profile.job}
+                        role={profile.role}
+                        enterprise={profile.enterprise}
+                    />
+                ))}
+            </div>
         </div>
     )
 }

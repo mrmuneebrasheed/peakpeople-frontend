@@ -24,17 +24,17 @@ export default function ManagerDashboard() {
             indicator: techniqueIndicator,
         },
         {
-            title: "INDICATEURS FINANCE/ PERFORMANCE",
+            title: "INDICATEURS FINANCE/ PERFORMANCES",
             indicator: financeIndicator,
         },
-        { title: "INDICATEURS recrutement", indicator: recruitmentIndicator },
+        { title: "INDICATEURS recrutements", indicator: recruitmentIndicator },
         {
             title: "INDICATEURS motivation satisfaction",
             indicator: motivationSatisfactionIndicator,
         },
         { title: "INDICATEURS MOBILITÉ", indicator: mobilityIndicator },
-        { title: "INDICATEURS FEEDBACK", indicator: feedBackIndicator },
-        { title: "TAUX DE RÉPONSETAUX DE PARTAGE", indicator: responseRate },
+        { title: "INDICATEURS FEEDBACKS", indicator: feedBackIndicator },
+        { title: "TAUX DE RÉPONSE/ TAUX DE PARTAGES", indicator: responseRate },
     ]
     return (
         <div className="manager-dashboard">
