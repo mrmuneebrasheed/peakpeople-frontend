@@ -106,6 +106,9 @@ export default function Login() {
                         &#60; Connexion &#62;
                     </button>
                 </form>
+                <h2 className="purple">
+                    Under Development, Will be live soon!
+                </h2>
             </div>
         </div>
     )

@@ -11,6 +11,10 @@ export default function Manager() {
                     title="Analytics"
                     linksArray={[
                         {
+                            title: "Tableau de Bord",
+                            path: "/manager/analytics/dashboard",
+                        },
+                        {
                             title: "Objectifs",
                             path: "/manager/analytics/objectives",
                         },
