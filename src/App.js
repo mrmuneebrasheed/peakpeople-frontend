@@ -42,8 +42,9 @@ function App() {
                 dispatch(userActions.setUser(res.data.user))
                 // If the user is candidate then api calls
                 if (res.data.user.role === "candidate")
-                    api.get("/user/get-candidatures/" + id)
+                    api.get("/candidatures/get-candidatures-by-user/" + id)
                         .then((res) => {
+                            console.log(res.data)
                             dispatch(
                                 userActions.setJobCandidatures(
                                     res.data.candidatures
