@@ -30,3 +30,7 @@ textarea::placeholder {
 .create-alert-page .title {
     margin-top: 50px;
 }
+.create-alert-page .filter-option {
+    width: 15%;
+    margin: 10px 0;
+}

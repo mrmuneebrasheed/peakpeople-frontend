@@ -30,6 +30,23 @@ export default function CreateAlert() {
         <div className="create-alert-page">
             <h2 className="blue">Alerte</h2>
             <input className="" type="text" placeholder="Titre de l'alerte" />
+            <label className="" htmlFor="alert-type">
+                Type d'Alerte
+            </label>
+            <select className="filter-option" name="alert-type" id="alert-type">
+                <option className="filter-option" value="analytics">
+                    Analytics
+                </option>
+                <option className="filter-option" value="recrutement">
+                    Recrutements
+                </option>
+                <option className="filter-option" value="management">
+                    Management
+                </option>
+                <option className="filter-option" value="relationship">
+                    Relationship
+                </option>
+            </select>
             <textarea
                 cols="30"
                 rows="10"
