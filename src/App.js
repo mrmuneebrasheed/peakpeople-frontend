@@ -17,6 +17,8 @@ import Objectives from "./managerPages/Objectives"
 import Alerts from "./managerPages/Alerts"
 import CreateAlert from "./managerPages/CreateAlert"
 import Recruitements from "./managerPages/Recruitments"
+import AnalyticsDashboard from "./managerPages/AnalyticsDashboard"
+import ManagerJobPage from "./managerPages/ManagerJobPage"
 
 // Redux imports
 import { userActions } from "./redux/userSlice"
@@ -41,7 +43,7 @@ function App() {
             .then((res) => {
                 dispatch(userActions.setUser(res.data.user))
                 // If the user is candidate then api calls
-                if (res.data.user.role === "candidate")
+                if (res.data.user.role === "candidate") {
                     api.get("/candidatures/get-candidatures-by-user/" + id)
                         .then((res) => {
                             console.log(res.data)
@@ -56,16 +58,20 @@ function App() {
                                 uiActions.setModalMessage(err.response.message)
                             )
                         )
+                    api.get("/jobs/all-jobs")
+                        .then((res) => {
+                            dispatch(jobActions.setJobs(res.data.jobs))
+                        })
+                        .catch((err) => console.log(err))
+                }
+                if (res.data.user.role === "manager")
+                    api.get("/manager/jobs/" + id).then((res) => {
+                        dispatch(jobActions.setJobs(res.data.jobs))
+                    })
             })
             .catch((err) =>
                 dispatch(uiActions.setModalMessage(err.response.message))
             )
-
-        api.get("/jobs/all-jobs")
-            .then((res) => {
-                dispatch(jobActions.setJobs(res.data.jobs))
-            })
-            .catch((err) => console.log(err))
     }, [isLoggedIn])
 
     return (
@@ -88,6 +94,10 @@ function App() {
                     <Route path="manager" element={<Manager />}>
                         <Route path="home" element={<ManagerDashboard />} />
                         <Route
+                            path="analytics/dashboard"
+                            element={<AnalyticsDashboard />}
+                        />
+                        <Route
                             path="analytics/objectives"
                             element={<Objectives />}
                         />
@@ -99,6 +109,14 @@ function App() {
                         <Route
                             path="recruitment/to-be-done"
                             element={<Recruitements />}
+                        />
+                        <Route
+                            path="recruitment/to-be-done"
+                            element={<Recruitements />}
+                        />
+                        <Route
+                            path="recruitment/job/:jobID"
+                            element={<ManagerJobPage />}
                         />
                     </Route>
                 </Routes>

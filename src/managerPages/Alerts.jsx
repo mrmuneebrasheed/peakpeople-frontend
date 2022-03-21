@@ -1,10 +1,11 @@
 import React, { useState } from "react"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import moment from "moment"
 import Modal from "react-modal/lib/components/Modal"
 import "./Alerts.css"
 
 export default function Alerts() {
+    const navigate = useNavigate()
     const [showModal, setShowModal] = useState(false)
     const [selectAlert, setSelectAlert] = useState({})
     const alerts = [
@@ -56,12 +57,14 @@ export default function Alerts() {
         <div className="alerts-page">
             <div className="flex-row justify-between">
                 <h2 className="blue">Alertes</h2>
-                <Link
-                    className="link pink-button"
-                    to="/manager/analytics/alerts/create-new"
+                <div
+                    onClick={() =>
+                        navigate("/manager/analytics/alerts/create-new")
+                    }
+                    className="pink-button"
                 >
                     + Nouvelle Alerte
-                </Link>
+                </div>
             </div>
 
             <div className="bg-white border-rounded flex-column">

@@ -14,10 +14,12 @@ export default function JobCard({
     dateCreated,
     startingDate,
     candidates,
+    manager,
+    navigateLink,
 }) {
     const navigate = useNavigate()
     const navigateToJob = () => {
-        navigate("/candidate/job/" + id)
+        navigate(navigateLink + id)
     }
     const fromNow = moment(dateCreated).fromNow()
     const fromNowArray = fromNow.split(" ")
@@ -38,20 +40,26 @@ export default function JobCard({
             </div>
             <div className="flex-column justify-between title-box">
                 <span className="title blue link">{title}</span>
-                <div>
-                    <i className="bi bi-geo-alt-fill blue icon"></i>
-                    <span className="grey">{enterprise}</span>
-                </div>
-                <div className="grey">{`${location} • ${contractType}`}</div>
+                {!manager && (
+                    <div>
+                        <i className="bi bi-geo-alt-fill blue icon"></i>
+                        <span className="grey">{enterprise}</span>
+                    </div>
+                )}
+                {!manager && (
+                    <div className="grey">{`${location} • ${contractType}`}</div>
+                )}
             </div>
             <div className="analysis"></div>
             <div className="information flex-column justify-center">
                 <span className="grey">{`Publié il y a ${fromNowArray[0]} ${fromNowArray[1]}`}</span>
                 <span className="candidates">{`${candidates} candidats`}</span>
             </div>
-            <div className="flex-column justify-center">
-                <span className="pink-button apply-button">Postuler</span>
-            </div>
+            {!manager && (
+                <div className="flex-column justify-center">
+                    <span className="pink-button apply-button">Postuler</span>
+                </div>
+            )}
         </div>
     )
 }

@@ -42,6 +42,7 @@ export default function Jobs() {
                             contractType={job.contractType}
                             dateCreated={job.dateCreated}
                             candidates={job.candidates.length}
+                            navigateLink={"/candidate/job/"}
                         />
                     ))}
                 </div>

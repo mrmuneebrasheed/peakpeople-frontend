@@ -1,30 +1,38 @@
-import React, { useState, useEffect } from "react"
-import CandidatureCard from "../components/CandidatureCard"
-import api from "../redux/api"
+import React from "react"
+import { useNavigate } from "react-router-dom"
+import { useSelector } from "react-redux"
+import JobCard from "../components/JobCard"
 import "./Recruitments.css"
 
 export default function Recruitements() {
-    const [candidatures, setCandidatures] = useState([])
-    useEffect(() => {
-        api.get("/jobs/all-jobs")
-            .then((res) => setCandidatures(res.data.jobs))
-            .catch((err) => console.log(err))
-    }, [])
-
+    const navigate = useNavigate()
+    const jobs = useSelector((state) => state.jobStore.jobs)
     return (
         <div className="recruitments-page">
-            <h2 className="blue">Recrutements à effectuer</h2>
+            <div className="flex-row justify-between">
+                <h2 className="blue">Recrutements à effectuer</h2>
+                <span
+                    onClick={() => navigate("/manager/recruitment/new-job")}
+                    className="pink-button"
+                >
+                    + Nouveau
+                </span>
+            </div>
+
             <div className="candidatures">
-                {candidatures ? (
-                    candidatures.map((job) => (
-                        <CandidatureCard
+                {jobs ? (
+                    jobs.map((job) => (
+                        <JobCard
                             key={job._id}
                             id={job._id}
                             title={job.title}
                             enterprise={job.enterprise}
-                            date={job.dateCreated}
-                            status={"en-attente"}
-                            small={false}
+                            dateCreated={job.dateCreated}
+                            location={job.location}
+                            contractType={job.contractType}
+                            candidates={job.candidates.length}
+                            navigateLink={"/manager/recruitment/job/"}
+                            manager={true}
                         />
                     ))
                 ) : (
