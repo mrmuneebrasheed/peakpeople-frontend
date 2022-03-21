@@ -100,6 +100,12 @@ export default function JobPage() {
                                         </span>
                                     ))}
                                 </div>
+                                <h3 className="blue">Soft Skills</h3>
+                                {job.softSkills?.map((skill) => (
+                                    <span key={skill} className="skill-box">
+                                        {skill}
+                                    </span>
+                                ))}
                             </div>
                         </div>
                         <div className="job-information col-2 bg-white border-rounded">
@@ -117,6 +123,12 @@ export default function JobPage() {
                                 <h2 className="blue">Profil recherché</h2>
                                 <p className="light-font">
                                     {job.profileRequired}
+                                </p>
+                                <h2 className="blue">
+                                    Processus de Recrutement
+                                </h2>
+                                <p className="light-font">
+                                    {job.recruitmentProcess}
                                 </p>
                             </div>
                             <div className="footer"></div>
