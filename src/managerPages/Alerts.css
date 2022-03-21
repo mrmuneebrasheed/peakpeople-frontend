@@ -8,13 +8,13 @@
     padding: 20px 0;
     animation: fade-in 600ms ease-in-out;
 }
-.alerts-page .title,
-.alerts-page .scoring {
-    flex-basis: 20%;
+.alerts-page .title {
+    flex-basis: 19%;
 }
 .alerts-page .last-send,
 .number-of-send,
 .ways-of-send,
+.alert-type,
 .actions {
     flex-basis: 12%;
     text-align: center;

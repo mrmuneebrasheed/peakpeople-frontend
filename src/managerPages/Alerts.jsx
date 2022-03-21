@@ -67,6 +67,7 @@ export default function Alerts() {
             <div className="bg-white border-rounded flex-column">
                 <div className="flex-row justify-evenly">
                     <h4 className="title text-center pink">Titre</h4>
+                    <h4 className="title text-center pink">Type d'alerte</h4>
                     <h4 className="last-send pink">Dernier envoie</h4>
                     <h4 className="number-of-send pink">Nombre d'envoie</h4>
                     <h4 className="ways-of-send pink">Diffusé par</h4>
@@ -90,6 +91,8 @@ export default function Alerts() {
                                 id="alert"
                             />
                             <span className="title">{alert.title}</span>
+                            <span className="alert-type">Type d'alerte</span>
+
                             <span className="last-send">
                                 {alert.lastSend.format("DD/MM/YYYY")}
                             </span>
