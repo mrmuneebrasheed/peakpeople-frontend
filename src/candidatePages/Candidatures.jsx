@@ -4,7 +4,9 @@ import { useSelector } from "react-redux"
 import CandidatureCard from "../components/CandidatureCard"
 
 export default function Candidatures() {
-    const jobCandidatures = useSelector((state) => state.jobStore.jobs)
+    const jobCandidatures = useSelector(
+        (state) => state.userStore.jobCandidatures
+    )
     console.log(jobCandidatures)
     return (
         <div className="candidatures-page">
