@@ -1,0 +1,18 @@
+.analytics-dashboard {
+    width: 85%;
+    min-height: 72vh;
+    margin: 100px auto;
+}
+.analytics-dashboard .graphs {
+    flex-wrap: wrap;
+}
+.analytics-dashboard .graph {
+    padding: 20px;
+    width: 20vw;
+    height: 20vh;
+    margin: 40px;
+    transition: all 100ms ease-in-out;
+}
+.analytics-dashboard .graph:hover {
+    transform: scale(1.05);
+}

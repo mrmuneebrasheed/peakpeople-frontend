@@ -4,6 +4,7 @@ import ProfileCard from "../components/ProfileCard"
 import { useSelector } from "react-redux"
 import "./ManagerDashboard.css"
 import Calender from "../components/Calender"
+import indicators from "../redux/indicators"
 
 // React Calender imports
 
@@ -17,6 +18,15 @@ export default function ManagerDashboard() {
         mobilityIndicator,
         feedBackIndicator,
         responseRate,
+        workTimeIndicator,
+        formationAndDevelopmentIndicator,
+        performanceManagementIndicator,
+        successionPlanningIndicator,
+        recommendationRateOfEmployees,
+        financeIndicatorRH,
+        turnover,
+        retentionRate,
+        supervisionRate,
     } = user
     const indicators = [
         {
@@ -27,7 +37,10 @@ export default function ManagerDashboard() {
             title: "INDICATEURS FINANCE/ PERFORMANCES",
             indicator: financeIndicator,
         },
-        { title: "INDICATEURS recrutements", indicator: recruitmentIndicator },
+        {
+            title: "INDICATEURS DE RECRUTEMENTS",
+            indicator: recruitmentIndicator,
+        },
         {
             title: "INDICATEURS motivation satisfaction",
             indicator: motivationSatisfactionIndicator,
@@ -35,7 +48,32 @@ export default function ManagerDashboard() {
         { title: "INDICATEURS MOBILITÉ", indicator: mobilityIndicator },
         { title: "INDICATEURS FEEDBACKS", indicator: feedBackIndicator },
         { title: "TAUX DE RÉPONSE/ TAUX DE PARTAGES", indicator: responseRate },
+        {
+            title: "INDICATEURS DE TEMPS DE TRAVAIL",
+            indicator: workTimeIndicator,
+        },
+        {
+            title: "INDICATEURS DE FORMATION ET DE DEVELOPMENT",
+            indicator: formationAndDevelopmentIndicator,
+        },
+        {
+            title: "INDICATEURS DE GESTION DE LA PERFORMANCE",
+            indicator: performanceManagementIndicator,
+        },
+        {
+            title: "INDICATEURS DE PLANIFICATION DE LA RELEVE",
+            indicator: successionPlanningIndicator,
+        },
+        {
+            title: "TAUX DE RECOMMENDATION DES SALAIRES VIS A VIS DE LEUR ENTREPRISE",
+            indicator: recommendationRateOfEmployees,
+        },
+        { title: "INDICATEURS FINANCIER RH", indicator: financeIndicatorRH },
+        { title: "TAUX DE ROULEMENT", indicator: turnover },
+        { title: "TAUX DE RETENTION", indicator: retentionRate },
+        { title: "TAUX D'ENCADREMENT", indicator: supervisionRate },
     ]
+
     return (
         <div className="manager-dashboard">
             <div className="flex-row">

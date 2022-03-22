@@ -1,0 +1,84 @@
+.create-job-page {
+    width: 80%;
+    min-height: 72vh;
+    margin: 100px auto;
+    padding: 20px;
+}
+.create-job-page .form-input {
+    border: 1px solid rgba(128, 128, 128, 0.192);
+}
+.create-job-page .form-input:focus {
+    outline: none;
+    border: 1px solid #5b0089;
+}
+.create-job-page .col-1 {
+    flex-basis: 60%;
+}
+.create-job-page .col-2 {
+    flex-basis: 35%;
+}
+.create-job-page .section {
+    margin: 20px 10px;
+}
+.create-job-page .title-input,
+.label {
+    padding: 10px;
+}
+.create-job-page .title-input {
+    flex-basis: 72%;
+}
+.create-job-page .label {
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+.create-job-page textarea {
+    resize: none;
+    width: 97%;
+    font-size: 1.1rem;
+    font-family: sans-serif;
+}
+
+.create-job-page .sector-input {
+    padding: 10px;
+    outline: none;
+    border: 1px solid rgba(128, 128, 128, 0.295);
+    /* background-color: rgba(128, 128, 128, 0.11); */
+}
+.create-job-page .pink-button {
+    padding: 10px 20px;
+}
+.create-job-page .delete-button {
+    cursor: pointer;
+    padding: 2px;
+    color: red;
+    font-weight: 600;
+}
+.create-job-page .skills,
+.create-job-page .documents {
+    min-height: 50px;
+    max-width: 90%;
+    background-color: whitesmoke;
+    padding: 20px;
+    margin: 10px 5px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+}
+.create-job-page .date-input {
+    font-family: sans-serif;
+    color: rgba(128, 128, 128, 0.788);
+}
+.create-job-page .submit-button {
+    padding: 20px 30px;
+    width: 70%;
+    margin: 10px auto;
+    font-size: 1.1rem;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    background-color: #2d2e83;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+}
+.create-job-page .submit-button:hover {
+    background-color: #20215f;
+}

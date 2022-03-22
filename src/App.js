@@ -5,12 +5,16 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 //importing Pages
 import Login from "./components/Login"
 import Signup from "./components/Signup"
+
+// Candidate Pages
 import Candidate from "./candidatePages/Candidate"
 import CandidateDashboard from "./candidatePages/CandidateDashboard"
 import Entreprise from "./components/Entreprise"
 import Jobs from "./candidatePages/Jobs"
 import Candidatures from "./candidatePages/Candidatures"
 import JobPage from "./candidatePages/JobPage"
+
+// Manager Pages
 import Manager from "./managerPages/Manager"
 import ManagerDashboard from "./managerPages/ManagerDashboard"
 import Objectives from "./managerPages/Objectives"
@@ -19,12 +23,16 @@ import CreateAlert from "./managerPages/CreateAlert"
 import Recruitements from "./managerPages/Recruitments"
 import AnalyticsDashboard from "./managerPages/AnalyticsDashboard"
 import ManagerJobPage from "./managerPages/ManagerJobPage"
+import CreateJob from "./managerPages/CreateJob"
 
 // Redux imports
 import { userActions } from "./redux/userSlice"
 import { uiActions } from "./redux/uiSlice"
 import { jobActions } from "./redux/jobSlice"
 import { useSelector, useDispatch } from "react-redux"
+
+// Components Import
+import BackButton from "./components/BackButton"
 
 // importing global app css file
 import "./App.css"
@@ -77,6 +85,7 @@ function App() {
     return (
         <Router>
             <div className="App">
+                <BackButton />
                 <Routes>
                     <Route path="/" element={<Login />} />
                     <Route path="/signup" element={<Signup />} />
@@ -111,12 +120,12 @@ function App() {
                             element={<Recruitements />}
                         />
                         <Route
-                            path="recruitment/to-be-done"
-                            element={<Recruitements />}
-                        />
-                        <Route
                             path="recruitment/job/:jobID"
                             element={<ManagerJobPage />}
+                        />
+                        <Route
+                            path="recruitment/new-job"
+                            element={<CreateJob />}
                         />
                     </Route>
                 </Routes>

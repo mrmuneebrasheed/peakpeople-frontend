@@ -46,7 +46,7 @@
     display: flex;
     flex-wrap: wrap;
 }
-.job-page .information .skills .skill-box {
+.skill-box {
     padding: 10px 15px;
     margin: 5px;
     color: #2d2e83;
