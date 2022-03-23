@@ -5,12 +5,30 @@
     width: 85%;
     margin: 100px auto;
 }
-.objectives-page .objectives-input {
+.objectives-page .title-input {
+    padding: 10px;
+    margin: 10px auto;
+    width: 50%;
+    font-family: sans-serif;
+    border: 1px solid rgba(128, 128, 128, 0.37);
+    border-radius: 10px;
+}
+.objectives-page .objective-type {
+    width: 30%;
+    margin: 10px auto;
+}
+.objectives-page .objective-type .label {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.objectives-page .objective-detail {
+    width: 70%;
     border-radius: 10px;
     resize: none;
     border-color: rgba(128, 128, 128, 0.319);
     padding: 10px;
-    font-size: 1.2rem;
+    margin: 10px auto;
+    font-size: 1.1rem;
     font-family: sans-serif;
 }
 .objectives-input:focus {
@@ -22,10 +40,7 @@
     padding: 10px 30px;
     margin: 20px 20px;
 }
-.objectives-page .coaching {
-    min-height: 400px;
-    background-color: white;
-}
+
 .objectives-page .calender {
     margin: 20px 0;
 }
