@@ -81,7 +81,7 @@ export default function Calender({ template = "week", objective }) {
                     <div className="date">
                         <span
                             onClick={() => setWeek((initial) => initial - 1)}
-                            className="button back-button"
+                            className="button"
                         >{`<`}</span>
                         &nbsp;&nbsp;&nbsp;
                         {`du ${startDay} au ${
@@ -90,7 +90,7 @@ export default function Calender({ template = "week", objective }) {
                         &nbsp;&nbsp;&nbsp;
                         <span
                             onClick={() => setWeek((initial) => initial + 1)}
-                            className="button next-button"
+                            className="button"
                         >{`>`}</span>
                     </div>
                 )}
