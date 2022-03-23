@@ -14,7 +14,8 @@ export default function CreateJob() {
     const [objectives, setObjectives] = useState("")
     const [description, setDescription] = useState("")
     const [enterpriseDescription, setEnterpriseDescription] = useState("")
-    const [recruitmentProcess, setRecruitmentProcess] = useState("")
+    const [recruitmentStep, setRecruitmentStep] = useState("")
+    const [recruitmentProcess, setRecruitmentProcess] = useState([])
     const [profileRequired, setProfileRequired] = useState("")
     const [startingDate, setStartingDate] = useState("")
     const [skill, setSkill] = useState("")
@@ -29,6 +30,8 @@ export default function CreateJob() {
     const [location, setLocation] = useState("")
     const [experienceRequired, setExperienceRequired] = useState("")
     const [contractType, setContractType] = useState("")
+    const [test, setTest] = useState("")
+    const [testSuggested, setTestSuggested] = useState([])
 
     //Modal States
     const [showModal, setShowModal] = useState(false)
@@ -46,6 +49,14 @@ export default function CreateJob() {
     }
 
     // Handler Functions
+
+    const addRecruitmentStep = () => {
+        setRecruitmentProcess((initialState) => [
+            ...initialState,
+            recruitmentStep,
+        ])
+        setRecruitmentStep("")
+    }
     const addSkill = () => {
         setSkills((initialState) => [...initialState, skill])
         setSkill("")
@@ -58,7 +69,10 @@ export default function CreateJob() {
         setDocumentsToSend((initialState) => [...initialState, document])
         setDocument("")
     }
-
+    const addTest = () => {
+        setTestSuggested((initialState) => [...initialState, test])
+        setTest("")
+    }
     const sendRecruitment = () => {
         api.post("/jobs/create-one-job", {
             title,
@@ -82,6 +96,8 @@ export default function CreateJob() {
             experienceRequired,
             contractType,
         })
+            .then((res) => console.log(res))
+            .catch((err) => console.log(err))
     }
     return (
         <div className="create-job-page flex-row justify-between bg-white border-rounded">
@@ -148,7 +164,7 @@ export default function CreateJob() {
                         className="label pink"
                         htmlFor="enterprise-description-input"
                     >
-                        À propose de nous
+                        À propos de nous
                     </label>
                     <textarea
                         onChange={(e) =>
@@ -159,32 +175,56 @@ export default function CreateJob() {
                         name="enterprise-description"
                         id="enterprise-description-input"
                         rows="10"
-                        placeholder="À propose de Nous"
+                        placeholder="À propos de Nous"
                     ></textarea>
                 </div>
-                <div className="section flex-column">
-                    <label
-                        className="label pink"
-                        htmlFor="recruitment-process-input"
-                    >
-                        Processus de Recrutement
+                <div className="section flex-column justify-between">
+                    <label htmlFor="recruitment-process" className="label pink">
+                        Process de Recrutement
                     </label>
-                    <textarea
-                        onChange={(e) => setRecruitmentProcess(e.target.value)}
-                        value={recruitmentProcess}
-                        className="recruitment-process-input form-input"
-                        name="recruitment-process"
-                        id="recruitment-process-input"
-                        rows="10"
-                        placeholder="Processus de Recrutement"
-                    ></textarea>
+                    <div className="flex-row">
+                        <input
+                            onChange={(e) => setRecruitmentStep(e.target.value)}
+                            value={recruitmentStep}
+                            type="text"
+                            id="recruitment-process"
+                            className="form-input"
+                            placeholder="Ajouter étape"
+                        />
+                        <button
+                            onClick={addRecruitmentStep}
+                            className="pink-button"
+                        >
+                            Ajouter
+                        </button>
+                    </div>
+                    <ol className="flex-column recruitment-steps skills">
+                        {recruitmentProcess?.map((step, indextoDelete) => (
+                            <li key={indextoDelete} className="">
+                                {step}
+                                <span
+                                    onClick={() =>
+                                        setRecruitmentProcess((initialState) =>
+                                            initialState.filter(
+                                                (document, index) =>
+                                                    index !== indextoDelete
+                                            )
+                                        )
+                                    }
+                                    className="delete-button"
+                                >
+                                    x
+                                </span>
+                            </li>
+                        ))}
+                    </ol>
                 </div>
                 <div className="section flex-column">
                     <label
                         className="label pink"
                         htmlFor="profile-required-input"
                     >
-                        Profil Récherché
+                        Profil Recherché
                     </label>
                     <textarea
                         onChange={(e) => setProfileRequired(e.target.value)}
@@ -193,7 +233,7 @@ export default function CreateJob() {
                         name="profile-required"
                         id="profile-required-input"
                         rows="10"
-                        placeholder="Profil rechérché"
+                        placeholder="Profil recherché"
                     ></textarea>
                 </div>
             </div>
@@ -201,7 +241,7 @@ export default function CreateJob() {
                 <div>
                     <div className="section flex-column">
                         <label className="label pink" htmlFor="job-sector">
-                            Sécteur de Recrutement
+                            Secteur de Recrutement
                         </label>
                         <select
                             onChange={(e) => setSector(e.target.value)}
@@ -360,7 +400,7 @@ export default function CreateJob() {
                     </div>
                     <div className="section flex-row justify-between align-center">
                         <label htmlFor="location" className="label pink">
-                            Lieux de Travail
+                            {"Lieu(x) de Travail"}
                         </label>
                         <input
                             onChange={(e) => setLocation(e.target.value)}
@@ -371,9 +411,9 @@ export default function CreateJob() {
                             id="location"
                         />
                     </div>
-                    <div className="section flex-row justify-between">
+                    <div className="section flex-column justify-between">
                         <label htmlFor="experience" className="label pink">
-                            Expérience Réquis
+                            {"Expérience Réquis (nombre d'années)"}
                         </label>
                         <input
                             onChange={(e) =>
@@ -468,6 +508,66 @@ export default function CreateJob() {
                                 </>
                             ))}
                         </div>
+                    </div>
+                    <div className="section flex-column">
+                        <label className="label pink">
+                            Canaux de Recrutement
+                        </label>
+                        <div className="flex-row">
+                            <input
+                                type="checkbox"
+                                name="linkedIn"
+                                id="linkedIn"
+                            />
+                            <label htmlFor="linkedIn">LinkedIn</label>
+                        </div>
+                        <div className="flex-row">
+                            <input type="checkbox" name="sms" id="sms" />
+                            <label htmlFor="sms">SMS</label>
+                        </div>
+                        <div className="flex-row">
+                            <input type="checkbox" name="email" id="email" />
+                            <label htmlFor="email">E-mail</label>
+                        </div>
+                    </div>
+                    <div className="section flex-column">
+                        <label htmlFor="test" className="label pink">
+                            Test Conseillé
+                        </label>
+                        <div className="flex-row">
+                            <input
+                                onChange={(e) => setTest(e.target.value)}
+                                value={test}
+                                type="text"
+                                name="test"
+                                id="test"
+                                className="form-input"
+                                placeholder="Ajouter Test"
+                            />
+                            <button onClick={addTest} className="pink-button">
+                                Ajouter
+                            </button>
+                        </div>
+                        <ol className="flex-column test-suggested skills">
+                            {testSuggested?.map((test, indextoDelete) => (
+                                <li key={indextoDelete} className="">
+                                    {test}
+                                    <span
+                                        onClick={() =>
+                                            setTestSuggested((initialState) =>
+                                                initialState.filter(
+                                                    (test, index) =>
+                                                        index !== indextoDelete
+                                                )
+                                            )
+                                        }
+                                        className="delete-button"
+                                    >
+                                        x
+                                    </span>
+                                </li>
+                            ))}
+                        </ol>
                     </div>
                 </div>
                 <button

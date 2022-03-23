@@ -53,6 +53,13 @@
     color: red;
     font-weight: 600;
 }
+
+.create-job-page .recruitment-steps .delete-button {
+    margin: 5px;
+    padding: 2px 8px;
+    font-size: 1.2em;
+    border-radius: 50%;
+}
 .create-job-page .skills,
 .create-job-page .documents {
     min-height: 50px;
