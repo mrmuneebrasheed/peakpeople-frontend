@@ -1,0 +1,20 @@
+.candidature-profile {
+    /* width: ; */
+    height: 100px;
+    margin: 20px 0px;
+    padding: 5px;
+    background-color: #e6007f1e;
+    border-radius: 10px;
+}
+.candidature-profile .logo {
+    flex-basis: 20%;
+    justify-content: center;
+}
+.candidature-profile .name {
+    margin: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.candidature-profile .date {
+    font-size: 0.9rem;
+}
