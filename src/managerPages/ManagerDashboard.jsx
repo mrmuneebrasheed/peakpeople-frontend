@@ -4,7 +4,6 @@ import ProfileCard from "../components/ProfileCard"
 import { useSelector } from "react-redux"
 import "./ManagerDashboard.css"
 import Calender from "../components/Calender"
-import indicators from "../redux/indicators"
 
 // React Calender imports
 
@@ -34,7 +33,7 @@ export default function ManagerDashboard() {
             indicator: techniqueIndicator,
         },
         {
-            title: "INDICATEURS FINANCE/ PERFORMANCES",
+            title: "INDICATEURS FINANCES/ PERFORMANCES",
             indicator: financeIndicator,
         },
         {
@@ -42,7 +41,7 @@ export default function ManagerDashboard() {
             indicator: recruitmentIndicator,
         },
         {
-            title: "INDICATEURS motivation satisfaction",
+            title: "INDICATEURS MOTIVATION SATISFACTION",
             indicator: motivationSatisfactionIndicator,
         },
         { title: "INDICATEURS MOBILITÉ", indicator: mobilityIndicator },
@@ -53,15 +52,15 @@ export default function ManagerDashboard() {
             indicator: workTimeIndicator,
         },
         {
-            title: "INDICATEURS DE FORMATION ET DE DEVELOPMENT",
+            title: "INDICATEURS DE FORMATIONS ET DE DEVELOPMENTS",
             indicator: formationAndDevelopmentIndicator,
         },
         {
-            title: "INDICATEURS DE GESTION DE LA PERFORMANCE",
+            title: "INDICATEURS DE GESTION DE LA PERFORMANCES",
             indicator: performanceManagementIndicator,
         },
         {
-            title: "INDICATEURS DE PLANIFICATION DE LA RELEVE",
+            title: "INDICATEURS DE PLANIFICATION DE LA RELEVES",
             indicator: successionPlanningIndicator,
         },
         {

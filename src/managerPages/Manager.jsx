@@ -32,7 +32,7 @@ export default function Manager() {
                             title="Recrutement"
                             linksArray={[
                                 {
-                                    title: "À éffectuer",
+                                    title: "À effectuer",
                                     path: "/manager/recruitment/to-be-done",
                                 },
                                 {
