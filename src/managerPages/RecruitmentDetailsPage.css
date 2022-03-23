@@ -1,0 +1,51 @@
+.recruitment-detail-page {
+    width: 85%;
+    min-height: 72vh;
+    margin: 100px auto;
+}
+.recruitment-detail-page .header {
+    margin: 20px;
+}
+.recruitment-detail-page .header .title {
+    flex-basis: 60%;
+}
+.recruitment-detail-page .header .links {
+    flex-basis: 40%;
+}
+.recruitment-detail-page .timeline {
+    margin: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.156);
+}
+.recruitment-detail-page .timeline .title {
+    padding: 10px 0;
+}
+.recruitment-detail-page .timeline .steps {
+    transform: translateY(50%);
+}
+.recruitment-detail-page .timeline .timeline-step {
+    min-height: 15px;
+    min-width: 15px;
+    padding: 5px;
+    background-color: rgba(150, 150, 150);
+    border-radius: 50%;
+}
+.recruitment-detail-page .follow-table {
+    margin: 100px 0;
+    padding: 10px;
+    min-height: 200px;
+    /* border: 1px solid grey; */
+    border-radius: 15px;
+}
+.recruitment-detail-page .follow-table .column {
+    border-right: 1px solid grey;
+    border-left: 1px solid grey;
+    align-items: center;
+    flex-grow: 1;
+}
+.recruitment-detail-page .follow-table .title {
+    background-color: #2d2e83;
+    color: white;
+    /* width: 100%; */
+    padding: 10px 20px;
+    border-radius: 10px;
+}

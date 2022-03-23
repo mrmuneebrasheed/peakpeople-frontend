@@ -24,6 +24,7 @@ import Recruitements from "./managerPages/Recruitments"
 import AnalyticsDashboard from "./managerPages/AnalyticsDashboard"
 import ManagerJobPage from "./managerPages/ManagerJobPage"
 import CreateJob from "./managerPages/CreateJob"
+import RecruitmentDetailsPage from "./managerPages/RecruitmentDetailsPage"
 
 // Redux imports
 import { userActions } from "./redux/userSlice"
@@ -126,6 +127,10 @@ function App() {
                         <Route
                             path="recruitment/new-job"
                             element={<CreateJob />}
+                        />
+                        <Route
+                            path="recruitment/details/:jobID"
+                            element={<RecruitmentDetailsPage />}
                         />
                     </Route>
                 </Routes>

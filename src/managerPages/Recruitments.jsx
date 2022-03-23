@@ -30,8 +30,8 @@ export default function Recruitements() {
                             dateCreated={job.dateCreated}
                             location={job.location}
                             contractType={job.contractType}
-                            candidates={job.candidates.length}
-                            navigateLink={"/manager/recruitment/job/"}
+                            candidates={job.candidatures.length}
+                            navigateLink={"/manager/recruitment/details/"}
                             manager={true}
                         />
                     ))
