@@ -38,10 +38,7 @@ export default function RecruitmentDetailsPage() {
                         <div className="title">Timeline</div>
                         <div className="steps flex-row justify-between">
                             {job.recruitmentProcess?.map((step, index) => (
-                                <span
-                                    key={index}
-                                    className="timeline-step link"
-                                >
+                                <span key={index} className="timeline-step">
                                     {step}
                                 </span>
                             ))}
@@ -55,6 +52,10 @@ export default function RecruitmentDetailsPage() {
                                     key={index}
                                     date={candidature.date}
                                     candidate={candidature.candidate}
+                                    navigateLink={
+                                        "/manager/recruitment/candidature/"
+                                    }
+                                    candidatureID={candidature._id}
                                 />
                             ))}
                         </div>
@@ -76,6 +77,10 @@ export default function RecruitmentDetailsPage() {
                                             key={index}
                                             date={candidature.date}
                                             candidate={candidature.candidate}
+                                            navigateLink={
+                                                "/manager/recruitment/candidature/"
+                                            }
+                                            candidatureID={candidature._id}
                                         />
                                     ))}
                             </div>

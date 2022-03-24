@@ -1,0 +1,73 @@
+.candidature-details-page {
+    width: 85%;
+    min-height: 72vh;
+    margin: 100px auto;
+}
+.candidature-details-page .section {
+    margin: 20px auto;
+}
+.candidature-details-page .header {
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.candidature-details-page .header .title {
+    flex-basis: 70%;
+}
+.candidature-details-page .header .links {
+    flex-basis: 20%;
+    justify-content: space-between;
+}
+.candidature-details-page .header .links .link {
+    padding: 5px 10px;
+}
+.candidature-details-page .profile {
+    padding: 10px;
+}
+.candidature-details-page .profile .logo {
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+}
+.candidature-details-page .profile .logo .logo-image {
+    width: 100%;
+    height: auto;
+}
+.candidature-details-page .profile .credentials {
+    margin: 10px;
+}
+.candidature-details-page .section .buttons {
+    flex-basis: 20%;
+}
+.candidature-details-page .section .buttons .pink-button {
+    width: 70%;
+}
+.candidature-details-page .steps {
+    padding: 20px 30px;
+    flex-shrink: 1;
+}
+.candidature-details-page .steps .step {
+    padding: 10px 20px;
+    background-color: #2d2e83;
+    color: white;
+    border-radius: 10px;
+}
+.candidature-details-page .step .step-name {
+    padding: 5px 10px;
+}
+.candidature-details-page .documents,
+.candidature-details-page .comments {
+    padding: 20px;
+}
+.candidature-details-page .documents .pink-button,
+.candidature-details-page .comments .pink-button {
+    padding: 10px 20px;
+}
+.candidature-details-page .documents .documents-list,
+.candidature-details-page .comments .comments-list {
+    min-height: 200px;
+    background-color: whitesmoke;
+}
+.candidature-details-page .comments .pink-button {
+    width: 10%;
+}
