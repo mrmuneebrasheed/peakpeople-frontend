@@ -13,6 +13,8 @@ export default function CandidatureProfile({ candidate, date }) {
             <div className="flex-column">
                 <div className="name">{`${candidate.firstName} ${candidate.lastName}`}</div>
                 <div className="date">{`Interne: ${dateToDisplay}`}</div>
+                <div className="date">n. Commentaire</div>
+                <div className="date">n. Réponse</div>
             </div>
         </div>
     )

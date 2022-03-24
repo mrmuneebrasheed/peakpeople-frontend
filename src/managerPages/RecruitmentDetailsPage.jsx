@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import CandidatureProfile from "../components/CandidatureProfile"
 import api from "../redux/api"
+import { capitalizeWord } from "../redux/useableFunctions"
 import "./RecruitmentDetailsPage.css"
 
 export default function RecruitmentDetailsPage() {
@@ -60,7 +61,21 @@ export default function RecruitmentDetailsPage() {
                                 key={index}
                                 className="column flex-column text-center"
                             >
-                                <div className="title">{step}</div>
+                                <div className="title">
+                                    {capitalizeWord(step)}
+                                </div>
+                                {job?.candidatures
+                                    ?.filter(
+                                        (candidature) =>
+                                            candidature.step === step
+                                    )
+                                    .map((candidature, index) => (
+                                        <CandidatureProfile
+                                            key={index}
+                                            date={candidature.date}
+                                            candidate={candidature.candidate}
+                                        />
+                                    ))}
                             </div>
                         ))}
                     </div>
