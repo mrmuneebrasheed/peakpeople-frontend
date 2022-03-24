@@ -72,6 +72,18 @@ export default function Objectives() {
                     />
                 ))}
             </div>
+            <div className="flex-column align-center">
+                <h2 className="pink">Canal de diffusion</h2>
+                <div className="canals">
+                    <input type="checkbox" name="mail" id="mail" />
+                    <label htmlFor="mail">Mails</label>
+                    <input type="checkbox" name="sms" id="sms" />
+                    <label htmlFor="sms">SMS</label>
+                    <input type="checkbox" name="linked-in" id="linked-in" />
+                    <label htmlFor="linked-in">LinkedIn</label>
+                </div>
+            </div>
+
             <span
                 className="pink-button send-button"
                 onClick={() => console.log(objectives)}
