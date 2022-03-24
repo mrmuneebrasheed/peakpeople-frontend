@@ -14,7 +14,7 @@
 }
 .recruitment-detail-page .timeline {
     margin: 20px 40px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.156);
+    border-bottom: 1px solid rgb(8, 27, 70);
 }
 .recruitment-detail-page .timeline .title {
     padding: 10px 0;
@@ -25,9 +25,10 @@
 .recruitment-detail-page .timeline .timeline-step {
     min-height: 15px;
     min-width: 15px;
-    padding: 5px;
-    background-color: rgba(150, 150, 150);
-    border-radius: 50%;
+    padding: 10px 20px;
+    background-color: #e6007e;
+    color: white;
+    border-radius: 50px;
 }
 .recruitment-detail-page .follow-table {
     width: 100%;

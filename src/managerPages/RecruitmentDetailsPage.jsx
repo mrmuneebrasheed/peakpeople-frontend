@@ -41,7 +41,9 @@ export default function RecruitmentDetailsPage() {
                                 <span
                                     key={index}
                                     className="timeline-step link"
-                                ></span>
+                                >
+                                    {step}
+                                </span>
                             ))}
                         </div>
                     </div>
