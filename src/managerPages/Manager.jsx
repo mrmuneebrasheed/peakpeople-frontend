@@ -41,7 +41,7 @@ export default function Manager() {
                                 },
                                 {
                                     title: "Suivi",
-                                    path: "/manager/recruitment/following",
+                                    path: "/manager/recruitment/suivi",
                                 },
                                 {
                                     title: "Onboarding",

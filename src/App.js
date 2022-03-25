@@ -26,6 +26,7 @@ import ManagerJobPage from "./managerPages/ManagerJobPage"
 import CreateJob from "./managerPages/CreateJob"
 import RecruitmentDetailsPage from "./managerPages/RecruitmentDetailsPage"
 import CandidatureDetailsPage from "./managerPages/CandidatureDetailsPage"
+import SuiviCandidate from "./managerPages/SuiviCandidate"
 
 // Redux imports
 import { userActions } from "./redux/userSlice"
@@ -87,10 +88,13 @@ function App() {
     return (
         <Router>
             <div className="App">
-                <BackButton />
+                {isLoggedIn && <BackButton />}
                 <Routes>
+                    {/* // Connection Pages Routes */}
                     <Route path="/" element={<Login />} />
                     <Route path="/signup" element={<Signup />} />
+
+                    {/* Candidate Module Routes*/}
                     <Route path="candidate" element={<Candidate />}>
                         <Route path="home" element={<CandidateDashboard />} />
                         <Route path="enterprise" element={<Entreprise />} />
@@ -102,6 +106,8 @@ function App() {
                             element={<JobPage />}
                         />
                     </Route>
+
+                    {/* Manager Module Routes */}
                     <Route path="manager" element={<Manager />}>
                         <Route path="home" element={<ManagerDashboard />} />
                         <Route
@@ -122,6 +128,10 @@ function App() {
                             element={<Recruitements />}
                         />
                         <Route
+                            path="recruitment/in-process"
+                            element={<Recruitements />}
+                        />
+                        <Route
                             path="recruitment/job/:jobID"
                             element={<ManagerJobPage />}
                         />
@@ -136,6 +146,10 @@ function App() {
                         <Route
                             path="recruitment/candidature/:candidatureID"
                             element={<CandidatureDetailsPage />}
+                        />
+                        <Route
+                            path="recruitment/suivi"
+                            element={<SuiviCandidate />}
                         />
                     </Route>
                 </Routes>

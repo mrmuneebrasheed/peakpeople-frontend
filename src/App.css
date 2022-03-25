@@ -152,6 +152,10 @@ input[type="checkbox"] {
     border-radius: 5px;
     outline: none;
 }
+textarea {
+    resize: none;
+    font-family: sans-serif;
+}
 @keyframes fade-in {
     from {
         transform: translate(0, 20%);

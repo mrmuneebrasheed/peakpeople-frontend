@@ -54,9 +54,13 @@ export default function CandidatureDetailsPage() {
                             </div>
                         </div>
                         <div className="buttons flex-column">
-                            <button className="pink-button">
+                            <input type="file" name="test" id="test" hidden />
+                            <label
+                                className="pink-button text-center label-button"
+                                htmlFor="test"
+                            >
                                 ENVOYER UN TEST
-                            </button>
+                            </label>
                             <button className="pink-button">
                                 REFUSER LE CANDIDAT
                             </button>

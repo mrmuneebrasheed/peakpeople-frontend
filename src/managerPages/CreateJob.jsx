@@ -25,6 +25,7 @@ export default function CreateJob() {
     const [document, setDocument] = useState("")
     const [documentsToSend, setDocumentsToSend] = useState([])
     const [sector, setSector] = useState("")
+    const [typology, setTypology] = useState("")
     const [salary, setSalary] = useState("")
     const [numberOfHours, setNumberOfHours] = useState(0)
     const [location, setLocation] = useState("")
@@ -32,6 +33,7 @@ export default function CreateJob() {
     const [contractType, setContractType] = useState("")
     const [test, setTest] = useState("")
     const [testSuggested, setTestSuggested] = useState([])
+    const [team, setTeam] = useState("")
 
     //Modal States
     const [showModal, setShowModal] = useState(false)
@@ -162,6 +164,23 @@ export default function CreateJob() {
                 <div className="section flex-column">
                     <label
                         className="label pink"
+                        htmlFor="profile-required-input"
+                    >
+                        Profil Recherché
+                    </label>
+                    <textarea
+                        onChange={(e) => setProfileRequired(e.target.value)}
+                        value={profileRequired}
+                        className="profile-required-input form-input"
+                        name="profile-required"
+                        id="profile-required-input"
+                        rows="10"
+                        placeholder="Profil recherché"
+                    ></textarea>
+                </div>
+                <div className="section flex-column">
+                    <label
+                        className="label pink"
                         htmlFor="enterprise-description-input"
                     >
                         À propos de nous
@@ -176,6 +195,20 @@ export default function CreateJob() {
                         id="enterprise-description-input"
                         rows="10"
                         placeholder="À propos de Nous"
+                    ></textarea>
+                </div>
+                <div className="section flex-column">
+                    <label className="label pink" htmlFor="team-input">
+                        Membres de l'équipe
+                    </label>
+                    <textarea
+                        onChange={(e) => setTeam(e.target.value)}
+                        value={team}
+                        className="enterprise-description-input form-input"
+                        name="enterprise-description"
+                        id="team-input"
+                        rows="10"
+                        placeholder="L'équipe"
                     ></textarea>
                 </div>
                 <div className="section flex-column justify-between">
@@ -219,23 +252,6 @@ export default function CreateJob() {
                         ))}
                     </ol>
                 </div>
-                <div className="section flex-column">
-                    <label
-                        className="label pink"
-                        htmlFor="profile-required-input"
-                    >
-                        Profil Recherché
-                    </label>
-                    <textarea
-                        onChange={(e) => setProfileRequired(e.target.value)}
-                        value={profileRequired}
-                        className="profile-required-input form-input"
-                        name="profile-required"
-                        id="profile-required-input"
-                        rows="10"
-                        placeholder="Profil recherché"
-                    ></textarea>
-                </div>
             </div>
             <div className="col-2 flex-column">
                 <div>
@@ -269,7 +285,30 @@ export default function CreateJob() {
                             </option>
                         </select>
                     </div>
+                    <div className="section flex-column">
+                        <label className="label pink" htmlFor="typology">
+                            Typologie de métier
+                        </label>
+                        <select
+                            onChange={(e) => setTypology(e.target.value)}
+                            value={typology}
+                            className="sector-input form-input"
+                            id="browsers"
+                        >
+                            <option disabled value="">
+                                Typologie de métier
+                            </option>
+                            <option value="informatique/telecom">
+                                Service
+                            </option>
+                            <option value="n+1">n+1</option>
+                            <option value="n+2">n+2</option>
+                            <option value="n+3">n+3</option>
+                            <option value="n+4">n+4</option>
+                        </select>
+                    </div>
                     <div className="section">
+                        <span className="label pink">Compétences</span>
                         <div className="flex-row Required-input">
                             <input
                                 onChange={(e) => setSkill(e.target.value)}
@@ -288,7 +327,7 @@ export default function CreateJob() {
                                 Ajouter
                             </button>
                         </div>
-                        <span className="label pink">Compétences</span>
+
                         <div className="skills flex-row">
                             {skillsRequired?.map((skill, indextoDelete) => (
                                 <>
@@ -313,6 +352,9 @@ export default function CreateJob() {
                         </div>
                     </div>
                     <div className="section">
+                        <span className="label pink">
+                            Compétences Soft Skills
+                        </span>
                         <div className="flex-row skills-input">
                             <input
                                 onChange={(e) => setSoftSkill(e.target.value)}
@@ -331,9 +373,7 @@ export default function CreateJob() {
                                 Ajouter
                             </button>
                         </div>
-                        <span className="label pink">
-                            Compétences Soft Skills
-                        </span>
+
                         <div className="skills flex-row">
                             {softSkillsRequired ? (
                                 softSkillsRequired.map(
@@ -413,7 +453,7 @@ export default function CreateJob() {
                     </div>
                     <div className="section flex-column justify-between">
                         <label htmlFor="experience" className="label pink">
-                            {"Expérience Réquis (nombre d'années)"}
+                            {"Expérience Réquise (nombre d'années)"}
                         </label>
                         <input
                             onChange={(e) =>
