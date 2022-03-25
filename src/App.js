@@ -28,6 +28,7 @@ import RecruitmentDetailsPage from "./managerPages/RecruitmentDetailsPage"
 import CandidatureDetailsPage from "./managerPages/CandidatureDetailsPage"
 import SuiviCandidate from "./managerPages/SuiviCandidate"
 import Onboarding from "./managerPages/Onboarding"
+import CreateOnboarding from "./managerPages/CreateOnboarding"
 
 // Redux imports
 import { userActions } from "./redux/userSlice"
@@ -155,6 +156,10 @@ function App() {
                         <Route
                             path="recruitment/onboarding"
                             element={<Onboarding />}
+                        />
+                        <Route
+                            path="recruitment/onboarding/create"
+                            element={<CreateOnboarding />}
                         />
                     </Route>
                 </Routes>

@@ -3,3 +3,9 @@
     min-height: 72vh;
     margin: 100px auto;
 }
+.create-onboarding .onboarding-form {
+    padding: 20px;
+}
+.create-onboarding .onboarding-form .pink-button {
+    width: 10%;
+}

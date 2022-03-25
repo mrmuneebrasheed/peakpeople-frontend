@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 import api from "../redux/api"
 import "./Onboarding.css"
 
 export default function Onboarding() {
+    const navigate = useNavigate()
     const id = useSelector((state) => state.userStore.id)
     const [intitule, setIntitule] = useState("")
     const [parcours, setParcours] = useState([])
@@ -18,7 +20,14 @@ export default function Onboarding() {
         <div className="onboarding-page flex-column">
             <div className="flex-row justify-between">
                 <h2 className="blue">Parcours d'onboarding</h2>
-                <button className="pink-button">Nouveau</button>
+                <button
+                    onClick={() =>
+                        navigate("/manager/recruitment/onboarding/create")
+                    }
+                    className="pink-button"
+                >
+                    Nouveau
+                </button>
             </div>
 
             <div className="onboarding bg-white border-rounded">
