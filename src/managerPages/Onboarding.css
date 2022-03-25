@@ -1,0 +1,48 @@
+.onboarding-page {
+    width: 85%;
+    min-height: 72vh;
+    margin: 100px auto;
+}
+.onboarding-page .onboarding {
+    padding: 10px;
+    min-height: 200px;
+}
+.onboarding-page .onboarding .form-input {
+    width: 20%;
+}
+.onboarding-page .onboarding .parcours .parcour {
+    padding: 5px 10px;
+}
+.onboarding-page .onboarding .parcours .parcour .parcour-steps {
+    padding: 10px;
+    width: 70%;
+    margin: 10px auto;
+    border: 1px solid black;
+    border-radius: 12px;
+}
+.onboarding-page .onboarding .parcours .parcour .parcour-steps .close-button {
+    width: 1%;
+    align-self: flex-end;
+    font-weight: 700;
+    padding: 5px 10px;
+    background-color: rgba(255, 0, 0, 0.089);
+    color: red;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.onboarding-page .onboarding .parcours .parcour .parcour-steps .step .numbers {
+    font-size: 2rem;
+    font-weight: 600;
+}
+.onboarding-page
+    .onboarding
+    .parcours
+    .parcour
+    .parcour-steps
+    .step
+    .step-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-bottom: 2px solid #2d2e83;
+}
