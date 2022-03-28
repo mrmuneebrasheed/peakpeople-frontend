@@ -1,0 +1,36 @@
+.talent-mapping-page {
+    width: 85%;
+    min-height: 72vh;
+    margin: 100px auto;
+}
+.talent-mapping-page .search-input {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+.talent-mapping-page .search-input::placeholder {
+    color: rgba(128, 128, 128, 0.673);
+}
+.talent-mapping-page .talents {
+    flex-wrap: wrap;
+}
+.talent-mapping-page .talents .talent {
+    margin: 10px 20px;
+}
+.talent-mapping-page .talents .talent .folder {
+    padding: 40px 40px;
+    margin: 5px 0;
+    text-align: center;
+    font-size: 5rem;
+    color: #2d2f8344;
+    background-color: white;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.talent-mapping-page .talents .talent .link {
+    font-weight: bold;
+}
+.talent-mapping-page .talents .talent .link + span {
+    font-weight: 200;
+    font-size: 0.9rem;
+}
