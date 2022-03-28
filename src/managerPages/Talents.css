@@ -1,0 +1,13 @@
+.talent-page {
+    width: 85%;
+    min-height: 72vh;
+    margin: 100px auto;
+}
+.talent-page .search-input {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
+.talent-page .search-input::placeholder {
+    color: rgba(128, 128, 128, 0.673);
+}

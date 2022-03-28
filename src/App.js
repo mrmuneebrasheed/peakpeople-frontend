@@ -29,6 +29,8 @@ import CandidatureDetailsPage from "./managerPages/CandidatureDetailsPage"
 import SuiviCandidate from "./managerPages/SuiviCandidate"
 import Onboarding from "./managerPages/Onboarding"
 import CreateOnboarding from "./managerPages/CreateOnboarding"
+import TalentMapping from "./managerPages/TalentMapping"
+import Talents from "./managerPages/Talents"
 
 // Redux imports
 import { userActions } from "./redux/userSlice"
@@ -90,7 +92,7 @@ function App() {
     return (
         <Router>
             <div className="App">
-                {isLoggedIn && <BackButton />}
+                {<BackButton />}
                 <Routes>
                     {/* // Connection Pages Routes */}
                     <Route path="/" element={<Login />} />
@@ -160,6 +162,14 @@ function App() {
                         <Route
                             path="recruitment/onboarding/create"
                             element={<CreateOnboarding />}
+                        />
+                        <Route
+                            path="management/talents-map"
+                            element={<TalentMapping />}
+                        ></Route>
+                        <Route
+                            path="management/talents-map/:talent"
+                            element={<Talents />}
                         />
                     </Route>
                 </Routes>
