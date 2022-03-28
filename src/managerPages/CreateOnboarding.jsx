@@ -7,6 +7,12 @@ export default function CreateOnboarding() {
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")
     const [stepsAndBody, setStepsAndBody] = useState([])
+    const [document, setDocument] = useState("")
+    const [documentsToSend, setDocumentsToSend] = useState([])
+    const addDocument = () => {
+        setDocumentsToSend((initial) => [...initial, document])
+        setDocument("")
+    }
     return (
         <div className="create-onboarding">
             <h2 className="blue">Onboarding Parcours</h2>
@@ -52,6 +58,49 @@ export default function CreateOnboarding() {
                         </div>
                     ))}
                 </div>
+                <div className="section flex-column justify-between">
+                    <h3 className="pink">Documents à envoyer</h3>
+                    <div className="flex-row">
+                        <input
+                            onChange={(e) => setDocument(e.target.value)}
+                            value={document}
+                            type="text"
+                            name=""
+                            id="document"
+                            className="form-input"
+                            placeholder="Nom du document"
+                        />
+                        <button onClick={addDocument} className="pink-button">
+                            Ajouter
+                        </button>
+                    </div>
+                    <div className="flex-row documents">
+                        {documentsToSend?.map((document, indextoDelete) => (
+                            <>
+                                <span key={document} className="skill-box">
+                                    {document}
+                                </span>
+                                <span
+                                    onClick={() =>
+                                        setDocumentsToSend((initialState) =>
+                                            initialState.filter(
+                                                (document, index) =>
+                                                    index !== indextoDelete
+                                            )
+                                        )
+                                    }
+                                    className="delete-button"
+                                >
+                                    x
+                                </span>
+                            </>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <div className="buttons flex-row">
+                <button className="pink-white-button">Supprimer</button>
+                <button className="pink-button">Envoyer</button>
             </div>
         </div>
     )

@@ -10,12 +10,12 @@ export default function Onboarding() {
     const [intitule, setIntitule] = useState("")
     const [parcours, setParcours] = useState([])
     const [selectedParcour, setSelectedParcour] = useState(null)
+
     useEffect(() => {
         api.get(`/onboarding/manager/${id}`)
             .then((res) => setParcours(res.data.parcours))
             .catch((err) => console.log(err))
     }, [intitule])
-
     return (
         <div className="onboarding-page flex-column">
             <div className="flex-row justify-between">

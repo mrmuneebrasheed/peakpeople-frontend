@@ -9,3 +9,10 @@
 .create-onboarding .onboarding-form .pink-button {
     width: 10%;
 }
+.create-onboarding .buttons {
+    margin: 20px;
+    justify-content: flex-end;
+}
+.create-onboarding .delete-button {
+    cursor: pointer;
+}
