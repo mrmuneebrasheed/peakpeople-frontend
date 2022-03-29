@@ -96,14 +96,14 @@ export default function JobPage() {
                                 <div className="skills-list">
                                     {job.skillsRequired.map((skill) => (
                                         <span key={skill} className="skill-box">
-                                            {skill}
+                                            {skill.title}
                                         </span>
                                     ))}
                                 </div>
                                 <h3 className="blue">Soft Skills</h3>
                                 {job.softSkills?.map((skill) => (
                                     <span key={skill} className="skill-box">
-                                        {skill}
+                                        {skill.title}
                                     </span>
                                 ))}
                             </div>

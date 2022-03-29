@@ -1,7 +1,9 @@
 import React, { useState } from "react"
+import ProfileCardSmall from "../components/ProfileCardSmall"
 import Modal from "react-modal"
 import { useSelector } from "react-redux"
 import api from "../redux/api"
+import skillsArray from "../redux/skills"
 import "./CreateJob.css"
 
 export default function CreateJob() {
@@ -16,11 +18,17 @@ export default function CreateJob() {
     const [enterpriseDescription, setEnterpriseDescription] = useState("")
     const [recruitmentStep, setRecruitmentStep] = useState("")
     const [recruitmentProcess, setRecruitmentProcess] = useState([])
+    const [mode, setMode] = useState("à Distance")
+    const [intervenants, setIntervenants] = useState([])
     const [profileRequired, setProfileRequired] = useState("")
     const [startingDate, setStartingDate] = useState("")
+    const [recruitmentStartDate, setRecruitmentStartDate] = useState("")
+    const [recruitmentEndDate, setRecruitmentEndDate] = useState("")
     const [skill, setSkill] = useState("")
+    const [skillScoring, setSkillScoring] = useState(5)
     const [skillsRequired, setSkills] = useState([])
     const [softSkill, setSoftSkill] = useState("")
+    const [softSkillScoring, setSoftSkillScoring] = useState(5)
     const [softSkillsRequired, setSoftSkills] = useState([])
     const [document, setDocument] = useState("")
     const [documentsToSend, setDocumentsToSend] = useState([])
@@ -33,11 +41,16 @@ export default function CreateJob() {
     const [contractType, setContractType] = useState("")
     const [test, setTest] = useState("")
     const [testSuggested, setTestSuggested] = useState([])
-    const [team, setTeam] = useState("")
+    const [team, setTeam] = useState([])
 
     //Modal States
-    const [showModal, setShowModal] = useState(false)
+    const [showIntervenantModal, setShowIntervenantModal] = useState(false)
     const [modalMessage, setModalMessage] = useState("")
+    const [ProfilesToDisplay, setProfilesToDisplay] = useState([])
+    const [search, setSearch] = useState("")
+    const [showSkillSuggestion, setSkillShowSuggestion] = useState(false)
+    const [showSoftSkillSuggestion, setSoftSkillShowSuggestion] =
+        useState(false)
 
     const customStyles = {
         content: {
@@ -55,16 +68,22 @@ export default function CreateJob() {
     const addRecruitmentStep = () => {
         setRecruitmentProcess((initialState) => [
             ...initialState,
-            recruitmentStep,
+            { step: recruitmentStep, mode, intervenants },
         ])
         setRecruitmentStep("")
     }
     const addSkill = () => {
-        setSkills((initialState) => [...initialState, skill])
+        setSkills((initialState) => [
+            ...initialState,
+            { title: skill, scoring: skillScoring },
+        ])
         setSkill("")
     }
     const addSoftSkill = () => {
-        setSoftSkills((initialState) => [...initialState, softSkill])
+        setSoftSkills((initialState) => [
+            ...initialState,
+            { title: softSkill, softSkillScoring },
+        ])
         setSoftSkill("")
     }
     const addDocument = () => {
@@ -101,6 +120,9 @@ export default function CreateJob() {
             .then((res) => console.log(res))
             .catch((err) => console.log(err))
     }
+    const intervenantsHandler = () => {
+        setShowIntervenantModal(false)
+    }
     return (
         <div className="create-job-page flex-row justify-between bg-white border-rounded">
             <div className="col-1 flex-column">
@@ -113,6 +135,7 @@ export default function CreateJob() {
                         onChange={(e) => setTitle(e.target.value)}
                         value={title}
                         className="form-input title-input"
+                        required
                         type="text"
                         name="title"
                         id="job-title"
@@ -155,6 +178,7 @@ export default function CreateJob() {
                         onChange={(e) => setDescription(e.target.value)}
                         value={description}
                         className="description-input form-input"
+                        required
                         name="description"
                         id="description-input"
                         rows="10"
@@ -172,6 +196,7 @@ export default function CreateJob() {
                         onChange={(e) => setProfileRequired(e.target.value)}
                         value={profileRequired}
                         className="profile-required-input form-input"
+                        required
                         name="profile-required"
                         id="profile-required-input"
                         rows="10"
@@ -201,21 +226,35 @@ export default function CreateJob() {
                     <label className="label pink" htmlFor="team-input">
                         Membres de l'équipe
                     </label>
-                    <textarea
-                        onChange={(e) => setTeam(e.target.value)}
-                        value={team}
+                    <input
+                        onChange={(e) => setSearch(e.target.value)}
+                        value={search}
                         className="enterprise-description-input form-input"
                         name="enterprise-description"
                         id="team-input"
-                        rows="10"
-                        placeholder="L'équipe"
-                    ></textarea>
+                        placeholder="Rechercher les personne..."
+                    ></input>
+                    <div className="profiles skills">
+                        {ProfilesToDisplay[0] ? (
+                            ProfilesToDisplay.map((profile) => (
+                                <ProfileCardSmall
+                                    firstName={profile.firstName}
+                                    lastName={profile.lastName}
+                                    enterprise={profile.enterprise}
+                                    job={profile.job}
+                                    role={profile.role}
+                                ></ProfileCardSmall>
+                            ))
+                        ) : (
+                            <div></div>
+                        )}
+                    </div>
                 </div>
                 <div className="section flex-column justify-between">
                     <label htmlFor="recruitment-process" className="label pink">
                         Process de Recrutement
                     </label>
-                    <div className="flex-row">
+                    <div className="flex-row justify-between">
                         <input
                             onChange={(e) => setRecruitmentStep(e.target.value)}
                             value={recruitmentStep}
@@ -224,6 +263,26 @@ export default function CreateJob() {
                             className="form-input"
                             placeholder="Ajouter étape"
                         />
+                        <select
+                            onChange={(e) => setMode(e.target.value)}
+                            className="form-input"
+                        >
+                            <option>Selectionner le Mode</option>
+                            <option value={"à distance"}>à Distance</option>
+                            <option value={"par téléphone"}>
+                                par télephone
+                            </option>
+                            <option value={"avec manager"}>avec manager</option>
+                            <option value={"avec une personne d'équipe"}>
+                                avec une personne d'équipe
+                            </option>
+                        </select>
+                        <button
+                            onClick={() => setShowIntervenantModal(true)}
+                            className="pink-white-button"
+                        >
+                            Ajouter une intervenant
+                        </button>
                         <button
                             onClick={addRecruitmentStep}
                             className="pink-button"
@@ -234,7 +293,7 @@ export default function CreateJob() {
                     <ol className="flex-column recruitment-steps skills">
                         {recruitmentProcess?.map((step, indextoDelete) => (
                             <li key={indextoDelete} className="">
-                                {step}
+                                {`${step.step} - ${step.mode}`}
                                 <span
                                     onClick={() =>
                                         setRecruitmentProcess((initialState) =>
@@ -263,6 +322,7 @@ export default function CreateJob() {
                             onChange={(e) => setSector(e.target.value)}
                             value={sector}
                             className="sector-input form-input"
+                            required
                             id="browsers"
                         >
                             <option disabled value="">
@@ -311,14 +371,56 @@ export default function CreateJob() {
                         <span className="label pink">Compétences</span>
                         <div className="flex-row Required-input">
                             <input
-                                onChange={(e) => setSkill(e.target.value)}
+                                onChange={(e) => {
+                                    setSkillShowSuggestion(true)
+                                    setSkill(e.target.value)
+                                }}
                                 value={skill}
                                 className="form-input"
+                                required
                                 type="text"
                                 name="Required"
                                 id="skills"
                                 placeholder="Ajouter Competence"
                             />
+                            {showSkillSuggestion && (
+                                <div className="suggestions">
+                                    {skillsArray
+                                        .filter((oneSkill) =>
+                                            oneSkill
+                                                .toLowerCase()
+                                                .includes(skill.toLowerCase())
+                                        )
+                                        .map((skill) => (
+                                            <p
+                                                onClick={() => {
+                                                    setSkillShowSuggestion(
+                                                        false
+                                                    )
+                                                    setSkill(skill)
+                                                }}
+                                                className="suggestion text-center"
+                                            >
+                                                {skill}
+                                            </p>
+                                        ))}
+                                </div>
+                            )}
+                            <select
+                                onChange={(e) =>
+                                    setSkillScoring(e.target.value)
+                                }
+                                className="form-input"
+                                name="scoring"
+                                id="skill-scoring"
+                            >
+                                <option value="5">Scoring</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
                             <button
                                 type="submit"
                                 onClick={addSkill}
@@ -332,13 +434,13 @@ export default function CreateJob() {
                             {skillsRequired?.map((skill, indextoDelete) => (
                                 <>
                                     <span key={skill} className="skill-box">
-                                        {skill}
+                                        {`${skill.title} - ${skill.scoring}`}
                                     </span>
                                     <span
                                         onClick={() =>
                                             setSkills((initialState) =>
                                                 initialState.filter(
-                                                    (document, index) =>
+                                                    (skill, index) =>
                                                         index !== indextoDelete
                                                 )
                                             )
@@ -357,7 +459,10 @@ export default function CreateJob() {
                         </span>
                         <div className="flex-row skills-input">
                             <input
-                                onChange={(e) => setSoftSkill(e.target.value)}
+                                onChange={(e) => {
+                                    setSoftSkillShowSuggestion(true)
+                                    setSoftSkill(e.target.value)
+                                }}
                                 value={softSkill}
                                 className="form-input"
                                 type="text"
@@ -365,6 +470,46 @@ export default function CreateJob() {
                                 id="skills"
                                 placeholder="Ajouter Soft Skill"
                             />
+                            {showSoftSkillSuggestion && (
+                                <div className="suggestions">
+                                    {skillsArray
+                                        .filter((oneSkill) =>
+                                            oneSkill
+                                                .toLowerCase()
+                                                .includes(
+                                                    softSkill.toLowerCase()
+                                                )
+                                        )
+                                        .map((skill) => (
+                                            <p
+                                                onClick={() => {
+                                                    setSoftSkillShowSuggestion(
+                                                        false
+                                                    )
+                                                    setSoftSkill(skill)
+                                                }}
+                                                className="suggestion text-center"
+                                            >
+                                                {skill}
+                                            </p>
+                                        ))}
+                                </div>
+                            )}
+                            <select
+                                onChange={(e) =>
+                                    setSoftSkillScoring(e.target.value)
+                                }
+                                className="form-input"
+                                name="scoring"
+                                id="soft-skill-scoring"
+                            >
+                                <option value="5">Scoring</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
                             <button
                                 type="submit"
                                 onClick={addSoftSkill}
@@ -383,7 +528,7 @@ export default function CreateJob() {
                                                 key={skill}
                                                 className="skill-box"
                                             >
-                                                {skill}
+                                                {skill.title}
                                             </span>
                                             <span
                                                 onClick={() =>
@@ -419,6 +564,7 @@ export default function CreateJob() {
                             onChange={(e) => setSalary(e.target.value)}
                             value={salary}
                             className="form-input"
+                            required
                             type="text"
                             name="salary"
                             id="salary"
@@ -447,6 +593,7 @@ export default function CreateJob() {
                             value={location}
                             type="text"
                             className="form-input"
+                            required
                             placeholder="Lieux"
                             id="location"
                         />
@@ -461,6 +608,7 @@ export default function CreateJob() {
                             }
                             value={experienceRequired}
                             className="form-input"
+                            required
                             type="text"
                             name="experience"
                             id="experience"
@@ -475,6 +623,7 @@ export default function CreateJob() {
                             onChange={(e) => setContractType(e.target.value)}
                             value={contractType}
                             className="sector-input form-input"
+                            required
                             name="contract-type"
                             id="contract-type"
                         >
@@ -494,15 +643,54 @@ export default function CreateJob() {
                     </div>
                     <div className="section flex-column align-center">
                         <label htmlFor="starting-date" className="label pink">
-                            Date de Commencement
+                            Date de Commencement de Travail
                         </label>
                         <input
                             onChange={(e) => setStartingDate(e.target.value)}
                             value={startingDate}
                             className="form-input date-input"
+                            required
                             type="date"
                             name="starting-date"
                             id="starting-date"
+                        />
+                    </div>
+                    <div className="section flex-column align-center">
+                        <label
+                            htmlFor="recruitment-start-date"
+                            className="label pink"
+                        >
+                            Date de Commencement de Recrutement
+                        </label>
+                        <input
+                            onChange={(e) =>
+                                setRecruitmentStartDate(e.target.value)
+                            }
+                            value={recruitmentStartDate}
+                            className="form-input date-input"
+                            required
+                            type="date"
+                            name="starting-date"
+                            id="recruitment-start-date"
+                        />
+                    </div>
+                    <div className="section flex-column align-center">
+                        <label
+                            htmlFor="recruitment-end-date"
+                            className="label pink"
+                        >
+                            Date de Fin de Recrutement
+                        </label>
+                        <input
+                            onChange={(e) =>
+                                setRecruitmentEndDate(e.target.value)
+                            }
+                            value={recruitmentEndDate}
+                            className="form-input date-input"
+                            required
+                            type="date"
+                            name="starting-date"
+                            id="recruitment-end-date"
                         />
                     </div>
                     <div className="section flex-column justify-between">
@@ -562,12 +750,22 @@ export default function CreateJob() {
                             <label htmlFor="linkedIn">LinkedIn</label>
                         </div>
                         <div className="flex-row">
-                            <input type="checkbox" name="sms" id="sms" />
-                            <label htmlFor="sms">SMS</label>
+                            <input
+                                type="checkbox"
+                                name="job-board"
+                                id="job-board"
+                            />
+                            <label htmlFor="job-board">Job Board</label>
                         </div>
                         <div className="flex-row">
-                            <input type="checkbox" name="email" id="email" />
-                            <label htmlFor="email">E-mail</label>
+                            <input
+                                type="checkbox"
+                                name="cabinet-de-recrutement"
+                                id="cabinet"
+                            />
+                            <label htmlFor="cabinet">
+                                Cabinet de recrutement
+                            </label>
                         </div>
                     </div>
                     <div className="section flex-column">
@@ -618,13 +816,45 @@ export default function CreateJob() {
                 </button>
             </div>
             <Modal
-                isOpen={showModal}
-                onRequestClose={() => setShowModal(false)}
+                isOpen={showIntervenantModal}
+                onRequestClose={() => setShowIntervenantModal(false)}
                 style={customStyles}
             >
-                <div>
-                    <h1 className="blue">{modalMessage}</h1>
+                <div className="fade-in modal-form">
+                    <span
+                        onClick={() => setShowIntervenantModal(false)}
+                        className="close-button"
+                    >
+                        X
+                    </span>
+                    <h3 className="pink">{"Ajouter une intervenant"}</h3>
+                    <input
+                        onChange={(e) => setSearch(e.target.value)}
+                        className="form-input"
+                        type="search"
+                        name="intervenant"
+                        id="intervenant"
+                        placeholder="Rechercher une intervenant"
+                    />
                 </div>
+                <div className="intervenants flex-row">
+                    {ProfilesToDisplay[0] ? (
+                        ProfilesToDisplay.map((profile) => (
+                            <ProfileCardSmall
+                                firstName={profile.firstName}
+                                lastName={profile.lastName}
+                                job={profile.job}
+                                role={profile.role}
+                                enterprise={profile.enterprise}
+                            ></ProfileCardSmall>
+                        ))
+                    ) : (
+                        <div></div>
+                    )}
+                </div>
+                <button onClick={intervenantsHandler} className="pink-button">
+                    Ajouter
+                </button>
             </Modal>
         </div>
     )

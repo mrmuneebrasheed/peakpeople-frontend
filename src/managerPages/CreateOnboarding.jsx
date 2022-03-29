@@ -5,6 +5,7 @@ import "./CreateOnboarding.css"
 export default function CreateOnboarding() {
     const [intitule, setIntitule] = useState("")
     const [title, setTitle] = useState("")
+    const [sector, setSector] = useState("")
     const [body, setBody] = useState("")
     const [stepsAndBody, setStepsAndBody] = useState([])
     const [document, setDocument] = useState("")
@@ -19,10 +20,38 @@ export default function CreateOnboarding() {
             <div className="onboarding-form flex-column bg-white border-rounded">
                 <input
                     onChange={(e) => setIntitule(e.target.value)}
+                    value={intitule}
                     type="text"
                     className="form-input"
                     placeholder="Intitule de Parcours"
                 />
+                <h3 className="pink">Secteur de métier</h3>
+                <select
+                    onChange={(e) => setSector(e.target.value)}
+                    value={sector}
+                    className="sector-input form-input"
+                    required
+                    id="sector"
+                >
+                    <option disabled value="">
+                        Secteur de métier
+                    </option>
+                    <option value="informatique/telecom">
+                        Informatique / Télécom
+                    </option>
+                    <option value="commerce/distributon">
+                        Commerce / Distribution
+                    </option>
+                    <option value="banque/assurance">
+                        Banque / Assurances
+                    </option>
+                    <option value="edition/communication/multimedia">
+                        Edition / Communication / Multimedia
+                    </option>
+                    <option value="électronique/électricité">
+                        Electronique / Electricité
+                    </option>
+                </select>
                 <h3 className="pink">Ajouter des étapes</h3>
                 <input
                     onChange={(e) => setTitle(e.target.value)}

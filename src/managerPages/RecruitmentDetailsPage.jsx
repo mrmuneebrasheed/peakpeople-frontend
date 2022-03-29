@@ -39,7 +39,7 @@ export default function RecruitmentDetailsPage() {
                         <div className="steps flex-row justify-between">
                             {job.recruitmentProcess?.map((step, index) => (
                                 <span key={index} className="timeline-step">
-                                    {step}
+                                    {step.step}
                                 </span>
                             ))}
                         </div>
@@ -65,12 +65,12 @@ export default function RecruitmentDetailsPage() {
                                 className="column flex-column text-center"
                             >
                                 <div className="title">
-                                    {capitalizeWord(step)}
+                                    {capitalizeWord(step.step)}
                                 </div>
                                 {job?.candidatures
                                     ?.filter(
                                         (candidature) =>
-                                            candidature.step === step
+                                            candidature.step === step.step
                                     )
                                     .map((candidature, index) => (
                                         <CandidatureProfile

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import api from "../redux/api"
 import logo from "../assets/img/logo.png"
+import { questionnaireLeadership } from "../redux/tests"
 import "./CandidatureDetailsPage.css"
 import { capitalizeWord } from "../redux/useableFunctions"
 
@@ -9,6 +10,7 @@ export default function CandidatureDetailsPage() {
     const params = useParams()
     const candidatureID = params.candidatureID
     const [candidature, setCandidature] = useState({})
+    const [showTests, setShowTests] = useState(false)
     useEffect(() => {
         api.get("/candidatures/get-by-ID/" + candidatureID).then((res) => {
             // console.log(res.data)
@@ -55,12 +57,9 @@ export default function CandidatureDetailsPage() {
                         </div>
                         <div className="buttons flex-column">
                             <input type="file" name="test" id="test" hidden />
-                            <label
-                                className="pink-button text-center label-button"
-                                htmlFor="test"
-                            >
-                                ENVOYER UN TEST
-                            </label>
+                            <button className="pink-button">
+                                ENVOYER UN TEST &nbsp; &#9660;
+                            </button>
                             <button className="pink-button">
                                 REFUSER LE CANDIDAT
                             </button>
