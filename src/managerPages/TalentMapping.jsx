@@ -1,10 +1,18 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
+import { useSelector } from "react-redux"
 import { capitalizeWord } from "../redux/useableFunctions"
 import folder from "../assets/img/folder.png"
+import api from "../redux/api"
 import "./TalentMapping.css"
 
 export default function TalentMapping() {
+    const managerID = useSelector((state) => state.userStore.id)
+    useEffect(() => {
+        api.get("/projects/get-by-manager/" + managerID).then((res) =>
+            console.log(res.data)
+        )
+    }, [])
     const navigate = useNavigate()
     const location = useLocation()
     const talents = [

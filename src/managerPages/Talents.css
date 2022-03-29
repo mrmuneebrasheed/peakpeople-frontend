@@ -11,3 +11,12 @@
 .talent-page .search-input::placeholder {
     color: rgba(128, 128, 128, 0.673);
 }
+.talent-page .projects .project {
+    margin: 10px 20px;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: all 50ms ease-in-out;
+}
+.talent-page .projects .project:hover {
+    transform: scale(1.05);
+}
