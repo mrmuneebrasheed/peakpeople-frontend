@@ -68,7 +68,6 @@ export default function CreateJob() {
     }
 
     // Handler Functions
-
     const addRecruitmentStep = () => {
         setRecruitmentProcess((initialState) => [
             ...initialState,
@@ -90,8 +89,8 @@ export default function CreateJob() {
         ])
         setSoftSkill("")
     }
-    const addDocument = () => {
-        setDocumentsToSend((initialState) => [...initialState, document])
+    const addDocument = (files) => {
+        setDocumentsToSend((initialState) => [...initialState, files[0]])
         setDocument("")
     }
     const addTest = () => {
@@ -152,7 +151,10 @@ export default function CreateJob() {
                     </label>
                     <textarea
                         onChange={(e) => setMissions(e.target.value)}
-                        value={missions}
+                        onKeyDown={(e) =>
+                            e.key === "Enter" &&
+                            setMissions((initial) => initial + "\n")
+                        }
                         className="missions-input form-input"
                         name="missions"
                         id="missions-input"
@@ -166,7 +168,10 @@ export default function CreateJob() {
                     </label>
                     <textarea
                         onChange={(e) => setObjectives(e.target.value)}
-                        value={objectives}
+                        onKeyDown={(e) =>
+                            e.key === "Enter" &&
+                            setObjectives((initial) => initial + "\n")
+                        }
                         className="objectives-input form-input"
                         name="objectives"
                         id="objectives-input"
@@ -180,7 +185,10 @@ export default function CreateJob() {
                     </label>
                     <textarea
                         onChange={(e) => setDescription(e.target.value)}
-                        value={description}
+                        onKeyDown={(e) =>
+                            e.key === "Enter" &&
+                            setDescription((initial) => initial + "\n")
+                        }
                         className="description-input form-input"
                         required
                         name="description"
@@ -198,7 +206,10 @@ export default function CreateJob() {
                     </label>
                     <textarea
                         onChange={(e) => setProfileRequired(e.target.value)}
-                        value={profileRequired}
+                        onKeyDown={(e) =>
+                            e.key === "Enter" &&
+                            setProfileRequired((initial) => initial + "\n")
+                        }
                         className="profile-required-input form-input"
                         required
                         name="profile-required"
@@ -218,7 +229,12 @@ export default function CreateJob() {
                         onChange={(e) =>
                             setEnterpriseDescription(e.target.value)
                         }
-                        value={enterpriseDescription}
+                        onKeyDown={(e) =>
+                            e.key === "Enter" &&
+                            setEnterpriseDescription(
+                                (initial) => initial + "\n"
+                            )
+                        }
                         className="enterprise-description-input form-input"
                         name="enterprise-description"
                         id="enterprise-description-input"
@@ -232,7 +248,10 @@ export default function CreateJob() {
                     </label>
                     <input
                         onChange={(e) => setSearch(e.target.value)}
-                        value={search}
+                        onKeyDown={(e) =>
+                            e.key === "Enter" &&
+                            setSearch((initial) => initial + "\n")
+                        }
                         className="enterprise-description-input form-input"
                         name="enterprise-description"
                         id="team-input"
@@ -242,6 +261,7 @@ export default function CreateJob() {
                         {ProfilesToDisplay[0] ? (
                             ProfilesToDisplay.map((profile) => (
                                 <ProfileCardSmall
+                                    key={Math.random()}
                                     firstName={profile.firstName}
                                     lastName={profile.lastName}
                                     enterprise={profile.enterprise}
@@ -395,8 +415,9 @@ export default function CreateJob() {
                                                 .toLowerCase()
                                                 .includes(skill.toLowerCase())
                                         )
-                                        .map((skill) => (
+                                        .map((skill, index) => (
                                             <p
+                                                key={index}
                                                 onClick={() => {
                                                     setSkillShowSuggestion(
                                                         false
@@ -437,7 +458,10 @@ export default function CreateJob() {
                         <div className="skills flex-row">
                             {skillsRequired?.map((skill, indextoDelete) => (
                                 <>
-                                    <span key={skill} className="skill-box">
+                                    <span
+                                        key={indextoDelete}
+                                        className="skill-box"
+                                    >
                                         {`${skill.title} - ${skill.scoring}`}
                                     </span>
                                     <span
@@ -484,8 +508,9 @@ export default function CreateJob() {
                                                     softSkill.toLowerCase()
                                                 )
                                         )
-                                        .map((skill) => (
+                                        .map((skill, index) => (
                                             <p
+                                                key={index}
                                                 onClick={() => {
                                                     setSoftSkillShowSuggestion(
                                                         false
@@ -529,7 +554,7 @@ export default function CreateJob() {
                                     (skill, indextoDelete) => (
                                         <>
                                             <span
-                                                key={skill}
+                                                key={indextoDelete}
                                                 className="skill-box"
                                             >
                                                 {skill.title}
@@ -562,7 +587,6 @@ export default function CreateJob() {
                     </div>
                     <div className="section flex-column justify-between align-center">
                         <div className="flex-row">
-                            {" "}
                             <label htmlFor="salary" className="label pink">
                                 Salaire Proposé
                             </label>
@@ -750,26 +774,23 @@ export default function CreateJob() {
                         </label>
                         <div className="flex-row">
                             <input
-                                onChange={(e) => setDocument(e.target.value)}
-                                value={document}
-                                type="text"
-                                name=""
+                                onChange={(e) => addDocument(e.target.files)}
+                                type="file"
+                                hidden
+                                name="document"
                                 id="document"
                                 className="form-input"
                                 placeholder="Nom du document"
                             />
-                            <button
-                                onClick={addDocument}
-                                className="pink-button"
-                            >
-                                Ajouter
-                            </button>
+                            <label htmlFor="document" className="pink-button">
+                                Ajouter un Document +
+                            </label>
                         </div>
                         <div className="flex-row documents">
                             {documentsToSend?.map((document, indextoDelete) => (
-                                <>
-                                    <span key={document} className="skill-box">
-                                        {document}
+                                <span key={indextoDelete}>
+                                    <span className="skill-box">
+                                        {document.name}
                                     </span>
                                     <span
                                         onClick={() =>
@@ -784,7 +805,7 @@ export default function CreateJob() {
                                     >
                                         x
                                     </span>
-                                </>
+                                </span>
                             ))}
                         </div>
                     </div>
