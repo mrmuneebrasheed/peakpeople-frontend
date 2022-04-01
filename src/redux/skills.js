@@ -23,4 +23,4 @@ const skills = [
     "Organizational savy",
     "Persuades",
 ]
-export default skills
+export default { skills }

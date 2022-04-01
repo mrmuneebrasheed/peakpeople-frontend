@@ -73,6 +73,12 @@ export default function CandidatureDetailsPage() {
                             )}`}</span>
                         </div>
                         <div className="step">
+                            <span className="heading">Statut:</span>
+                            <span className="step-name">{`${capitalizeWord(
+                                candidature.status
+                            )}`}</span>
+                        </div>
+                        <div className="step">
                             <span className="heading">Taux de Process:</span>
                             <span className="step-name">{`${"Unknown"}`}</span>
                         </div>
