@@ -34,7 +34,11 @@ export default function CreateJob() {
     const [documentsToSend, setDocumentsToSend] = useState([])
     const [sector, setSector] = useState("")
     const [typology, setTypology] = useState("")
-    const [salary, setSalary] = useState("")
+    const [salary, setSalary] = useState({
+        minimum: 0,
+        maximum: 0,
+        showToCandidate: false,
+    })
     const [numberOfHours, setNumberOfHours] = useState(0)
     const [location, setLocation] = useState("")
     const [experienceRequired, setExperienceRequired] = useState("")
@@ -371,8 +375,8 @@ export default function CreateJob() {
                         <span className="label pink">Compétences</span>
                         <div className="flex-row Required-input">
                             <input
+                                onFocus={() => setSkillShowSuggestion(true)}
                                 onChange={(e) => {
-                                    setSkillShowSuggestion(true)
                                     setSkill(e.target.value)
                                 }}
                                 value={skill}
@@ -556,21 +560,68 @@ export default function CreateJob() {
                             )}
                         </div>
                     </div>
-                    <div className="section flex-row justify-between align-center">
-                        <label htmlFor="salary" className="label pink">
-                            Salaire Proposé
-                        </label>
-                        <input
-                            onChange={(e) => setSalary(e.target.value)}
-                            value={salary}
-                            className="form-input"
-                            required
-                            type="text"
-                            name="salary"
-                            id="salary"
-                            placeholder="Salaire"
-                        />
+                    <div className="section flex-column justify-between align-center">
+                        <div className="flex-row">
+                            {" "}
+                            <label htmlFor="salary" className="label pink">
+                                Salaire Proposé
+                            </label>
+                            <input
+                                onChange={(e) =>
+                                    setSalary((initial) => ({
+                                        maximum: initial.maximum,
+                                        minimum: e.target.value,
+                                        showToCandidate:
+                                            initial.showToCandidate,
+                                    }))
+                                }
+                                // value={salary.minimum}
+                                className="form-input"
+                                required
+                                type="number"
+                                name="salary"
+                                id="salary"
+                                placeholder="Salaire minimum"
+                            />
+                            <input
+                                onChange={(e) =>
+                                    setSalary((initial) => ({
+                                        maximum: e.target.value,
+                                        minimum: initial.minimum,
+                                        showToCandidate:
+                                            initial.showToCandidate,
+                                    }))
+                                }
+                                // value={salary.maximum}
+                                className="form-input"
+                                required
+                                type="number"
+                                name="salary"
+                                id="salary"
+                                placeholder="Salaire maximum"
+                            />
+                        </div>
+                        <div className="flex-row">
+                            <input
+                                onChange={() => {
+                                    setSalary((initial) => ({
+                                        maximum: initial.maximum,
+                                        minimum: initial.minimum,
+                                        showToCandidate:
+                                            !initial.showToCandidate,
+                                    }))
+                                }}
+                                type="checkbox"
+                                name="show"
+                                id="show"
+                            />
+                            <label htmlFor="show">
+                                Chochez, si vous voulez montre le salaire à des
+                                candidats
+                            </label>
+                        </div>
                     </div>
+
                     <div className="section flex-row justify-between align-center">
                         <label htmlFor="hours" className="label pink">
                             Nombre d'heures
