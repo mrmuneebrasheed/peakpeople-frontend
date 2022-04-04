@@ -20,6 +20,7 @@ export default function SuiviCandidate() {
     useEffect(() => {
         api.get("/candidatures/get-candidatures-by-manager/" + managerID)
             .then((res) => {
+                console.log(res.data)
                 setCandidatures(res.data.candidatures)
                 setCandidaturesToShow(res.data.candidatures)
             })
@@ -51,9 +52,13 @@ export default function SuiviCandidate() {
         api.put(
             "/candidatures/modify-one-Candidature/" + candidature._id,
             changed
-        ).then((res) => console.log(res))
+        )
+            .then((res) => {
+                console.log(res)
+                setRefresh((initial) => !initial)
+            })
+            .catch((err) => console.log(err))
         setShowDetailsModal(false)
-        setRefresh((initial) => !initial)
     }
     return (
         <div className="suivi-candidate-page flex-column">

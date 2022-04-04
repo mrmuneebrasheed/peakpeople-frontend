@@ -1,0 +1,26 @@
+.create-test-page {
+    width: 85%;
+    min-height: 72vh;
+    margin: 100px auto;
+}
+.create-test-page .test-form {
+    min-height: 40vh;
+    padding: 20px;
+}
+.create-test-page .test-form .form-input {
+    width: 60%;
+}
+.create-test-page .test-form .pink-white-button {
+    width: 10%;
+}
+.create-test-page .test-form .pink-button {
+    width: 15%;
+    margin: auto;
+}
+.create-test-page .questions {
+    padding: 20px;
+    margin: 10px auto;
+}
+.create-test-page .questions .index {
+    font-size: 1.5rem;
+}

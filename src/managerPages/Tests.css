@@ -1,0 +1,21 @@
+.tests-page {
+    width: 85%;
+    min-height: 72vh;
+    margin: 100px auto;
+}
+.tests-page .tests {
+    padding: 10px;
+    min-height: 30vh;
+}
+.tests-page .tests .test {
+    font-size: 1.2rem;
+}
+.tests-page .tests .test .questions {
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 5px;
+    padding: 20px;
+}
+.tests-page .tests .test .questions .index {
+    font-size: 1.3rem;
+}

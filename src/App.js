@@ -28,6 +28,8 @@ import RecruitmentDetailsPage from "./managerPages/RecruitmentDetailsPage"
 import CandidatureDetailsPage from "./managerPages/CandidatureDetailsPage"
 import SuiviCandidate from "./managerPages/SuiviCandidate"
 import Onboarding from "./managerPages/Onboarding"
+import Tests from "./managerPages/Tests"
+import CreateTest from "./managerPages/CreateTest"
 import CreateOnboarding from "./managerPages/CreateOnboarding"
 import TalentMapping from "./managerPages/TalentMapping"
 import Talents from "./managerPages/Talents"
@@ -162,6 +164,11 @@ function App() {
                         <Route
                             path="recruitment/onboarding/create"
                             element={<CreateOnboarding />}
+                        />
+                        <Route path="recruitment/tests" element={<Tests />} />
+                        <Route
+                            path="recruitment/tests/new"
+                            element={<CreateTest />}
                         />
                         <Route
                             path="management/talents-map"

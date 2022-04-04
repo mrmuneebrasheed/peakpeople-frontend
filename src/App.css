@@ -166,6 +166,9 @@ textarea {
     border-radius: 10px;
     cursor: pointer;
 }
+.bold {
+    font-weight: bold;
+}
 @keyframes fade-in {
     from {
         transform: translate(0, 20%);

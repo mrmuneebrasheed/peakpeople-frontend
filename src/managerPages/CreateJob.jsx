@@ -93,8 +93,8 @@ export default function CreateJob() {
         setDocumentsToSend((initialState) => [...initialState, files[0]])
         setDocument("")
     }
-    const addTest = () => {
-        setTestSuggested((initialState) => [...initialState, test])
+    const addTest = (files) => {
+        setTestSuggested((initialState) => [...initialState, files[0]])
         setTest("")
     }
     const sendRecruitment = () => {
@@ -769,7 +769,7 @@ export default function CreateJob() {
                         />
                     </div>
                     <div className="section flex-column justify-between">
-                        <label htmlFor="document" className="label pink">
+                        <label className="label pink">
                             Documents à envoyer
                         </label>
                         <div className="flex-row">
@@ -810,58 +810,26 @@ export default function CreateJob() {
                         </div>
                     </div>
                     <div className="section flex-column">
-                        <label className="label pink">
-                            Canaux de Recrutement
-                        </label>
+                        <label className="label pink">Test Conseillé</label>
                         <div className="flex-row">
                             <input
-                                type="checkbox"
-                                name="linkedIn"
-                                id="linkedIn"
-                            />
-                            <label htmlFor="linkedIn">LinkedIn</label>
-                        </div>
-                        <div className="flex-row">
-                            <input
-                                type="checkbox"
-                                name="job-board"
-                                id="job-board"
-                            />
-                            <label htmlFor="job-board">Job Board</label>
-                        </div>
-                        <div className="flex-row">
-                            <input
-                                type="checkbox"
-                                name="cabinet-de-recrutement"
-                                id="cabinet"
-                            />
-                            <label htmlFor="cabinet">
-                                Cabinet de recrutement
-                            </label>
-                        </div>
-                    </div>
-                    <div className="section flex-column">
-                        <label htmlFor="test" className="label pink">
-                            Test Conseillé
-                        </label>
-                        <div className="flex-row">
-                            <input
-                                onChange={(e) => setTest(e.target.value)}
+                                onChange={(e) => addTest(e.target.files)}
                                 value={test}
-                                type="text"
+                                type="file"
+                                hidden
                                 name="test"
                                 id="test"
                                 className="form-input"
                                 placeholder="Ajouter Test"
                             />
-                            <button onClick={addTest} className="pink-button">
-                                Ajouter
-                            </button>
+                            <label htmlFor="test" className="pink-button">
+                                Ajouter un test +
+                            </label>
                         </div>
                         <ol className="flex-column test-suggested skills">
                             {testSuggested?.map((test, indextoDelete) => (
                                 <li key={indextoDelete} className="">
-                                    {test}
+                                    {test.name}
                                     <span
                                         onClick={() =>
                                             setTestSuggested((initialState) =>
@@ -878,6 +846,29 @@ export default function CreateJob() {
                                 </li>
                             ))}
                         </ol>
+                    </div>
+                </div>
+                <div className="section flex-column">
+                    <label className="label pink">Canaux de Recrutement</label>
+                    <div className="flex-row">
+                        <input type="checkbox" name="linkedIn" id="linkedIn" />
+                        <label htmlFor="linkedIn">LinkedIn</label>
+                    </div>
+                    <div className="flex-row">
+                        <input
+                            type="checkbox"
+                            name="job-board"
+                            id="job-board"
+                        />
+                        <label htmlFor="job-board">Job Board</label>
+                    </div>
+                    <div className="flex-row">
+                        <input
+                            type="checkbox"
+                            name="cabinet-de-recrutement"
+                            id="cabinet"
+                        />
+                        <label htmlFor="cabinet">Cabinet de recrutement</label>
                     </div>
                 </div>
                 <button

@@ -19,6 +19,10 @@ export default function Manager() {
                                     path: "/manager/analytics/dashboard",
                                 },
                                 {
+                                    title: "Process",
+                                    path: "/manager/analytics/process",
+                                },
+                                {
                                     title: "Objectifs",
                                     path: "/manager/analytics/objectives",
                                 },
@@ -46,6 +50,10 @@ export default function Manager() {
                                 {
                                     title: "Onboarding",
                                     path: "/manager/recruitment/onboarding",
+                                },
+                                {
+                                    title: "Tests Ajouté",
+                                    path: "/manager/recruitment/tests",
                                 },
                             ]}
                         />
