@@ -129,7 +129,7 @@ export default function CreateJob() {
     return (
         <div className="create-job-page flex-row justify-between bg-white border-rounded">
             <div className="col-1 flex-column">
-                <h2 className="blue text-center">Ajouter un Recrutement</h2>
+                <h2 className="blue text-center">Créer recrutement</h2>
                 <div className="section flex-row align-center">
                     <label className="label pink" htmlFor="job-title">
                         Intitule de Poste
@@ -340,7 +340,7 @@ export default function CreateJob() {
                 <div>
                     <div className="section flex-column">
                         <label className="label pink" htmlFor="job-sector">
-                            Secteur de Recrutement
+                            Département de Recrutement
                         </label>
                         <select
                             onChange={(e) => setSector(e.target.value)}
@@ -350,7 +350,7 @@ export default function CreateJob() {
                             id="browsers"
                         >
                             <option disabled value="">
-                                Secteur de Recrutement
+                                Département de Recrutement
                             </option>
                             <option value="informatique/telecom">
                                 Informatique / Télécom
@@ -640,7 +640,7 @@ export default function CreateJob() {
                                 id="show"
                             />
                             <label htmlFor="show">
-                                Chochez, si vous voulez montre le salaire à des
+                                Cochez, si vous voulez partager le salaire à des
                                 candidats
                             </label>
                         </div>

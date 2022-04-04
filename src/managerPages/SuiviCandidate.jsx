@@ -60,7 +60,7 @@ export default function SuiviCandidate() {
             <h2 className="blue">Suivi des Candidats</h2>
             <div className="section fex-column justify-center align-center">
                 <label className="label pink" htmlFor="job-sector">
-                    Secteur de Recrutement
+                    Département de Recrutement
                 </label>
                 <select
                     onChange={(e) => setSector(e.target.value)}
@@ -69,7 +69,7 @@ export default function SuiviCandidate() {
                     required
                     id="browsers"
                 >
-                    <option value="all">Secteur de Recrutement</option>
+                    <option value="all">Département de Recrutement</option>
                     <option value="informatique/telecom">
                         Informatique / Télécom
                     </option>

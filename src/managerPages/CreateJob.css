@@ -12,10 +12,12 @@
     border: 1px solid #5b0089;
 }
 .create-job-page .col-1 {
-    flex-basis: 60%;
+    width: 60%;
+    flex-shrink: 1;
 }
 .create-job-page .col-2 {
-    flex-basis: 35%;
+    width: 35%;
+    flex-shrink: 1;
 }
 .create-job-page .section {
     margin: 20px 10px;
