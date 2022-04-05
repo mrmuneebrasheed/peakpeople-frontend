@@ -9,7 +9,11 @@ export default function CreateTest() {
     const [question, setQuestion] = useState("")
     const [sector, setSector] = useState("")
     const [questions, setQuestions] = useState([])
+    const [category, setCategory] = useState(false)
 
+    const testsCategories = useSelector(
+        (state) => state.userStore.user.testsCategories
+    )
     const addQuestion = () => {
         setQuestions((initial) => [...initial, question])
         setQuestion("")
@@ -20,6 +24,7 @@ export default function CreateTest() {
             questions,
             sector,
             createdBy: id,
+            category,
         }).then((res) => console.log(res))
     }
     return (
@@ -47,7 +52,7 @@ export default function CreateTest() {
                         value={sector}
                         className="sector-input form-input"
                         required
-                        id="browsers"
+                        id="job-sector"
                     >
                         <option disabled value="">
                             Département de Recrutement
@@ -67,6 +72,22 @@ export default function CreateTest() {
                         <option value="électronique/électricité">
                             Electronique / Electricité
                         </option>
+                    </select>
+                </div>
+                <div className="flex-column">
+                    <label htmlFor="category" className="pink bold icon">
+                        Catégorie de Test
+                    </label>
+                    <select
+                        onChange={(e) => setCategory(e.target.value)}
+                        name="category"
+                        id="category"
+                        className="form-input"
+                    >
+                        <option value="all">Selectionner le catégorie</option>
+                        {testsCategories.map((category) => (
+                            <option value={category}>{category}</option>
+                        ))}
                     </select>
                 </div>
                 <label htmlFor="question" className="pink bold">
