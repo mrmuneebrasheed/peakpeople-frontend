@@ -75,6 +75,7 @@ export default function RecruitmentDetailsPage() {
                                     .map((candidature, index) => (
                                         <CandidatureProfile
                                             key={index}
+                                            candidature={true}
                                             date={candidature.date}
                                             candidate={candidature.candidate}
                                             navigateLink={

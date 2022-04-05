@@ -11,9 +11,9 @@ export default function ProfileCardSmall({
     return (
         <div className="profile-card-small">
             <input type="checkbox" />
-            <h3 className="blue">{firstName}</h3>
-            <h4>{job}</h4>
-            <h4>{enterprise}</h4>
+            <h3 className="blue text-center">{`${firstName} ${lastName.toUpperCase()}`}</h3>
+            <h4 className="text-center">{job}</h4>
+            <h4 className="pink text-center">{enterprise}</h4>
             {/* <span className="blue">{role}</span> */}
         </div>
     )

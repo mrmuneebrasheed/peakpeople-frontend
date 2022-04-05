@@ -51,7 +51,9 @@ export default function CreateJob() {
     const [showIntervenantModal, setShowIntervenantModal] = useState(false)
     const [modalMessage, setModalMessage] = useState("")
     const [ProfilesToDisplay, setProfilesToDisplay] = useState([])
+    const [managerProfilesToDisplay, setManagerProfilesToDisplay] = useState([])
     const [search, setSearch] = useState("")
+    const [managerSearch, setManagerSearch] = useState("")
     const [showSkillSuggestion, setSkillShowSuggestion] = useState(false)
     const [showSoftSkillSuggestion, setSoftSkillShowSuggestion] =
         useState(false)
@@ -244,6 +246,34 @@ export default function CreateJob() {
                 </div>
                 <div className="section flex-column">
                     <label className="label pink" htmlFor="team-input">
+                        Manageur
+                    </label>
+                    <input
+                        onChange={(e) => setManagerSearch(e.target.value)}
+                        className="enterprise-description-input form-input"
+                        name="enterprise-description"
+                        id="team-input"
+                        placeholder="Rechercher les personne..."
+                    ></input>
+                    <div className="profiles skills">
+                        {managerProfilesToDisplay[0] ? (
+                            ProfilesToDisplay.map((profile) => (
+                                <ProfileCardSmall
+                                    key={Math.random()}
+                                    firstName={profile.firstName}
+                                    lastName={profile.lastName}
+                                    enterprise={profile.enterprise}
+                                    job={profile.job}
+                                    role={profile.role}
+                                ></ProfileCardSmall>
+                            ))
+                        ) : (
+                            <div></div>
+                        )}
+                    </div>
+                </div>
+                <div className="section flex-column">
+                    <label className="label pink" htmlFor="team-input">
                         Membres de l'équipe
                     </label>
                     <input
@@ -392,10 +422,13 @@ export default function CreateJob() {
                         </select>
                     </div>
                     <div className="section">
-                        <span className="label pink">Compétences</span>
+                        <span className="label pink">
+                            Compétences Technique
+                        </span>
                         <div className="flex-row Required-input">
                             <input
                                 onFocus={() => setSkillShowSuggestion(true)}
+                                onBlur={() => setSkillShowSuggestion(false)}
                                 onChange={(e) => {
                                     setSkill(e.target.value)
                                 }}
@@ -487,8 +520,9 @@ export default function CreateJob() {
                         </span>
                         <div className="flex-row skills-input">
                             <input
+                                onFocus={() => setSoftSkillShowSuggestion(true)}
+                                onBlur={() => setSoftSkillShowSuggestion(false)}
                                 onChange={(e) => {
-                                    setSoftSkillShowSuggestion(true)
                                     setSoftSkill(e.target.value)
                                 }}
                                 value={softSkill}

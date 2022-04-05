@@ -33,6 +33,7 @@ import CreateTest from "./managerPages/CreateTest"
 import CreateOnboarding from "./managerPages/CreateOnboarding"
 import TalentMapping from "./managerPages/TalentMapping"
 import Talents from "./managerPages/Talents"
+import TeamMapping from "./managerPages/TeamMapping"
 
 // Redux imports
 import { userActions } from "./redux/userSlice"
@@ -177,6 +178,10 @@ function App() {
                         <Route
                             path="management/talents-map/:talent"
                             element={<Talents />}
+                        />
+                        <Route
+                            path="management/team/:projectID"
+                            element={<TeamMapping />}
                         />
                     </Route>
                 </Routes>

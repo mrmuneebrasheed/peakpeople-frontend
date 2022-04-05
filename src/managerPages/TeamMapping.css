@@ -1,0 +1,11 @@
+.team-mapping-page {
+    width: 85%;
+    min-height: 72vh;
+    margin: 100px auto;
+}
+.team-mapping-page .project {
+    padding: 10px;
+}
+.team-mapping-page .project .collaborators {
+    min-height: 30vh;
+}
