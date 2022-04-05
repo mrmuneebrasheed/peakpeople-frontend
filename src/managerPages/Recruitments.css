@@ -3,3 +3,10 @@
     min-height: 70vh;
     margin: 100px auto;
 }
+.recruitments-page .search {
+    flex-basis: 100%;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+}
