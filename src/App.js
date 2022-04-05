@@ -129,10 +129,10 @@ function App() {
                             path="analytics/alerts/create-new"
                             element={<CreateAlert />}
                         />
-                        <Route
+                        {/* <Route
                             path="recruitment/to-be-done"
                             element={<Recruitements />}
-                        />
+                        /> */}
                         <Route
                             path="recruitment/in-process"
                             element={<Recruitements />}
