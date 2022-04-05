@@ -213,9 +213,22 @@ export default function SuiviCandidate() {
                                 name="status"
                                 id="status"
                             >
-                                <option value="en attente">En attente</option>
-                                <option value="accepté">Acceptée</option>
-                                <option value="rejeté">Rejetée</option>
+                                <option value="0 Not interested">
+                                    0 Not interested
+                                </option>
+                                <option value="0 Not qualified">
+                                    0 Not qualified
+                                </option>
+                                <option value="0 Stop">0 Stop</option>
+                                <option value="1 Cold Lead">1 Cold Lead</option>
+                                <option value="2 Hot Lead">2 Hot Lead</option>
+                                <option value="3 Interested">
+                                    3 Interested
+                                </option>
+                                <option value="4 Long List">4 Long List</option>
+                                <option value="5 Short List">
+                                    5 Short List
+                                </option>
                             </select>
                             <label htmlFor="step" className="pink">
                                 Etape
