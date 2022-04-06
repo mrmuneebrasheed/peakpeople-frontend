@@ -35,6 +35,7 @@ import CreateOnboarding from "./managerPages/CreateOnboarding"
 import TalentMapping from "./managerPages/TalentMapping"
 import Talents from "./managerPages/Talents"
 import TeamMapping from "./managerPages/TeamMapping"
+import SuccessionPlanning from "./managerPages/SuccessionPlanning"
 
 // Redux imports
 import { userActions } from "./redux/userSlice"
@@ -187,6 +188,10 @@ function App() {
                         <Route
                             path="management/team/:projectID"
                             element={<TeamMapping />}
+                        />
+                        <Route
+                            path="management/succession-planning"
+                            element={<SuccessionPlanning />}
                         />
                     </Route>
                 </Routes>

@@ -1,0 +1,31 @@
+.succession-planning-page {
+    width: 85%;
+    min-height: 72vh;
+    margin: 100px auto;
+}
+.succession-planning-page .search {
+    flex-basis: 100%;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+}
+.succession-planning-page .planning {
+    min-height: 40vh;
+    padding: 10px;
+    margin-top: 20px;
+}
+.succession-planning-page .planning .depart {
+    flex-basis: 20%;
+    padding: 20px;
+    border-right: 1px solid rgba(128, 128, 128, 0.397);
+}
+.succession-planning-page .planning .best-successor {
+    flex-basis: 20%;
+    padding: 20px;
+    border-right: 1px solid rgba(128, 128, 128, 0.397);
+}
+.succession-planning-page .planning .other-successors {
+    flex-basis: 60%;
+    padding: 20px;
+}

@@ -35,10 +35,10 @@ export default function Manager() {
                         <DropdownLink
                             title="Recrutement"
                             linksArray={[
-                                // {
-                                //     title: "À effectuer",
-                                //     path: "/manager/recruitment/to-be-done",
-                                // },
+                                {
+                                    title: "À effectuer",
+                                    path: "/manager/recruitment/to-be-done",
+                                },
                                 {
                                     title: "En cours",
                                     path: "/manager/recruitment/in-process",
@@ -70,7 +70,7 @@ export default function Manager() {
                                 },
                                 {
                                     title: "Succession",
-                                    path: "/manager/management/succession",
+                                    path: "/manager/management/succession-planning",
                                 },
                                 {
                                     title: "Coaching",
