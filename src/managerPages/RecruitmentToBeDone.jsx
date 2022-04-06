@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
 import JobCard from "../components/JobCard"
-import "./Recruitments.css"
+import "./RecruitmentToBeDone.css"
 
-export default function Recruitements() {
+export default function RecruitmentToBeDone() {
     const [search, setSearch] = useState("")
     const navigate = useNavigate()
     const jobs = useSelector((state) => state.jobStore.jobs)
@@ -25,7 +25,13 @@ export default function Recruitements() {
     return (
         <div className="recruitments-page">
             <div className="flex-row justify-between">
-                <h2 className="blue">Recrutements en Cours</h2>
+                <h2 className="blue">Recrutements à éffectuer</h2>
+                <span
+                    onClick={() => navigate("/manager/recruitment/new-job")}
+                    className="pink-button"
+                >
+                    + Nouveau
+                </span>
             </div>
             <div className="flex-row justify-center">
                 <input

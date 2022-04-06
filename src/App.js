@@ -21,6 +21,7 @@ import Objectives from "./managerPages/Objectives"
 import Alerts from "./managerPages/Alerts"
 import CreateAlert from "./managerPages/CreateAlert"
 import Recruitements from "./managerPages/Recruitments"
+import RecruitmentToBeDone from "./managerPages/RecruitmentToBeDone"
 import AnalyticsDashboard from "./managerPages/AnalyticsDashboard"
 import IndicatorDetails from "./managerPages/IndicatorDetails"
 import ManagerJobPage from "./managerPages/ManagerJobPage"
@@ -136,10 +137,10 @@ function App() {
                             path="analytics/alerts/create-new"
                             element={<CreateAlert />}
                         />
-                        {/* <Route
+                        <Route
                             path="recruitment/to-be-done"
-                            element={<Recruitements />}
-                        /> */}
+                            element={<RecruitmentToBeDone />}
+                        />
                         <Route
                             path="recruitment/in-process"
                             element={<Recruitements />}
