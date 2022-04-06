@@ -1,6 +1,7 @@
-import React, { PureComponent } from "react"
+import React from "react"
 import { useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { useParams } from "react-router-dom"
+import "./IndicatorDetails.css"
 
 import {
     BarChart,
@@ -14,7 +15,6 @@ import {
     ResponsiveContainer,
 } from "recharts"
 
-import "./AnalyticsDashboard.css"
 const data = [
     {
         name: "Page A",
@@ -48,8 +48,9 @@ const data = [
     },
 ]
 
-export default function AnalyticsDashboard() {
-    const navigate = useNavigate()
+export default function IndicatorDetails() {
+    const params = useParams()
+    const index = params.indicator
     const user = useSelector((state) => state.userStore.user)
     const {
         financeIndicator,
@@ -87,33 +88,19 @@ export default function AnalyticsDashboard() {
         retentionRate,
         supervisionRate,
     ]
-
+    const indicator = indicators[index]
     return (
-        <div className="analytics-dashboard flex-column">
-            <h1 className="blue text-center">Indicateurs</h1>
-            <div className="flex-row graphs">
-                {indicators[0] &&
-                    indicators.map((indicator, index) => (
-                        <div
-                            onClick={() =>
-                                navigate(
-                                    "/manager/analytics/dashboard/indicator/" +
-                                        index
-                                )
-                            }
-                            className="graph bg-white border-rounded"
-                        >
-                            <ResponsiveContainer width="100%" height="100%">
-                                <BarChart width={150} height={40} data={data}>
-                                    <Bar dataKey="uv" fill="#8884d8" />
-                                </BarChart>
-                            </ResponsiveContainer>
-                            <h3 className="pink text-center">
-                                {indicator.title}
-                            </h3>
-                        </div>
-                    ))}
+        <div className="indicator-details-page">
+            <div className="graph bg-white border-rounded">
+                <ResponsiveContainer width="100%" height="100%">
+                    <BarChart width={150} height={40} data={data}>
+                        <Bar dataKey="uv" fill="#8884d8" />
+                    </BarChart>
+                </ResponsiveContainer>
+                <h3 className="pink text-center">{indicator.title}</h3>
             </div>
+            <h1 className="blue">Details</h1>
+            <div className="details bg-white border-rounded"></div>
         </div>
     )
 }

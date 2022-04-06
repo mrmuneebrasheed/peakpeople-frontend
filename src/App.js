@@ -22,6 +22,7 @@ import Alerts from "./managerPages/Alerts"
 import CreateAlert from "./managerPages/CreateAlert"
 import Recruitements from "./managerPages/Recruitments"
 import AnalyticsDashboard from "./managerPages/AnalyticsDashboard"
+import IndicatorDetails from "./managerPages/IndicatorDetails"
 import ManagerJobPage from "./managerPages/ManagerJobPage"
 import CreateJob from "./managerPages/CreateJob"
 import RecruitmentDetailsPage from "./managerPages/RecruitmentDetailsPage"
@@ -120,6 +121,10 @@ function App() {
                         <Route
                             path="analytics/dashboard"
                             element={<AnalyticsDashboard />}
+                        />
+                        <Route
+                            path="analytics/dashboard/indicator/:indicator"
+                            element={<IndicatorDetails />}
                         />
                         <Route
                             path="analytics/objectives"

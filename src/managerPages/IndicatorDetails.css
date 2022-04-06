@@ -1,0 +1,19 @@
+.indicator-details-page {
+    width: 85%;
+    min-height: 72vh;
+    margin: 100px auto;
+}
+.indicator-details-page .graph {
+    padding: 20px;
+    width: 20vw;
+    height: 20vh;
+    margin: 40px auto;
+    transition: all 100ms ease-in-out;
+}
+
+.indicator-details-page .graph:hover {
+    transform: scale(1.05);
+}
+.indicator-details-page .details {
+    min-height: 30vh;
+}
