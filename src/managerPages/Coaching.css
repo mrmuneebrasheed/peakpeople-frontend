@@ -1,0 +1,12 @@
+.coaching-page {
+    width: 85%;
+    min-height: 72vh;
+    margin: 100px auto;
+}
+.coaching-page .coaching-form {
+    min-height: 40vh;
+    padding: 20px;
+}
+.coaching-page .coaching-form .pink-button {
+    width: 10%;
+}

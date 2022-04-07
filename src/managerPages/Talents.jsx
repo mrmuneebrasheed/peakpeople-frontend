@@ -39,10 +39,10 @@ export default function Talents() {
             <h3 className="blue">{`Organisations > ${capitalizeWord(
                 params.talent
             )}`}</h3>
-            <h3 className="blue">{`Projets (${projects.length})`}</h3>
+            <h3 className="blue">{`Projets (${projects?.length})`}</h3>
             <div className="projects flex-row">
-                {projects[0] ? (
-                    projects.map((project, index) => (
+                {projects !== [] ? (
+                    projects?.map((project, index) => (
                         <div
                             key={index}
                             className="project bg-white border-rounded"

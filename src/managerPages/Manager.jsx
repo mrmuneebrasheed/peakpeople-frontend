@@ -64,10 +64,10 @@ export default function Manager() {
                                     title: "Talents Map",
                                     path: "/manager/management/talents-map",
                                 },
-                                {
-                                    title: "Team",
-                                    path: "/manager/management/team",
-                                },
+                                // {
+                                //     title: "Team",
+                                //     path: "/manager/management/team",
+                                // },
                                 {
                                     title: "Succession",
                                     path: "/manager/management/succession-planning",
