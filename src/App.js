@@ -37,6 +37,7 @@ import TalentMapping from "./managerPages/TalentMapping"
 import Talents from "./managerPages/Talents"
 import TeamMapping from "./managerPages/TeamMapping"
 import SuccessionPlanning from "./managerPages/SuccessionPlanning"
+import Learning from "./managerPages/Learning"
 
 // Redux imports
 import { userActions } from "./redux/userSlice"
@@ -193,6 +194,10 @@ function App() {
                         <Route
                             path="management/succession-planning"
                             element={<SuccessionPlanning />}
+                        />
+                        <Route
+                            path="management/learning"
+                            element={<Learning />}
                         />
                     </Route>
                 </Routes>
